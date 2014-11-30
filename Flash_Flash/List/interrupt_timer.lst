@@ -1,0 +1,361 @@
+##############################################################################
+#                                                                            #
+# IAR ARM ANSI C/C++ Compiler V4.40A/W32 EVALUATION    22/Oct/2006  15:52:08 #
+# Copyright 1999-2005 IAR Systems. All rights reserved.                      #
+# Time limited license: 20 days left                                         #
+#                                                                            #
+#    Cpu mode        =  interwork                                            #
+#    Endian          =  little                                               #
+#    Stack alignment =  4                                                    #
+#    Source file     =  D:\SPA_iar\Compil\interrupt_timer.c                  #
+#    Command line    =  D:\SPA_iar\Compil\interrupt_timer.c -D ESS -lC       #
+#                       D:\SPA_iar\Compil\Flash_Flash\List\ -lA              #
+#                       D:\SPA_iar\Compil\Flash_Flash\List\ -o               #
+#                       D:\SPA_iar\Compil\Flash_Flash\Obj\ -z9 --debug       #
+#                       --cpu_mode arm --endian little --cpu ARM7TDMI        #
+#                       --stack_align 4 --interwork -e --fpu None            #
+#                       --dlib_config C:\IAR\ARM\LIB\dl4tpainl8n.h -I        #
+#                       D:\SPA_iar\Compil\srciar\ -I                         #
+#                       D:\SPA_iar\Compil\..\..\ -I C:\IAR\ARM\INC\          #
+#    List file       =  D:\SPA_iar\Compil\Flash_Flash\List\interrupt_timer.l #
+#                       st                                                   #
+#    Object file     =  D:\SPA_iar\Compil\Flash_Flash\Obj\interrupt_timer.r7 #
+#                       9                                                    #
+#                                                                            #
+#                                                                            #
+##############################################################################
+
+D:\SPA_iar\Compil\interrupt_timer.c
+      1          //*----------------------------------------------------------------------------
+      2          //*      ATMEL Microcontroller Software Support  -  ROUSSET  -
+      3          //*----------------------------------------------------------------------------
+      4          //* The software is delivered "AS IS" without warranty or condition of any
+      5          //* kind, either express, implied or statutory. This includes without
+      6          //* limitation any warranty or condition with respect to merchantability or
+      7          //* fitness for any particular purpose, or against the infringements of
+      8          //* intellectual property rights of others.
+      9          //*----------------------------------------------------------------------------
+     10          //* File Name           : interrupt_timer.c
+     11          //* Object              : Timer interrupt management
+     12          //*                     : Use LED7 & LED8 for status interrupt
+     13          //*
+     14          //* 1.0 24/Jun/04 JPP   : Creation
+     15          //* 1.1 29/Aug/05 JPP   : Update AIC definion
+     16          //*----------------------------------------------------------------------------
+     17          
+     18          // Include Standard LIB  files
+     19          #include "Board.h"
+
+   \                                 In segment CODE, align 4, keep-with-next
+   \   __??Code32?? __code __interwork __atpcs unsigned int AT91F_AIC_ConfigureIt(AT91PS_AIC, unsigned int, unsigned int, unsigned int, void (*)())
+   \                     AT91F_AIC_ConfigureIt:
+   \   00000000   70002DE9           PUSH     {R4-R6}
+   \   00000004   0C409DE5           LDR      R4,[SP, #+12]
+   \   00000008   015180E0           ADD      R5,R0,R1, LSL #+2
+   \   0000000C   80C095E5           LDR      R12,[R5, #+128]
+   \   00000010   0160A0E3           MOV      R6,#+1
+   \   00000014   1661A0E1           LSL      R6,R6,R1
+   \   00000018   246180E5           STR      R6,[R0, #+292]
+   \   0000001C   804085E5           STR      R4,[R5, #+128]
+   \   00000020   032082E1           ORR      R2,R2,R3
+   \   00000024   012180E7           STR      R2,[R0, +R1, LSL #+2]
+   \   00000028   286180E5           STR      R6,[R0, #+296]
+   \   0000002C   0C00A0E1           MOV      R0,R12
+   \   00000030   7000BDE8           POP      {R4-R6}
+   \   00000034   1EFF2FE1           BX       LR               ;; return
+     20          
+     21          //* Global variable
+     22          extern int count_timer0_interrupt;
+     23          extern int count_timer1_interrupt;
+     24          
+     25          #define TIMER0_INTERRUPT_LEVEL		1
+     26          #define TIMER1_INTERRUPT_LEVEL		4
+     27          
+     28          /*-----------------*/
+     29          /* Clock Selection */
+     30          /*-----------------*/
+     31          #define TC_CLKS                  0x7
+     32          #define TC_CLKS_MCK2             0x0
+     33          #define TC_CLKS_MCK8             0x1
+     34          #define TC_CLKS_MCK32            0x2
+     35          #define TC_CLKS_MCK128           0x3
+     36          #define TC_CLKS_MCK1024          0x4
+     37          
+     38          //*------------------------- Internal Function --------------------------------
+     39          //*----------------------------------------------------------------------------
+     40          //* Function Name       : AT91F_TC_Open
+     41          //* Object              : Initialize Timer Counter Channel and enable is clock
+     42          //* Input Parameters    : <tc_pt> = TC Channel Descriptor Pointer
+     43          //*                       <mode> = Timer Counter Mode
+     44          //*                     : <TimerId> = Timer peripheral ID definitions
+     45          //* Output Parameters   : None
+     46          //*----------------------------------------------------------------------------
+
+   \                                 In segment CODE, align 4, keep-with-next
+     47          void AT91F_TC_Open ( AT91PS_TC TC_pt, unsigned int Mode, unsigned int TimerId)
+     48          //* Begin
+     49          {
+     50              unsigned int dummy;
+     51          
+     52              //* First, enable the clock of the TIMER
+     53              	AT91F_PMC_EnablePeriphClock ( AT91C_BASE_PMC, 1<< TimerId ) ;
+   \                     AT91F_TC_Open:
+   \   00000000   0130A0E3           MOV      R3,#+1
+   \   00000004   EFC0E0E3           MVN      R12,#+239
+   \   00000008   C0CFCCE3           BIC      R12,R12,#0x300
+   \   0000000C   1322A0E1           LSL      R2,R3,R2
+   \   00000010   00208CE5           STR      R2,[R12, #+0]
+     54          
+     55              //* Disable the clock and the interrupts
+     56          	TC_pt->TC_CCR = AT91C_TC_CLKDIS ;
+   \   00000014   0220A0E3           MOV      R2,#+2
+   \   00000018   002080E5           STR      R2,[R0, #+0]
+     57          	TC_pt->TC_IDR = 0xFFFFFFFF ;
+   \   0000001C   002063E2           RSB      R2,R3,#+0
+   \   00000020   282080E5           STR      R2,[R0, #+40]
+     58          
+     59              //* Clear status bit
+     60                  dummy = TC_pt->TC_SR;
+   \   00000024   202090E5           LDR      R2,[R0, #+32]
+     61              //* Suppress warning variable "dummy" was set but never used
+     62                  dummy = dummy;
+     63              //* Set the Mode of the Timer Counter
+     64          	TC_pt->TC_CMR = Mode ;
+   \   00000028   041080E5           STR      R1,[R0, #+4]
+     65          
+     66              //* Enable the clock
+     67          	TC_pt->TC_CCR = AT91C_TC_CLKEN ;
+   \   0000002C   003080E5           STR      R3,[R0, #+0]
+     68          //* End
+     69          }
+   \   00000030   1EFF2FE1           BX       LR               ;; return
+     70          
+     71          //*------------------------- Interrupt Function -------------------------------
+     72          
+     73          //*----------------------------------------------------------------------------
+     74          //* Function Name       : timer0_c_irq_handler
+     75          //* Object              : C handler interrupt function called by the interrupts
+     76          //*                       assembling routine
+     77          //* Output Parameters   : increment count_timer0_interrupt
+     78          //*----------------------------------------------------------------------------
+
+   \                                 In segment CODE_I, align 4, keep-with-next
+     79          __ramfunc void timer0_c_irq_handler(void)
+     80          {
+     81          	AT91PS_TC TC_pt = AT91C_BASE_TC0;
+     82              unsigned int dummy;
+     83              //* Acknowledge interrupt status
+     84              dummy = TC_pt->TC_SR;
+   \                     timer0_c_irq_handler:
+   \   00000000   28009FE5           LDR      R0,??timer0_c_irq_handler_0  ;; 0xfffa0020
+   \   00000004   000090E5           LDR      R0,[R0, #+0]
+     85              //* Suppress warning variable "dummy" was set but never used
+     86              dummy = dummy;
+     87              count_timer0_interrupt++;
+   \   00000008   24009FE5           LDR      R0,??timer0_c_irq_handler_0+0x4  ;; count_timer0_interrupt
+   \   0000000C   001090E5           LDR      R1,[R0, #+0]
+   \   00000010   011081E2           ADD      R1,R1,#+1
+   \   00000014   001080E5           STR      R1,[R0, #+0]
+     88              //* Read the output state
+     89              if ( (AT91F_PIO_GetInput(AT91C_BASE_PIOA) & LED3 ) == LED3 )
+   \   00000018   C300E0E3           MVN      R0,#+195
+   \   0000001C   B00EC0E3           BIC      R0,R0,#0xB00
+   \   00000020   000090E5           LDR      R0,[R0, #+0]
+   \   00000024   0410A0E3           MOV      R1,#+4
+   \   00000028   040010E3           TST      R0,#0x4
+     90              {
+     91                  AT91F_PIO_ClearOutput( AT91C_BASE_PIOA, LED3 );
+   \   0000002C   ........           B        ?Subroutine4
+   \                     ??timer0_c_irq_handler_0:
+   \   00000030   2000FAFF           DC32     0xfffa0020
+   \   00000034   ........           DC32     count_timer0_interrupt
+     92              }
+     93              else
+     94              {
+     95                  AT91F_PIO_SetOutput( AT91C_BASE_PIOA, LED3 );
+     96              }
+     97          }
+
+   \                                 In segment CODE_I, align 4, keep-with-next
+   \                     ?Subroutine4:
+   \   00000000   CB00E013           MVNNE    R0,#+203
+   \   00000004   CF00E003           MVNEQ    R0,#+207
+   \   00000008   B00EC0E3           BIC      R0,R0,#0xB00
+   \   0000000C   001080E5           STR      R1,[R0, #+0]
+   \   00000010   1EFF2FE1           BX       LR               ;; return
+   \                     ??Subroutine4_0:
+   \   00000014   6000FAFF           DC32     0xfffa0060
+   \   00000018   ........           DC32     count_timer1_interrupt
+     98          //*----------------------------------------------------------------------------
+     99          //* Function Name       : timer1_c_irq_handler
+    100          //* Object              : C handler interrupt function called by the interrupts
+    101          //*                       assembling routine
+    102          //* Output Parameters   : increment count_timer1_interrupt
+    103          //*----------------------------------------------------------------------------
+
+   \                                 In segment CODE_I, align 4, keep-with-next
+    104          __ramfunc void timer1_c_irq_handler(void)
+    105          {
+    106          	AT91PS_TC TC_pt = AT91C_BASE_TC1;
+    107              unsigned int dummy;
+    108              //* Acknowledge interrupt status
+    109              dummy = TC_pt->TC_SR;
+   \                     timer1_c_irq_handler:
+   \   00000000   ........           LDR      R0,??Subroutine4_0  ;; 0xfffa0060
+   \   00000004   000090E5           LDR      R0,[R0, #+0]
+    110              //* Suppress warning variable "dummy" was set but never used
+    111              dummy = dummy;
+    112              count_timer1_interrupt++;
+   \   00000008   ........           LDR      R0,??Subroutine4_0+0x4  ;; count_timer1_interrupt
+   \   0000000C   001090E5           LDR      R1,[R0, #+0]
+   \   00000010   011081E2           ADD      R1,R1,#+1
+   \   00000014   001080E5           STR      R1,[R0, #+0]
+    113          
+    114              //* Read the output state
+    115              if ( (AT91F_PIO_GetInput(AT91C_BASE_PIOA) & LED4 ) == LED4 )
+   \   00000018   C300E0E3           MVN      R0,#+195
+   \   0000001C   B00EC0E3           BIC      R0,R0,#0xB00
+   \   00000020   000090E5           LDR      R0,[R0, #+0]
+   \   00000024   0810A0E3           MOV      R1,#+8
+   \   00000028   080010E3           TST      R0,#0x8
+    116              {
+    117                  AT91F_PIO_ClearOutput( AT91C_BASE_PIOA, LED4 );
+   \   0000002C                      REQUIRE ?Subroutine4
+   \   0000002C                      ;; // Fall through to label ?Subroutine4
+    118              }
+    119              else
+    120              {
+    121                  AT91F_PIO_SetOutput( AT91C_BASE_PIOA, LED4 );
+    122              }
+    123          }
+    124          //*-------------------------- External Function -------------------------------
+    125          
+    126          //*----------------------------------------------------------------------------
+    127          //* Function Name       : timer_init
+    128          //* Object              : Init timer counter
+    129          //* Input Parameters    : none
+    130          //* Output Parameters   : TRUE
+    131          //*----------------------------------------------------------------------------
+
+   \                                 In segment CODE, align 4, keep-with-next
+    132          void timer_init ( void )
+    133          //* Begin
+    134          {
+   \                     timer_init:
+   \   00000000   70402DE9           PUSH     {R4-R6,LR}
+    135              //init the timer interrupt counter
+    136              count_timer0_interrupt=0;
+   \   00000004   0000A0E3           MOV      R0,#+0
+   \   00000008   B0109FE5           LDR      R1,??timer_init_0  ;; count_timer0_interrupt
+   \   0000000C   000081E5           STR      R0,[R1, #+0]
+    137              count_timer1_interrupt=0;
+   \   00000010   AC109FE5           LDR      R1,??timer_init_0+0x4  ;; count_timer1_interrupt
+   \   00000014   000081E5           STR      R0,[R1, #+0]
+    138          
+    139              //* Open timer0
+    140          	AT91F_TC_Open(AT91C_BASE_TC0,TC_CLKS_MCK1024,AT91C_ID_TC0);
+   \   00000018   0C20A0E3           MOV      R2,#+12
+   \   0000001C   0410A0E3           MOV      R1,#+4
+   \   00000020   FF04A0E3           MOV      R0,#-16777216
+   \   00000024   FA0880E3           ORR      R0,R0,#0xFA0000
+   \   00000028   ........           BL       AT91F_TC_Open
+    141          
+    142              //* Open Timer 0 interrupt
+    143          	AT91F_AIC_ConfigureIt ( AT91C_BASE_AIC, AT91C_ID_TC0, TIMER0_INTERRUPT_LEVEL,AT91C_AIC_SRCTYPE_INT_HIGH_LEVEL, timer0_c_irq_handler);
+   \   0000002C   94009FE5           LDR      R0,??timer_init_0+0x8  ;; timer0_c_irq_handler
+   \   00000030   01002DE9           PUSH     {R0}
+   \   00000034   0030A0E3           MOV      R3,#+0
+   \   00000038   0120A0E3           MOV      R2,#+1
+   \   0000003C   0C10A0E3           MOV      R1,#+12
+   \   00000040   FF00E0E3           MVN      R0,#+255
+   \   00000044   F00EC0E3           BIC      R0,R0,#0xF00
+   \   00000048   ........           _BLF     AT91F_AIC_ConfigureIt,??AT91F_AIC_ConfigureIt??rA
+    144          	AT91C_BASE_TC0->TC_IER = AT91C_TC_CPCS;  //  IRQ enable CPC
+   \   0000004C   1040A0E3           MOV      R4,#+16
+   \   00000050   74009FE5           LDR      R0,??timer_init_0+0xC  ;; 0xfffa0024
+   \   00000054   004080E5           STR      R4,[R0, #+0]
+    145          	AT91F_AIC_EnableIt (AT91C_BASE_AIC, AT91C_ID_TC0);
+   \   00000058   DF50E0E3           MVN      R5,#+223
+   \   0000005C   E05EC5E3           BIC      R5,R5,#0xE00
+   \   00000060   400DA0E3           MOV      R0,#+4096
+   \   00000064   000085E5           STR      R0,[R5, #+0]
+    146          
+    147              //* Open timer1
+    148          	AT91F_TC_Open(AT91C_BASE_TC1,TC_CLKS_MCK128,AT91C_ID_TC1);
+   \   00000068   60609FE5           LDR      R6,??timer_init_0+0x10  ;; 0xfffa0040
+   \   0000006C   0D20A0E3           MOV      R2,#+13
+   \   00000070   0310A0E3           MOV      R1,#+3
+   \   00000074   0600A0E1           MOV      R0,R6
+   \   00000078   ........           BL       AT91F_TC_Open
+    149          
+    150              //* Open Timer 1 interrupt
+    151          	AT91F_AIC_ConfigureIt ( AT91C_BASE_AIC, AT91C_ID_TC1, TIMER1_INTERRUPT_LEVEL,AT91C_AIC_SRCTYPE_INT_HIGH_LEVEL, timer1_c_irq_handler);
+   \   0000007C   50009FE5           LDR      R0,??timer_init_0+0x14  ;; timer1_c_irq_handler
+   \   00000080   01002DE9           PUSH     {R0}
+   \   00000084   0030A0E3           MOV      R3,#+0
+   \   00000088   0420A0E3           MOV      R2,#+4
+   \   0000008C   0D10A0E3           MOV      R1,#+13
+   \   00000090   480FC5E3           BIC      R0,R5,#0x120
+   \   00000094   ........           _BLF     AT91F_AIC_ConfigureIt,??AT91F_AIC_ConfigureIt??rA
+    152          	AT91C_BASE_TC1->TC_IER  = AT91C_TC_CPCS;  //  IRQ enable CPC
+   \   00000098   240086E3           ORR      R0,R6,#0x24
+   \   0000009C   004080E5           STR      R4,[R0, #+0]
+    153          	AT91F_AIC_EnableIt (AT91C_BASE_AIC, AT91C_ID_TC1);
+   \   000000A0   800DA0E3           MOV      R0,#+8192
+   \   000000A4   000085E5           STR      R0,[R5, #+0]
+    154          
+    155          
+    156              //* Start timer0
+    157                  AT91C_BASE_TC0->TC_CCR = AT91C_TC_SWTRG ;
+   \   000000A8   0400A0E3           MOV      R0,#+4
+   \   000000AC   4010C6E3           BIC      R1,R6,#0x40
+   \   000000B0   000081E5           STR      R0,[R1, #+0]
+    158          
+    159              //* Start timer1
+    160                  AT91C_BASE_TC1->TC_CCR = AT91C_TC_SWTRG ;
+   \   000000B4   000086E5           STR      R0,[R6, #+0]
+    161          
+    162          //* End
+    163          }
+   \   000000B8   7340BDE8           POP      {R0,R1,R4-R6,LR}
+   \   000000BC   1EFF2FE1           BX       LR               ;; return
+   \                     ??timer_init_0:
+   \   000000C0   ........           DC32     count_timer0_interrupt
+   \   000000C4   ........           DC32     count_timer1_interrupt
+   \   000000C8   ........           DC32     timer0_c_irq_handler
+   \   000000CC   2400FAFF           DC32     0xfffa0024
+   \   000000D0   4000FAFF           DC32     0xfffa0040
+   \   000000D4   ........           DC32     timer1_c_irq_handler
+
+   Maximum stack usage in bytes:
+
+     Function              CSTACK
+     --------              ------
+     AT91F_AIC_ConfigureIt    12
+     AT91F_TC_Open             0
+     timer0_c_irq_handler      0
+     timer1_c_irq_handler      0
+     timer_init               24
+
+
+   Segment part sizes:
+
+     Function/Label        Bytes
+     --------------        -----
+     AT91F_AIC_ConfigureIt   56
+     AT91F_TC_Open           52
+     timer0_c_irq_handler    56
+     ?Subroutine4            28
+     timer1_c_irq_handler    44
+     timer_init             216
+      Others                 40
+
+ 
+ 344 bytes in segment CODE
+ 136 bytes in segment CODE_I
+  12 bytes in segment INITTAB
+ 
+ 396 bytes of CODE memory (+ 96 bytes shared)
+
+Errors: none
+Warnings: none

@@ -1,0 +1,68 @@
+##############################################################################
+#                                                                            #
+# IAR ARM ANSI C/C++ Compiler V4.40A/W32 EVALUATION    05/Nov/2006  13:29:43 #
+# Copyright 1999-2005 IAR Systems. All rights reserved.                      #
+# Time limited license: 6 days left                                          #
+#                                                                            #
+#    Cpu mode        =  interwork                                            #
+#    Endian          =  little                                               #
+#    Stack alignment =  4                                                    #
+#    Source file     =  D:\SPA_iar\Compil\myprintf.c                         #
+#    Command line    =  D:\SPA_iar\Compil\myprintf.c -D ESS -lC              #
+#                       D:\SPA_iar\Compil\Flash_Flash\List\ -lA              #
+#                       D:\SPA_iar\Compil\Flash_Flash\List\ -o               #
+#                       D:\SPA_iar\Compil\Flash_Flash\Obj\ -z9 --debug       #
+#                       --cpu_mode arm --endian little --cpu ARM7TDMI        #
+#                       --stack_align 4 --interwork -e --fpu None            #
+#                       --dlib_config "C:\Program Files\IAR                  #
+#                       Systems\Embedded Workbench 4.0                       #
+#                       Evaluation\ARM\LIB\dl4tpainl8n.h" -I                 #
+#                       D:\SPA_iar\Compil\srciar\ -I                         #
+#                       D:\SPA_iar\Compil\..\..\ -I "C:\Program Files\IAR    #
+#                       Systems\Embedded Workbench 4.0 Evaluation\ARM\INC\"  #
+#    List file       =  D:\SPA_iar\Compil\Flash_Flash\List\myprintf.lst      #
+#    Object file     =  D:\SPA_iar\Compil\Flash_Flash\Obj\myprintf.r79       #
+#                                                                            #
+#                                                                            #
+##############################################################################
+
+D:\SPA_iar\Compil\myprintf.c
+      1          
+      2          void DBGU_SendBuf(int Count)
+      3          {
+      4            
+      5            pDBGU->DBGU_TPR = (unsigned int)&(DBGU_Buf[0]);
+                   ^
+Error[Pe020]: identifier "pDBGU" is undefined
+
+    pDBGU->DBGU_TPR = (unsigned int)&(DBGU_Buf[0]);
+                                      ^
+"D:\SPA_iar\Compil\myprintf.c",5  Error[Pe020]: identifier "DBGU_Buf" is
+          undefined
+      6            pDBGU->DBGU_TCR = Count;
+      7            
+      8            AT91F_PIO_SetOutput( AT91C_BASE_PIOA, AT91C_PIO_PA1); //Led off
+                   ^
+Warning[Pe223]: function "AT91F_PIO_SetOutput" declared implicitly
+
+    AT91F_PIO_SetOutput( AT91C_BASE_PIOA, AT91C_PIO_PA1); //Led off
+                         ^
+"D:\SPA_iar\Compil\myprintf.c",8  Error[Pe020]: identifier "AT91C_BASE_PIOA"
+          is undefined
+
+    AT91F_PIO_SetOutput( AT91C_BASE_PIOA, AT91C_PIO_PA1); //Led off
+                                          ^
+"D:\SPA_iar\Compil\myprintf.c",8  Error[Pe020]: identifier "AT91C_PIO_PA1" is
+          undefined
+      9          
+     10            while (pDBGU->DBGU_TCR != 0) {}; //wait end of transmission
+     11          
+     12            AT91F_PIO_ClearOutput( AT91C_BASE_PIOA,  AT91C_PIO_PA1); //Led on
+                   ^
+Warning[Pe223]: function "AT91F_PIO_ClearOutput" declared implicitly
+     13          }
+     14          
+     15          #define myprintf(...) DBGU_SendBuf(sprintf(&DBGU_Buf[0],__VA_ARGS__));
+
+Errors: 4
+Warnings: 2

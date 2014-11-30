@@ -1,0 +1,545 @@
+//////////////////////////////////////////////////////////////////////////////
+//                                                                           /
+// IAR ARM ANSI C/C++ Compiler V4.40A/W32 EVALUATION   22/Oct/2006  15:52:08 /
+// Copyright 1999-2005 IAR Systems. All rights reserved.                     /
+// Time limited license: 20 days left                                        /
+//                                                                           /
+//    Cpu mode        =  interwork                                           /
+//    Endian          =  little                                              /
+//    Stack alignment =  4                                                   /
+//    Source file     =  D:\SPA_iar\Compil\interrupt_timer.c                 /
+//    Command line    =  D:\SPA_iar\Compil\interrupt_timer.c -D ESS -lC      /
+//                       D:\SPA_iar\Compil\Flash_Flash\List\ -lA             /
+//                       D:\SPA_iar\Compil\Flash_Flash\List\ -o              /
+//                       D:\SPA_iar\Compil\Flash_Flash\Obj\ -z9 --debug      /
+//                       --cpu_mode arm --endian little --cpu ARM7TDMI       /
+//                       --stack_align 4 --interwork -e --fpu None           /
+//                       --dlib_config C:\IAR\ARM\LIB\dl4tpainl8n.h -I       /
+//                       D:\SPA_iar\Compil\srciar\ -I                        /
+//                       D:\SPA_iar\Compil\..\..\ -I C:\IAR\ARM\INC\         /
+//    List file       =  D:\SPA_iar\Compil\Flash_Flash\List\interrupt_timer. /
+//                       s79                                                 /
+//                                                                           /
+//                                                                           /
+//////////////////////////////////////////////////////////////////////////////
+
+        NAME interrupt_timer
+
+        RTMODEL "StackAlign4", "USED"
+        RTMODEL "__cpu_mode", "__pcs__interwork"
+        RTMODEL "__data_model", "absolute"
+        RTMODEL "__endian", "little"
+        RTMODEL "__rt_version", "6"
+
+        RSEG CSTACK:DATA:NOROOT(2)
+
+        PUBWEAK `?*?CODE_ID`
+        MULTWEAK ??AT91F_AIC_ConfigureIt??rA
+        MULTWEAK ??AT91F_TC_Open??rT
+        MULTWEAK ??timer0_c_irq_handler??rT
+        MULTWEAK ??timer1_c_irq_handler??rT
+        MULTWEAK ??timer_init??rT
+        PUBWEAK ?init?tab?CODE_I
+        PUBWEAK AT91F_AIC_ConfigureIt
+        FUNCTION AT91F_AIC_ConfigureIt,0203H
+        LOCFRAME CSTACK, 12, STACK
+        PUBLIC AT91F_TC_Open
+        FUNCTION AT91F_TC_Open,0203H
+        PUBLIC timer0_c_irq_handler
+        FUNCTION timer0_c_irq_handler,0603H
+        PUBLIC timer1_c_irq_handler
+        FUNCTION timer1_c_irq_handler,0603H
+        PUBLIC timer_init
+        FUNCTION timer_init,0203H
+        LOCFRAME CSTACK, 24, STACK
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA R13 HUGEDATA
+        CFI Resource R0:32, R1:32, R2:32, R3:32, R4:32, R5:32, R6:32, R7:32
+        CFI Resource R8:32, R9:32, R10:32, R11:32, R12:32, CPSR:32, R13:32
+        CFI Resource R14:32, SPSR:32
+        CFI VirtualResource ?RET:32
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 4
+        CFI DataAlign 4
+        CFI ReturnAddress ?RET CODE
+        CFI CFA R13+0
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI R8 SameValue
+        CFI R9 SameValue
+        CFI R10 SameValue
+        CFI R11 SameValue
+        CFI R12 Undefined
+        CFI CPSR SameValue
+        CFI R14 Undefined
+        CFI SPSR SameValue
+        CFI ?RET R14
+        CFI EndCommon cfiCommon0
+        
+        
+        CFI Common cfiCommon1 Using cfiNames0
+        CFI CodeAlign 2
+        CFI DataAlign 4
+        CFI ReturnAddress ?RET CODE
+        CFI CFA R13+0
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI R8 SameValue
+        CFI R9 SameValue
+        CFI R10 SameValue
+        CFI R11 SameValue
+        CFI R12 Undefined
+        CFI CPSR SameValue
+        CFI R14 Undefined
+        CFI SPSR SameValue
+        CFI ?RET R14
+        CFI EndCommon cfiCommon1
+        
+AT91F_AIC_ConfigureIt SYMBOL "AT91F_AIC_ConfigureIt"
+??AT91F_AIC_ConfigureIt??rA SYMBOL "??rA", AT91F_AIC_ConfigureIt
+AT91F_TC_Open       SYMBOL "AT91F_TC_Open"
+??AT91F_TC_Open??rT SYMBOL "??rT", AT91F_TC_Open
+timer0_c_irq_handler SYMBOL "timer0_c_irq_handler"
+??timer0_c_irq_handler??rT SYMBOL "??rT", timer0_c_irq_handler
+timer1_c_irq_handler SYMBOL "timer1_c_irq_handler"
+??timer1_c_irq_handler??rT SYMBOL "??rT", timer1_c_irq_handler
+timer_init          SYMBOL "timer_init"
+??timer_init??rT    SYMBOL "??rT", timer_init
+
+        EXTERN count_timer0_interrupt
+        EXTERN count_timer1_interrupt
+
+// D:\SPA_iar\Compil\interrupt_timer.c
+//    1 //*----------------------------------------------------------------------------
+//    2 //*      ATMEL Microcontroller Software Support  -  ROUSSET  -
+//    3 //*----------------------------------------------------------------------------
+//    4 //* The software is delivered "AS IS" without warranty or condition of any
+//    5 //* kind, either express, implied or statutory. This includes without
+//    6 //* limitation any warranty or condition with respect to merchantability or
+//    7 //* fitness for any particular purpose, or against the infringements of
+//    8 //* intellectual property rights of others.
+//    9 //*----------------------------------------------------------------------------
+//   10 //* File Name           : interrupt_timer.c
+//   11 //* Object              : Timer interrupt management
+//   12 //*                     : Use LED7 & LED8 for status interrupt
+//   13 //*
+//   14 //* 1.0 24/Jun/04 JPP   : Creation
+//   15 //* 1.1 29/Aug/05 JPP   : Update AIC definion
+//   16 //*----------------------------------------------------------------------------
+//   17 
+//   18 // Include Standard LIB  files
+//   19 #include "Board.h"
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function AT91F_AIC_ConfigureIt
+        ARM
+// __??Code32?? __code __interwork __atpcs unsigned int AT91F_AIC_ConfigureIt(AT91PS_AIC, unsigned int, unsigned int, unsigned int, void (*)())
+AT91F_AIC_ConfigureIt:
+        PUSH     {R4-R6}
+        CFI R6 Frame(CFA, -4)
+        CFI R5 Frame(CFA, -8)
+        CFI R4 Frame(CFA, -12)
+        CFI CFA R13+12
+        LDR      R4,[SP, #+12]
+        ADD      R5,R0,R1, LSL #+2
+        LDR      R12,[R5, #+128]
+        MOV      R6,#+1
+        LSL      R6,R6,R1
+        STR      R6,[R0, #+292]
+        STR      R4,[R5, #+128]
+        ORR      R2,R2,R3
+        STR      R2,[R0, +R1, LSL #+2]
+        STR      R6,[R0, #+296]
+        MOV      R0,R12
+        POP      {R4-R6}
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI CFA R13+0
+        BX       LR               ;; return
+        CFI EndBlock cfiBlock0
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock1 Using cfiCommon1
+        CFI NoFunction
+        THUMB
+??AT91F_TC_Open??rT:
+        BX       PC
+        Nop      
+        CFI EndBlock cfiBlock1
+        REQUIRE AT91F_TC_Open
+//   20 
+//   21 //* Global variable
+//   22 extern int count_timer0_interrupt;
+//   23 extern int count_timer1_interrupt;
+//   24 
+//   25 #define TIMER0_INTERRUPT_LEVEL		1
+//   26 #define TIMER1_INTERRUPT_LEVEL		4
+//   27 
+//   28 /*-----------------*/
+//   29 /* Clock Selection */
+//   30 /*-----------------*/
+//   31 #define TC_CLKS                  0x7
+//   32 #define TC_CLKS_MCK2             0x0
+//   33 #define TC_CLKS_MCK8             0x1
+//   34 #define TC_CLKS_MCK32            0x2
+//   35 #define TC_CLKS_MCK128           0x3
+//   36 #define TC_CLKS_MCK1024          0x4
+//   37 
+//   38 //*------------------------- Internal Function --------------------------------
+//   39 //*----------------------------------------------------------------------------
+//   40 //* Function Name       : AT91F_TC_Open
+//   41 //* Object              : Initialize Timer Counter Channel and enable is clock
+//   42 //* Input Parameters    : <tc_pt> = TC Channel Descriptor Pointer
+//   43 //*                       <mode> = Timer Counter Mode
+//   44 //*                     : <TimerId> = Timer peripheral ID definitions
+//   45 //* Output Parameters   : None
+//   46 //*----------------------------------------------------------------------------
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI Function AT91F_TC_Open
+        ARM
+//   47 void AT91F_TC_Open ( AT91PS_TC TC_pt, unsigned int Mode, unsigned int TimerId)
+//   48 //* Begin
+//   49 {
+//   50     unsigned int dummy;
+//   51 
+//   52     //* First, enable the clock of the TIMER
+//   53     	AT91F_PMC_EnablePeriphClock ( AT91C_BASE_PMC, 1<< TimerId ) ;
+AT91F_TC_Open:
+        MOV      R3,#+1
+        MVN      R12,#+239
+        BIC      R12,R12,#0x300
+        LSL      R2,R3,R2
+        STR      R2,[R12, #+0]
+//   54 
+//   55     //* Disable the clock and the interrupts
+//   56 	TC_pt->TC_CCR = AT91C_TC_CLKDIS ;
+        MOV      R2,#+2
+        STR      R2,[R0, #+0]
+//   57 	TC_pt->TC_IDR = 0xFFFFFFFF ;
+        RSB      R2,R3,#+0
+        STR      R2,[R0, #+40]
+//   58 
+//   59     //* Clear status bit
+//   60         dummy = TC_pt->TC_SR;
+        LDR      R2,[R0, #+32]
+//   61     //* Suppress warning variable "dummy" was set but never used
+//   62         dummy = dummy;
+//   63     //* Set the Mode of the Timer Counter
+//   64 	TC_pt->TC_CMR = Mode ;
+        STR      R1,[R0, #+4]
+//   65 
+//   66     //* Enable the clock
+//   67 	TC_pt->TC_CCR = AT91C_TC_CLKEN ;
+        STR      R3,[R0, #+0]
+//   68 //* End
+//   69 }
+        BX       LR               ;; return
+        CFI EndBlock cfiBlock2
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock3 Using cfiCommon1
+        CFI NoFunction
+        THUMB
+??timer_init??rT:
+        BX       PC
+        Nop      
+        CFI EndBlock cfiBlock3
+        REQUIRE timer_init
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock4 Using cfiCommon1
+        CFI NoFunction
+        THUMB
+??timer0_c_irq_handler??rT:
+        BX       PC
+        Nop      
+        CFI EndBlock cfiBlock4
+        REQUIRE timer0_c_irq_handler
+//   70 
+//   71 //*------------------------- Interrupt Function -------------------------------
+//   72 
+//   73 //*----------------------------------------------------------------------------
+//   74 //* Function Name       : timer0_c_irq_handler
+//   75 //* Object              : C handler interrupt function called by the interrupts
+//   76 //*                       assembling routine
+//   77 //* Output Parameters   : increment count_timer0_interrupt
+//   78 //*----------------------------------------------------------------------------
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock5 Using cfiCommon0
+        CFI Function timer0_c_irq_handler
+        ARM
+//   79 __ramfunc void timer0_c_irq_handler(void)
+//   80 {
+//   81 	AT91PS_TC TC_pt = AT91C_BASE_TC0;
+//   82     unsigned int dummy;
+//   83     //* Acknowledge interrupt status
+//   84     dummy = TC_pt->TC_SR;
+timer0_c_irq_handler:
+        LDR      R0,??timer0_c_irq_handler_0  ;; 0xfffa0020
+        LDR      R0,[R0, #+0]
+//   85     //* Suppress warning variable "dummy" was set but never used
+//   86     dummy = dummy;
+//   87     count_timer0_interrupt++;
+        LDR      R0,??timer0_c_irq_handler_0+0x4  ;; count_timer0_interrupt
+        LDR      R1,[R0, #+0]
+        ADD      R1,R1,#+1
+        STR      R1,[R0, #+0]
+//   88     //* Read the output state
+//   89     if ( (AT91F_PIO_GetInput(AT91C_BASE_PIOA) & LED3 ) == LED3 )
+        MVN      R0,#+195
+        BIC      R0,R0,#0xB00
+        LDR      R0,[R0, #+0]
+        MOV      R1,#+4
+        TST      R0,#0x4
+//   90     {
+//   91         AT91F_PIO_ClearOutput( AT91C_BASE_PIOA, LED3 );
+        B        ?Subroutine4
+        DATA
+??timer0_c_irq_handler_0:
+        DC32     0xfffa0020
+        DC32     count_timer0_interrupt
+        CFI EndBlock cfiBlock5
+//   92     }
+//   93     else
+//   94     {
+//   95         AT91F_PIO_SetOutput( AT91C_BASE_PIOA, LED3 );
+//   96     }
+//   97 }
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock6 Using cfiCommon1
+        CFI NoFunction
+        THUMB
+??timer1_c_irq_handler??rT:
+        BX       PC
+        Nop      
+        CFI EndBlock cfiBlock6
+        REQUIRE timer1_c_irq_handler
+//   98 //*----------------------------------------------------------------------------
+//   99 //* Function Name       : timer1_c_irq_handler
+//  100 //* Object              : C handler interrupt function called by the interrupts
+//  101 //*                       assembling routine
+//  102 //* Output Parameters   : increment count_timer1_interrupt
+//  103 //*----------------------------------------------------------------------------
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock7 Using cfiCommon0
+        CFI Function timer1_c_irq_handler
+        ARM
+//  104 __ramfunc void timer1_c_irq_handler(void)
+//  105 {
+//  106 	AT91PS_TC TC_pt = AT91C_BASE_TC1;
+//  107     unsigned int dummy;
+//  108     //* Acknowledge interrupt status
+//  109     dummy = TC_pt->TC_SR;
+timer1_c_irq_handler:
+        LDR      R0,??Subroutine4_0  ;; 0xfffa0060
+        LDR      R0,[R0, #+0]
+//  110     //* Suppress warning variable "dummy" was set but never used
+//  111     dummy = dummy;
+//  112     count_timer1_interrupt++;
+        LDR      R0,??Subroutine4_0+0x4  ;; count_timer1_interrupt
+        LDR      R1,[R0, #+0]
+        ADD      R1,R1,#+1
+        STR      R1,[R0, #+0]
+//  113 
+//  114     //* Read the output state
+//  115     if ( (AT91F_PIO_GetInput(AT91C_BASE_PIOA) & LED4 ) == LED4 )
+        MVN      R0,#+195
+        BIC      R0,R0,#0xB00
+        LDR      R0,[R0, #+0]
+        MOV      R1,#+8
+        TST      R0,#0x8
+        CFI EndBlock cfiBlock7
+//  116     {
+//  117         AT91F_PIO_ClearOutput( AT91C_BASE_PIOA, LED4 );
+        REQUIRE ?Subroutine4
+        ;; // Fall through to label ?Subroutine4
+//  118     }
+//  119     else
+//  120     {
+//  121         AT91F_PIO_SetOutput( AT91C_BASE_PIOA, LED4 );
+//  122     }
+//  123 }
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock8 Using cfiCommon0
+        CFI NoFunction
+        ARM
+?Subroutine4:
+        MVNNE    R0,#+203
+        MVNEQ    R0,#+207
+        BIC      R0,R0,#0xB00
+        STR      R1,[R0, #+0]
+        BX       LR               ;; return
+        DATA
+??Subroutine4_0:
+        DC32     0xfffa0060
+        DC32     count_timer1_interrupt
+        CFI EndBlock cfiBlock8
+//  124 //*-------------------------- External Function -------------------------------
+//  125 
+//  126 //*----------------------------------------------------------------------------
+//  127 //* Function Name       : timer_init
+//  128 //* Object              : Init timer counter
+//  129 //* Input Parameters    : none
+//  130 //* Output Parameters   : TRUE
+//  131 //*----------------------------------------------------------------------------
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock9 Using cfiCommon0
+        CFI Function timer_init
+        ARM
+//  132 void timer_init ( void )
+//  133 //* Begin
+//  134 {
+timer_init:
+        PUSH     {R4-R6,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R6 Frame(CFA, -8)
+        CFI R5 Frame(CFA, -12)
+        CFI R4 Frame(CFA, -16)
+        CFI CFA R13+16
+//  135     //init the timer interrupt counter
+//  136     count_timer0_interrupt=0;
+        MOV      R0,#+0
+        LDR      R1,??timer_init_0  ;; count_timer0_interrupt
+        STR      R0,[R1, #+0]
+//  137     count_timer1_interrupt=0;
+        LDR      R1,??timer_init_0+0x4  ;; count_timer1_interrupt
+        STR      R0,[R1, #+0]
+//  138 
+//  139     //* Open timer0
+//  140 	AT91F_TC_Open(AT91C_BASE_TC0,TC_CLKS_MCK1024,AT91C_ID_TC0);
+        MOV      R2,#+12
+        MOV      R1,#+4
+        MOV      R0,#-16777216
+        ORR      R0,R0,#0xFA0000
+        BL       AT91F_TC_Open
+//  141 
+//  142     //* Open Timer 0 interrupt
+//  143 	AT91F_AIC_ConfigureIt ( AT91C_BASE_AIC, AT91C_ID_TC0, TIMER0_INTERRUPT_LEVEL,AT91C_AIC_SRCTYPE_INT_HIGH_LEVEL, timer0_c_irq_handler);
+        LDR      R0,??timer_init_0+0x8  ;; timer0_c_irq_handler
+        PUSH     {R0}
+        CFI CFA R13+20
+        MOV      R3,#+0
+        MOV      R2,#+1
+        MOV      R1,#+12
+        MVN      R0,#+255
+        BIC      R0,R0,#0xF00
+        _BLF     AT91F_AIC_ConfigureIt,??AT91F_AIC_ConfigureIt??rA
+//  144 	AT91C_BASE_TC0->TC_IER = AT91C_TC_CPCS;  //  IRQ enable CPC
+        MOV      R4,#+16
+        LDR      R0,??timer_init_0+0xC  ;; 0xfffa0024
+        STR      R4,[R0, #+0]
+//  145 	AT91F_AIC_EnableIt (AT91C_BASE_AIC, AT91C_ID_TC0);
+        MVN      R5,#+223
+        BIC      R5,R5,#0xE00
+        MOV      R0,#+4096
+        STR      R0,[R5, #+0]
+//  146 
+//  147     //* Open timer1
+//  148 	AT91F_TC_Open(AT91C_BASE_TC1,TC_CLKS_MCK128,AT91C_ID_TC1);
+        LDR      R6,??timer_init_0+0x10  ;; 0xfffa0040
+        MOV      R2,#+13
+        MOV      R1,#+3
+        MOV      R0,R6
+        BL       AT91F_TC_Open
+//  149 
+//  150     //* Open Timer 1 interrupt
+//  151 	AT91F_AIC_ConfigureIt ( AT91C_BASE_AIC, AT91C_ID_TC1, TIMER1_INTERRUPT_LEVEL,AT91C_AIC_SRCTYPE_INT_HIGH_LEVEL, timer1_c_irq_handler);
+        LDR      R0,??timer_init_0+0x14  ;; timer1_c_irq_handler
+        PUSH     {R0}
+        CFI CFA R13+24
+        MOV      R3,#+0
+        MOV      R2,#+4
+        MOV      R1,#+13
+        BIC      R0,R5,#0x120
+        _BLF     AT91F_AIC_ConfigureIt,??AT91F_AIC_ConfigureIt??rA
+//  152 	AT91C_BASE_TC1->TC_IER  = AT91C_TC_CPCS;  //  IRQ enable CPC
+        ORR      R0,R6,#0x24
+        STR      R4,[R0, #+0]
+//  153 	AT91F_AIC_EnableIt (AT91C_BASE_AIC, AT91C_ID_TC1);
+        MOV      R0,#+8192
+        STR      R0,[R5, #+0]
+//  154 
+//  155 
+//  156     //* Start timer0
+//  157         AT91C_BASE_TC0->TC_CCR = AT91C_TC_SWTRG ;
+        MOV      R0,#+4
+        BIC      R1,R6,#0x40
+        STR      R0,[R1, #+0]
+//  158 
+//  159     //* Start timer1
+//  160         AT91C_BASE_TC1->TC_CCR = AT91C_TC_SWTRG ;
+        STR      R0,[R6, #+0]
+//  161 
+//  162 //* End
+//  163 }
+        POP      {R0,R1,R4-R6,LR}
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI ?RET R14
+        CFI CFA R13+0
+        BX       LR               ;; return
+        DATA
+??timer_init_0:
+        DC32     count_timer0_interrupt
+        DC32     count_timer1_interrupt
+        DC32     timer0_c_irq_handler
+        DC32     0xfffa0024
+        DC32     0xfffa0040
+        DC32     timer1_c_irq_handler
+        CFI EndBlock cfiBlock9
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock10 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??AT91F_AIC_ConfigureIt??rA:
+        LDR      R12,??Subroutine5_0  ;; AT91F_AIC_ConfigureIt
+        BX       R12
+        DATA
+??Subroutine5_0:
+        DC32     AT91F_AIC_ConfigureIt
+        CFI EndBlock cfiBlock10
+
+        RSEG CODE_ID:CODE:NOROOT(2)
+`?*?CODE_ID`:
+
+        RSEG INITTAB:CODE:ROOT(2)
+        DATA
+?init?tab?CODE_I:
+        DCD      sfe(CODE_I) - sfb(CODE_I), sfb(CODE_I), sfb(CODE_ID)
+
+        END
+// 
+// 344 bytes in segment CODE
+// 136 bytes in segment CODE_I
+//  12 bytes in segment INITTAB
+// 
+// 396 bytes of CODE memory (+ 96 bytes shared)
+//
+//Errors: none
+//Warnings: none

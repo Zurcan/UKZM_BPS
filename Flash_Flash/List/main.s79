@@ -1,0 +1,4033 @@
+//////////////////////////////////////////////////////////////////////////////
+//                                                                           /
+// IAR ARM ANSI C/C++ Compiler V4.40A/W32 EVALUATION   05/Nov/2014  12:42:30 /
+// Copyright 1999-2005 IAR Systems. All rights reserved.                     /
+//                                                                           /
+//    Cpu mode        =  arm                                                 /
+//    Endian          =  little                                              /
+//    Stack alignment =  4                                                   /
+//    Source file     =  L:\work\укзм\укзм\укзм\Compil_iar440\main.c         /
+//    Command line    =  L:\work\укзм\укзм\укзм\Compil_iar440\main.c -D ESS  /
+//                       -lC L:\work\укзм\укзм\укзм\Compil_iar440\Flash_Flas /
+//                       h\List\ -lA L:\work\укзм\укзм\укзм\Compil_iar440\Fl /
+//                       ash_Flash\List\ -o L:\work\укзм\укзм\укзм\Compil_ia /
+//                       r440\Flash_Flash\Obj\ -z9 --debug --cpu_mode arm    /
+//                       --endian little --cpu ARM7TDMI --stack_align 4 -e   /
+//                       --fpu None --dlib_config "C:\Program Files          /
+//                       (x86)\IAR Systems\Embedded Workbench 4.0            /
+//                       Evaluation\ARM\LIB\dl4tpannl8n.h" -I                /
+//                       L:\work\укзм\укзм\укзм\Compil_iar440\srciar\ -I     /
+//                       L:\work\укзм\укзм\укзм\Compil_iar440\..\..\ -I      /
+//                       "C:\Program Files (x86)\IAR Systems\Embedded        /
+//                       Workbench 4.0 Evaluation\ARM\INC\"                  /
+//    List file       =  L:\work\укзм\укзм\укзм\Compil_iar440\Flash_Flash\Li /
+//                       st\main.s79                                         /
+//                                                                           /
+//                                                                           /
+//////////////////////////////////////////////////////////////////////////////
+
+        NAME main
+
+        RTMODEL "StackAlign4", "USED"
+        RTMODEL "__cpu_mode", "__pcs__arm"
+        RTMODEL "__data_model", "absolute"
+        RTMODEL "__dlib_file_descriptor", "0"
+        RTMODEL "__endian", "little"
+        RTMODEL "__rt_version", "6"
+
+        RSEG CSTACK:DATA:NOROOT(2)
+
+        EXTERN ??divu32_a
+        EXTERN ??lllsl_a
+
+        PUBWEAK `?*?CODE_ID`
+        PUBWEAK `?*?DATA_ID`
+        MULTWEAK ??DBGU_SendBuf??rA?CODE_I
+??DataTable0 EQU 0
+??DataTable1 EQU 0
+??DataTable10 EQU 0
+??DataTable11 EQU 0
+??DataTable12 EQU 0
+??DataTable13 EQU 0
+??DataTable17 EQU 0
+??DataTable18 EQU 0
+??DataTable2 EQU 0
+??DataTable20 EQU 0
+??DataTable21 EQU 0
+??DataTable22 EQU 0
+??DataTable24 EQU 0
+??DataTable25 EQU 0
+??DataTable26 EQU 0
+??DataTable3 EQU 0
+??DataTable4 EQU 0
+??DataTable5 EQU 0
+??DataTable7 EQU 0
+??DataTable8 EQU 0
+??DataTable9 EQU 0
+        MULTWEAK ??ParseRead_InputReg??rA
+        MULTWEAK ??ParseWriteMulty_HoldingReg??rA
+        MULTWEAK ??ParseWriteSingle_HoldingReg??rA
+        MULTWEAK ??Read_SKZ_func??rA
+        MULTWEAK ??SKZ_arrays_read??rA
+        MULTWEAK ??SetGain??rA
+        MULTWEAK ??StartTimeout??rA
+        MULTWEAK ??US0_SetBaudRate??rA
+        MULTWEAK ??WriteConfig??rA
+        MULTWEAK ??__dAdd??rA
+        MULTWEAK ??__dDiv??rA
+        MULTWEAK ??__dLess??rA
+        MULTWEAK ??__dMul??rA
+        MULTWEAK ??__doubleToFloat??rA
+        MULTWEAK ??__doubleToLong??rA
+        MULTWEAK ??__doubleToLongLong??rA
+        MULTWEAK ??__doubleToUlong??rA
+        MULTWEAK ??__fMul??rA
+        MULTWEAK ??__floatToDouble??rA
+        MULTWEAK ??__floatToLong??rA
+        MULTWEAK ??__longLongToDouble??rA
+        MULTWEAK ??__longLongToFloat??rA
+        MULTWEAK ??__longToDouble??rA
+        MULTWEAK ??__ulongToDouble??rA
+        MULTWEAK ??floorf??rA
+        MULTWEAK ??memcpy??rA
+        MULTWEAK ??rA??divu32_a
+        MULTWEAK ??rA??lllsl_a
+        MULTWEAK ??sprintf??rA
+        MULTWEAK ??sprintf??rA?CODE_I
+        MULTWEAK ??sqrt??rA
+        PUBWEAK ?init?tab?CODE_I
+        PUBWEAK ?init?tab?DATA_I
+        PUBWEAK ?init?tab?DATA_Z
+        PUBLIC ADC_Buf
+        PUBLIC CalcSKZ
+        FUNCTION CalcSKZ,0201H
+        LOCFRAME CSTACK, 900, STACK
+        PUBLIC CalcValSKZ
+        FUNCTION CalcValSKZ,0203H
+        LOCFRAME CSTACK, 16, STACK
+        PUBLIC Cos
+        PUBLIC DBGU_Buf
+        PUBLIC DBGU_SendBuf
+        FUNCTION DBGU_SendBuf,0203H
+        PUBLIC DefaultConfig
+        PUBLIC FlashConfig
+        PUBLIC Gain
+        PUBLIC GainCode
+        PUBLIC GainTable
+        PUBLIC MinSKZ_val
+        PUBLIC ModbusCRC
+        FUNCTION ModbusCRC,0203H
+        LOCFRAME CSTACK, 8, STACK
+        PUBLIC MyprintfConfig
+        FUNCTION MyprintfConfig,0201H
+        LOCFRAME CSTACK, 12, STACK
+        PUBLIC Object_on
+        PUBLIC Object_on_level
+        PUBWEAK ParseRead_InputReg
+        FUNCTION ParseRead_InputReg,0203H
+        LOCFRAME CSTACK, 44, STACK
+        PUBWEAK ParseWriteMulty_HoldingReg
+        FUNCTION ParseWriteMulty_HoldingReg,0203H
+        LOCFRAME CSTACK, 32, STACK
+        PUBWEAK ParseWriteSingle_HoldingReg
+        FUNCTION ParseWriteSingle_HoldingReg,0203H
+        LOCFRAME CSTACK, 12, STACK
+        PUBLIC ProcessModbusFrame
+        FUNCTION ProcessModbusFrame,0203H
+        LOCFRAME CSTACK, 36, STACK
+        PUBLIC ReadInitConfig
+        FUNCTION ReadInitConfig,0201H
+        LOCFRAME CSTACK, 16, STACK
+        PUBLIC ReadInputReg
+        FUNCTION ReadInputReg,0203H
+        PUBLIC ReadSKZ1
+        PUBLIC ReadSKZ2
+        PUBWEAK Read_SKZ_func
+        FUNCTION Read_SKZ_func,0203H
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC RelValSKZ
+        PUBLIC RelValSKZ1toSKZ2
+        PUBLIC SKZ
+        PUBWEAK SKZ_arrays_read
+        FUNCTION SKZ_arrays_read,0203H
+        LOCFRAME CSTACK, 16, STACK
+        PUBWEAK SetGain
+        FUNCTION SetGain,0203H
+        PUBLIC SetModbusAddr
+        FUNCTION SetModbusAddr,0203H
+        PUBLIC SetSKZ_1
+        FUNCTION SetSKZ_1,0201H
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SetSKZ_2
+        FUNCTION SetSKZ_2,0201H
+        LOCFRAME CSTACK, 180, STACK
+        PUBLIC SetSKZ_2_
+        FUNCTION SetSKZ_2_,0201H
+        LOCFRAME CSTACK, 180, STACK
+        PUBLIC SetUARTRate
+        FUNCTION SetUARTRate,0203H
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SetValFreqCount
+        FUNCTION SetValFreqCount,0203H
+        PUBLIC Sin
+        PUBWEAK StartTimeout
+        FUNCTION StartTimeout,0201H
+        PUBLIC UARTRateTable
+        PUBLIC UARTTimeoutTable
+        PUBLIC US0_RecvBuf
+        PUBLIC US0_Send
+        FUNCTION US0_Send,0203H
+        PUBLIC US0_SendBuf
+        PUBWEAK US0_SetBaudRate
+        FUNCTION US0_SetBaudRate,0203H
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC ValSKZ
+        PUBLIC ViewModbus
+        PUBLIC WriteConfig
+        FUNCTION WriteConfig,0201H
+        LOCFRAME CSTACK, 12, STACK
+        PUBLIC WriteHoldingReg
+        FUNCTION WriteHoldingReg,0203H
+        LOCFRAME CSTACK, 20, STACK
+        PUBLIC _A_RAMConfig
+        PUBLIC f_SKZ
+        PUBLIC first_pass
+        PUBLIC main
+        FUNCTION main,0a03H
+        LOCFRAME CSTACK, 60, STACK
+        PUBLIC myprintfFreqOrder
+        FUNCTION myprintfFreqOrder,0201H
+        LOCFRAME CSTACK, 16, STACK
+        PUBLIC myprintfSKZ
+        FUNCTION myprintfSKZ,0201H
+        LOCFRAME CSTACK, 8, STACK
+        PUBLIC myprintfSKZSpectr
+        FUNCTION myprintfSKZSpectr,0201H
+        LOCFRAME CSTACK, 32, STACK
+        PUBLIC myprintfSKZ_1
+        FUNCTION myprintfSKZ_1,0201H
+        LOCFRAME CSTACK, 12, STACK
+        PUBLIC myprintfSKZ_2
+        FUNCTION myprintfSKZ_2,0201H
+        LOCFRAME CSTACK, 12, STACK
+        PUBLIC pADC
+        PUBLIC pDBGU
+        PUBLIC pPIO
+        PUBLIC pPMC
+        PUBLIC pSPI
+        PUBLIC pTC0
+        PUBLIC pUS0
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA R13 HUGEDATA
+        CFI Resource R0:32, R1:32, R2:32, R3:32, R4:32, R5:32, R6:32, R7:32
+        CFI Resource R8:32, R9:32, R10:32, R11:32, R12:32, CPSR:32, R13:32
+        CFI Resource R14:32, SPSR:32
+        CFI VirtualResource ?RET:32
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 4
+        CFI DataAlign 4
+        CFI ReturnAddress ?RET CODE
+        CFI CFA R13+0
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI R8 SameValue
+        CFI R9 SameValue
+        CFI R10 SameValue
+        CFI R11 SameValue
+        CFI R12 Undefined
+        CFI CPSR SameValue
+        CFI R14 Undefined
+        CFI SPSR SameValue
+        CFI ?RET R14
+        CFI EndCommon cfiCommon0
+        
+__dAdd              SYMBOL "__dAdd"
+__dDiv              SYMBOL "__dDiv"
+__dLess             SYMBOL "__dLess"
+__dMul              SYMBOL "__dMul"
+__doubleToFloat     SYMBOL "__doubleToFloat"
+__doubleToLong      SYMBOL "__doubleToLong"
+__doubleToLongLong  SYMBOL "__doubleToLongLong"
+__doubleToUlong     SYMBOL "__doubleToUlong"
+__fMul              SYMBOL "__fMul"
+__floatToDouble     SYMBOL "__floatToDouble"
+__floatToLong       SYMBOL "__floatToLong"
+__longLongToDouble  SYMBOL "__longLongToDouble"
+__longLongToFloat   SYMBOL "__longLongToFloat"
+__longToDouble      SYMBOL "__longToDouble"
+__ulongToDouble     SYMBOL "__ulongToDouble"
+floorf              SYMBOL "floorf"
+memcpy              SYMBOL "memcpy"
+sprintf             SYMBOL "sprintf"
+sqrt                SYMBOL "sqrt"
+DBGU_SendBuf        SYMBOL "DBGU_SendBuf"
+??DBGU_SendBuf??rA?CODE_I SYMBOL "??rA?CODE_I", DBGU_SendBuf
+ParseRead_InputReg  SYMBOL "ParseRead_InputReg"
+??ParseRead_InputReg??rA SYMBOL "??rA", ParseRead_InputReg
+ParseWriteMulty_HoldingReg SYMBOL "ParseWriteMulty_HoldingReg"
+??ParseWriteMulty_HoldingReg??rA SYMBOL "??rA", ParseWriteMulty_HoldingReg
+ParseWriteSingle_HoldingReg SYMBOL "ParseWriteSingle_HoldingReg"
+??ParseWriteSingle_HoldingReg??rA SYMBOL "??rA", ParseWriteSingle_HoldingReg
+Read_SKZ_func       SYMBOL "Read_SKZ_func"
+??Read_SKZ_func??rA SYMBOL "??rA", Read_SKZ_func
+SKZ_arrays_read     SYMBOL "SKZ_arrays_read"
+??SKZ_arrays_read??rA SYMBOL "??rA", SKZ_arrays_read
+SetGain             SYMBOL "SetGain"
+??SetGain??rA       SYMBOL "??rA", SetGain
+StartTimeout        SYMBOL "StartTimeout"
+??StartTimeout??rA  SYMBOL "??rA", StartTimeout
+US0_SetBaudRate     SYMBOL "US0_SetBaudRate"
+??US0_SetBaudRate??rA SYMBOL "??rA", US0_SetBaudRate
+WriteConfig         SYMBOL "WriteConfig"
+??WriteConfig??rA   SYMBOL "??rA", WriteConfig
+??__dAdd??rA        SYMBOL "??rA", __dAdd
+??__dDiv??rA        SYMBOL "??rA", __dDiv
+??__dLess??rA       SYMBOL "??rA", __dLess
+??__dMul??rA        SYMBOL "??rA", __dMul
+??__doubleToFloat??rA SYMBOL "??rA", __doubleToFloat
+??__doubleToLong??rA SYMBOL "??rA", __doubleToLong
+??__doubleToLongLong??rA SYMBOL "??rA", __doubleToLongLong
+??__doubleToUlong??rA SYMBOL "??rA", __doubleToUlong
+??__fMul??rA        SYMBOL "??rA", __fMul
+??__floatToDouble??rA SYMBOL "??rA", __floatToDouble
+??__floatToLong??rA SYMBOL "??rA", __floatToLong
+??__longLongToDouble??rA SYMBOL "??rA", __longLongToDouble
+??__longLongToFloat??rA SYMBOL "??rA", __longLongToFloat
+??__longToDouble??rA SYMBOL "??rA", __longToDouble
+??__ulongToDouble??rA SYMBOL "??rA", __ulongToDouble
+??floorf??rA        SYMBOL "??rA", floorf
+??memcpy??rA        SYMBOL "??rA", memcpy
+??sprintf??rA       SYMBOL "??rA", sprintf
+??sprintf??rA?CODE_I SYMBOL "??rA?CODE_I", sprintf
+??sqrt??rA          SYMBOL "??rA", sqrt
+
+        EXTERN CosSinTable
+        EXTERN __dAdd
+        FUNCTION __dAdd,0202H
+        EXTERN __dDiv
+        FUNCTION __dDiv,0202H
+        EXTERN __dLess
+        FUNCTION __dLess,0202H
+        EXTERN __dMul
+        FUNCTION __dMul,0202H
+        EXTERN __doubleToFloat
+        FUNCTION __doubleToFloat,0202H
+        EXTERN __doubleToLong
+        FUNCTION __doubleToLong,0202H
+        EXTERN __doubleToLongLong
+        FUNCTION __doubleToLongLong,0202H
+        EXTERN __doubleToUlong
+        FUNCTION __doubleToUlong,0202H
+        EXTERN __fMul
+        FUNCTION __fMul,010202H
+        EXTERN __floatToDouble
+        FUNCTION __floatToDouble,0202H
+        EXTERN __floatToLong
+        FUNCTION __floatToLong,0202H
+        EXTERN __longLongToDouble
+        FUNCTION __longLongToDouble,0202H
+        EXTERN __longLongToFloat
+        FUNCTION __longLongToFloat,0202H
+        EXTERN __longToDouble
+        FUNCTION __longToDouble,0202H
+        EXTERN __ulongToDouble
+        FUNCTION __ulongToDouble,0202H
+        EXTERN floorf
+        FUNCTION floorf,010202H
+        EXTERN memcpy
+        FUNCTION memcpy,010202H
+        EXTERN sprintf
+        FUNCTION sprintf,010202H
+        EXTERN sqrt
+        FUNCTION sqrt,010202H
+
+// L:\work\укзм\укзм\укзм\Compil_iar440\main.c
+//    1 
+//    2 #include "..\AT91SAM7S256.h"
+//    3 #define __inline inline
+//    4 #include "..\lib_AT91SAM7S256.h"
+//    5 #include <stdio.h>
+//    6 #include <math.h>
+//    7 #include <string.h>
+//    8 #include "board.h"
+//    9 //#include "frequency.c"
+//   10 #include "cossintable.h" 
+//   11 
+//   12 //*************************************************************
+//   13 // Controller blocks pointers
+//   14 
+//   15 AT91PS_PMC  pPMC  = AT91C_BASE_PMC;
+//   16 AT91PS_PIO  pPIO  = AT91C_BASE_PIOA;
+//   17 AT91PS_TC   pTC0  = AT91C_BASE_TC0;
+//   18 AT91PS_DBGU pDBGU = AT91C_BASE_DBGU;  
+//   19 AT91PS_ADC  pADC  = AT91C_BASE_ADC;
+//   20 AT91PS_SPI  pSPI  = AT91C_BASE_SPI;
+//   21 AT91PS_USART pUS0 = AT91C_BASE_US0;
+//   22 
+//   23 //************************************************
+//   24 // Common global variables 
+//   25 
+//   26 #define ADC_Buf_Shift 9
+//   27 #define ADC_Buf_Size (1 << ADC_Buf_Shift)
+
+        RSEG DATA_N:DATA:SORT:NOROOT(2)
+//   28 __no_init signed short ADC_Buf [ADC_Buf_Size];
+ADC_Buf:
+        DS8 1024
+//   29 
+//   30 #define DBGU_Buf_Size 1000
+//   31 __no_init char DBGU_Buf [DBGU_Buf_Size];
+//   32 #define US0_BufSize 256
+//   33 __no_init char US0_SendBuf[US0_BufSize];
+//   34 __no_init char US0_RecvBuf[US0_BufSize];
+//   35 
+//   36 #include "myprintf.c" //function myprintf, uses DBGU_Buf anf Led control
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function DBGU_SendBuf
+        ARM
+// __??Code32?? __code __arm __atpcs void DBGU_SendBuf(int)
+DBGU_SendBuf:
+        LDR      R1,??DBGU_SendBuf_0  ;; ValSKZ + 60
+        LDR      R1,[R1, #+0]
+        LDR      R2,??DataTable19  ;; _A_RAMConfig + 512
+        B        ?Subroutine0
+        DATA
+??DBGU_SendBuf_0:
+        DC32     ValSKZ + 60
+        CFI EndBlock cfiBlock0
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI Function US0_Send
+        ARM
+// __??Code32?? __code __arm __atpcs void US0_Send(int)
+US0_Send:
+        LDR      R1,??Subroutine0_1  ;; ValSKZ + 72
+        LDR      R1,[R1, #+0]
+        LDR      R2,??Subroutine0_1+0x4  ;; _A_RAMConfig + 1512
+        CFI EndBlock cfiBlock1
+        REQUIRE ?Subroutine0
+        ;; // Fall through to label ?Subroutine0
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI NoFunction
+        ARM
+?Subroutine0:
+        STR      R2,[R1, #+264]
+        STR      R0,[R1, #+268]
+        MOV      R0,#+2
+        MVN      R2,#+207
+        BIC      R2,R2,#0xB00
+        STR      R0,[R2, #+0]
+??Subroutine0_2:
+        LDR      R2,[R1, #+268]
+        CMP      R2,#+0
+        BNE      ??Subroutine0_2
+        MVN      R1,#+203
+        BIC      R1,R1,#0xB00
+??Subroutine0_0:
+        STR      R0,[R1, #+0]
+        MOV      PC,LR            ;; return
+        DATA
+??Subroutine0_1:
+        DC32     ValSKZ + 72
+        DC32     _A_RAMConfig + 1512
+        CFI EndBlock cfiBlock2
+//   37 
+//   38 signed char Gain; //current gain power of 2 = gain, 0 - gain 1, 3 - gain 8
+//   39 unsigned char GainTable[9] = {0, 128, 192, 224, 240, 248, 252, 254, 255};
+//   40 inline void SetGain(unsigned int a) {Gain=a; pSPI->SPI_TDR = (0x010D << 16)|GainTable[a]; while (!(pSPI->SPI_SR & (1<<9))) {};}
+//   41 
+//   42 inline void SetGainCode(unsigned char c) {pSPI->SPI_TDR = (0x010D << 16)|c; while (!(pSPI->SPI_SR & (1<<9))) {};}
+
+        RSEG DATA_Z:DATA:SORT:NOROOT(0)
+//   43 unsigned char GainCode = 0;
+GainCode:
+        DS8 1
+//   44 int first_pass=1;
+//   45 #define Max_ValFreqCount 18
+//   46 typedef unsigned short SKZ_ARRAY[Max_ValFreqCount]; //0 - DC level, 19*250 - 4.75KHz level
+//   47 SKZ_ARRAY SKZ;
+//   48 float f_SKZ[Max_ValFreqCount];
+
+        RSEG DATA_Z:DATA:SORT:NOROOT(2)
+//   49 unsigned int  ReadSKZ1[Max_ValFreqCount], ReadSKZ2[Max_ValFreqCount],MinSKZ_val=30,Object_on_level=40, Object_on=0;
+ReadSKZ1:
+        DS8 72
+
+        RSEG DATA_Z:DATA:SORT:NOROOT(2)
+ReadSKZ2:
+        DS8 72
+
+        RSEG DATA_C:CONST:SORT:NOROOT(2)
+`?<Constant "Wrong modbus addr\\n\\r">`:
+        DATA
+        DC8 "Wrong modbus addr\012\015"
+        DC8 "Wrong modbus crc\012\015"
+        DC8 0
+        DC8 "Wrong func code %d\012\015"
+        DC8 0, 0, 0
+
+        RSEG DATA_C:CONST:SORT:NOROOT(2)
+`?<Constant "\\n\\r>Start of work\\n\\r">`:
+        DATA
+        DC8 "\012\015>Start of work\012\015"
+        DC8 0
+        DC8 ">Debug interface ready\012\015"
+        DC8 0, 0, 0
+        DC8 "Entering main endless loop\012\015"
+        DC8 0, 0, 0
+        DC8 0DH, 53H, 4BH, 5AH, 31H, 3AH, 25H, 36H
+        DC8 64H, 20H, 53H, 4BH, 5AH, 32H, 3AH, 25H
+        DC8 36H, 64H, 20H, 53H, 4BH, 5AH, 3AH, 25H
+        DC8 36H, 64H, 3DH, 25H, 33H, 64H, 20H, 53H
+        DC8 4BH, 5AH, 31H, 2FH, 53H, 4BH, 5AH, 32H
+        DC8 3AH, 25H, 33H, 64H, 20H, 45H, 6EH, 56H
+        DC8 61H, 6CH, 3AH, 25H, 36H, 64H, 20H, 4DH
+        DC8 69H, 6EH, 56H, 61H, 6CH, 3AH, 25H, 36H
+        DC8 64H, 0
+        DC8 0, 0
+        DC8 "Recieved %d chars\012\015"
+        DC8 "%2X "
+        DC8 0, 0, 0
+        DC8 "Current firmware virsion is 1.7.3\012\015"
+        DC8 "Identify number of the device is 55485A4D\012\015"
+        DC8 "SET UP SKZ_1\012\015"
+        DC8 0
+        DC8 "SET UP SKZ_2 AND FREQUENCY ORDER\012\015"
+        DC8 0
+        DC8 "0 ... 9 - Set UART speed 300 ... 115200\012\015"
+        DC8 0, 0
+        DC8 "- / +  - Decrement / increment MODBUS address\012\015"
+        DC8 "[ / ]  - Decrement / increment frecuency count\012\015"
+        DC8 0, 0, 0
+        DC8 "c      - Display current configuration\012\015"
+        DC8 0, 0, 0
+        DC8 45H, 6EH, 74H, 65H, 72H, 20H, 20H, 2DH
+        DC8 20H, 53H, 61H, 76H, 65H, 20H, 63H, 75H
+        DC8 72H, 72H, 72H, 65H, 6EH, 74H, 20H, 63H
+        DC8 6FH, 6EH, 66H, 69H, 67H, 75H, 72H, 61H
+        DC8 74H, 69H, 6FH, 6EH, 20H, 74H, 6FH, 20H
+        DC8 66H, 6CH, 61H, 73H, 68H, 20H, 6DH, 65H
+        DC8 6DH, 6FH, 72H, 79H, 0AH, 0DH, 0
+        DC8 0
+        DC8 7AH, 20H, 2FH, 20H, 78H, 20H, 20H, 2DH
+        DC8 20H, 53H, 61H, 76H, 65H, 20H, 63H, 75H
+        DC8 72H, 72H, 65H, 6EH, 74H, 20H, 53H, 4BH
+        DC8 5AH, 20H, 61H, 73H, 20H, 66H, 69H, 72H
+        DC8 73H, 74H, 20H, 2FH, 20H, 73H, 65H, 63H
+        DC8 6FH, 6EH, 64H, 20H, 63H, 61H, 6CH, 69H
+        DC8 62H, 72H, 61H, 74H, 69H, 6FH, 6EH, 20H
+        DC8 70H, 6FH, 69H, 6EH, 74H, 0AH, 0DH, 0
+        DC8 71H, 20H, 2FH, 20H, 77H, 20H, 20H, 2DH
+        DC8 20H, 44H, 69H, 73H, 70H, 6CH, 61H, 79H
+        DC8 20H, 66H, 69H, 72H, 73H, 74H, 20H, 2FH
+        DC8 20H, 73H, 65H, 63H, 6FH, 6EH, 64H, 20H
+        DC8 63H, 61H, 6CH, 69H, 62H, 72H, 61H, 74H
+        DC8 69H, 6FH, 6EH, 20H, 70H, 6FH, 69H, 6EH
+        DC8 74H, 0AH, 0DH, 0
+        DC8 "f      - View frequency order\012\015"
+        DC8 "s      - View current SKZ as spectre\012\015"
+        DC8 0
+        DC8 "h      - This help screen\012\015"
+        DC8 "g      - Display current gain\012\015"
+        DC8 "t      - Test message to MODBUS port\012\015"
+        DC8 0
+        DC8 6DH, 20H, 20H, 20H, 20H, 20H, 20H, 2DH
+        DC8 20H, 54H, 6FH, 67H, 67H, 6CH, 65H, 20H
+        DC8 6FH, 6EH, 2FH, 6FH, 66H, 66H, 20H, 64H
+        DC8 69H, 73H, 70H, 6CH, 61H, 79H, 69H, 6EH
+        DC8 67H, 20H, 4DH, 4FH, 44H, 42H, 55H, 53H
+        DC8 20H, 63H, 6FH, 6DH, 6DH, 61H, 6EH, 64H
+        DC8 20H, 70H, 72H, 6FH, 63H, 65H, 73H, 73H
+        DC8 69H, 6EH, 67H, 0AH, 0DH, 0
+        DC8 0, 0
+        DC8 "v      - View version of firmware\012\015"
+        DC8 "i      - View identify number of the device\012\015"
+        DC8 0, 0
+        DC8 "Current gain <%d>\012\015"
+        DC8 "Test UART for send\012\015"
+        DC8 0, 0, 0
+        DC8 "Modbus is %d\012\015"
+        DC8 0
+        DC8 "Recieved symbol <%c> with code <%2X>\012\015"
+        DC8 0
+        DC8 "a      - View current SKZ as values\012\015"
+        DC8 0, 0
+
+        RSEG DATA_C:CONST:SORT:NOROOT(2)
+`?<Constant "SKZ[%2d] = %d\\n\\r">`:
+        DATA
+        DC8 "SKZ[%2d] = %d\012\015"
+//   50 signed int RelValSKZ;
+//   51 char RelValSKZ1toSKZ2;
+//   52 unsigned short ValSKZ;
+//   53 unsigned int UARTRateTable[] = {300, 600, 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200};
+//   54 //timeout set in bits for modbus. for speed <=19200 it equal 3,5 char = 
+//   55 unsigned int UARTTimeoutTable[] = {39, 39, 39, 39, 39, 39, 39, 39*2, 39*3, 39*6};
+//   56 
+//   57 
+//   58 typedef struct //struct to interprete data in config
+//   59 {
+//   60   unsigned int UARTRate;
+//   61   unsigned int ModbusAddr;
+//   62   unsigned int ValFreqCount;
+//   63   SKZ_ARRAY SKZ_1, SKZ_2,Change;
+//   64   unsigned short ValSKZ_1, ValSKZ_2;
+//   65   unsigned char FreqOrder[Max_ValFreqCount];
+//   66 } CONFIG, *PCONFIG;
+//   67 
+
+        RSEG DATA_C:CONST:SORT:NOROOT(8)
+//   68 const CONFIG DefaultConfig = {5, 1, 3}; //rate 9600, addr 1, 1 frequency (Василий Владимирович меняйте адрес ТУТ!!!)
+DefaultConfig:
+        DATA
+        DC32 5, 1, 3
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+//   69 
+//   70 #define FPageSize 64
+//   71 #pragma data_alignment=256
+//   72 const unsigned int FlashConfig [FPageSize] = {0xFF}; //flash page for config
+FlashConfig:
+        DC32 255
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 "Config write OK!\012\015"
+        DC8 0
+        DC8 "Config read...\012\015"
+        DC8 0, 0, 0
+        DC8 "Config wrong, use default config...\012\015"
+        DC8 0, 0
+        DC8 "Config read OK!\012\015"
+        DC8 0, 0
+
+        RSEG DATA_C:CONST:SORT:NOROOT(2)
+`?<Constant "UART: %6d, Addr: %3d ...">`:
+        DATA
+        DC8 55H, 41H, 52H, 54H, 3AH, 20H, 25H, 36H
+        DC8 64H, 2CH, 20H, 41H, 64H, 64H, 72H, 3AH
+        DC8 20H, 25H, 33H, 64H, 20H, 3DH, 20H, 30H
+        DC8 78H, 25H, 32H, 58H, 20H, 46H, 72H, 65H
+        DC8 71H, 3AH, 20H, 25H, 32H, 64H, 20H, 28H
+        DC8 45H, 6EH, 74H, 65H, 72H, 20H, 74H, 6FH
+        DC8 20H, 73H, 61H, 76H, 65H, 29H, 0AH, 0DH
+        DC8 0
+        DC8 0, 0, 0
+
+        RSEG DATA_C:CONST:SORT:NOROOT(2)
+`?<Constant "_____________________...">`:
+        DATA
+        DC8 "____________________________________\012\015"
+        DC8 0
+        DC8 "%4d | "
+        DC8 0
+
+        RSEG DATA_C:CONST:SORT:NOROOT(0)
+        DATA
+        DC8 "*"
+
+        RSEG DATA_C:CONST:SORT:NOROOT(0)
+        DATA
+        DC8 " "
+
+        RSEG DATA_C:CONST:SORT:NOROOT(0)
+        DATA
+        DC8 "\012\015"
+
+        RSEG DATA_C:CONST:SORT:NOROOT(2)
+`?<Constant "SKZ1[%2d] = %d\\n\\r">`:
+        DATA
+        DC8 "SKZ1[%2d] = %d\012\015"
+        DC8 0, 0, 0
+
+        RSEG DATA_C:CONST:SORT:NOROOT(2)
+`?<Constant "SKZ2[%2d] = %d\\n\\r">`:
+        DATA
+        DC8 "SKZ2[%2d] = %d\012\015"
+        DC8 0, 0, 0
+
+        RSEG DATA_C:CONST:SORT:NOROOT(2)
+`?<Constant "FreqOrder[%2d] = %d  ...">`:
+        DATA
+        DC8 "FreqOrder[%2d] = %d  %3d\012\015"
+        DC8 0
+
+        RSEG DATA_C:CONST:SORT:NOROOT(2)
+`?<Constant "Wrong 04func frame le...">`:
+        DATA
+        DC8 "Wrong 04func frame length %d\012\015"
+        DC8 0
+        DC8 "Wrong 04func reg count %d\012\015"
+        DC8 "Read input reg 0x%X = %d\012\015"
+        DC8 0
+
+        RSEG DATA_C:CONST:SORT:NOROOT(2)
+`?<Constant "Write holding reg 0x%...">`:
+        DATA
+        DC8 "Write holding reg 0x%X = %d\012\015"
+        DC8 0, 0
+
+        RSEG DATA_C:CONST:SORT:NOROOT(2)
+`?<Constant "Wrong 06func frame le...">`:
+        DATA
+        DC8 "Wrong 06func frame length %d\012\015"
+        DC8 0
+
+        RSEG DATA_C:CONST:SORT:NOROOT(2)
+`?<Constant "Wrong 10func reg coun...">`:
+        DATA
+        DC8 "Wrong 10func reg count %d or wrong bytecount%d\012\015"
+        DC8 0, 0, 0
+        DC8 "Wrong 10func frame length %d\012\015"
+        DC8 0
+
+        RSEG DATA_N:DATA:SORT:NOROOT(2)
+//   73 
+//   74 __no_init union
+//   75 {
+//   76   unsigned int RAMConfig [FPageSize]; //ram page for config
+//   77   CONFIG Config;
+//   78 };
+_A_RAMConfig:
+        DS8 256
+US0_RecvBuf:
+        DS8 256
+DBGU_Buf:
+        DS8 1000
+US0_SendBuf:
+        DS8 256
+//   79 
+//   80 inline void US0_SetBaudRate (unsigned int Rate)
+//   81 {
+//   82   pUS0->US_BRGR = 3225600 / UARTRateTable [Rate];
+//   83   pUS0->US_RTOR = UARTTimeoutTable [Rate];//bits
+//   84 }
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock3 Using cfiCommon0
+        CFI Function WriteConfig
+        ARM
+//   85 __ramfunc void WriteConfig()             //функция записи во flash память значений SKZ1 SKZ2
+//   86 {
+WriteConfig:
+        PUSH     {R4,R5,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R5 Frame(CFA, -8)
+        CFI R4 Frame(CFA, -12)
+        CFI CFA R13+12
+//   87   unsigned int i;
+//   88   unsigned int * Flash;
+//   89   unsigned int * RAMBuf;
+//   90   unsigned int Page;
+//   91   AT91PS_MC pMC = AT91C_BASE_MC;
+//   92   
+//   93   Flash = (unsigned int *)&FlashConfig[0];
+        MOV      R2,#+256
+        LDR      R1,??WriteConfig_0  ;; DefaultConfig
+        ADD      R3,R2,R1
+//   94   RAMBuf   = (unsigned int *)&RAMConfig[0];
+        LDR      R0,??WriteConfig_0+0x4  ;; _A_RAMConfig
+        MOV      R12,R0
+//   95   
+//   96   Page = ((unsigned int)Flash >> 8) & 0x3FF;
+        ADD      R2,R2,R1
+        LSL      R2,R2,#+14
+        LSR      R2,R2,#+22
+//   97 
+//   98   //copy flash to ram 
+//   99   for (i=0; i<FPageSize; i++, Flash++, RAMBuf++) *Flash = *RAMBuf; 
+        MOV      R4,#+64
+??WriteConfig_1:
+        LDR      R5,[R12], #+4
+        STR      R5,[R3], #+4
+        SUBS     R4,R4,#+1
+        BNE      ??WriteConfig_1
+//  100   
+//  101 //  pMC->MC_FMR = 0x00500100;
+//  102   pMC->MC_FCR = ((0x5A000000) | 0x01 | (Page << 8));
+        MVN      R3,#+155
+        MOV      R4,#+1
+        ORR      R4,R4,#0x5A000000
+        ORR      R2,R4,R2, LSL #+8
+        STR      R2,[R3, #+0]
+//  103   
+//  104   //* Wait the end of command
+//  105   while ((pMC->MC_FSR & 0x01) != 1) {};
+??WriteConfig_2:
+        ADD      R2,R3,#+4
+        LDR      R2,[R2, #+0]
+        TST      R2,#0x1
+        BEQ      ??WriteConfig_2
+//  106  
+//  107   myprintf ("Config write OK!\n\r");
+        MOV      R2,#+512
+        ADD      R1,R2,R1
+        ADD      R0,R2,R0
+        _BLF     sprintf,??sprintf??rA?CODE_I
+        POP      {R4,R5,LR}       ;; Pop
+        _BF      DBGU_SendBuf,??DBGU_SendBuf??rA?CODE_I  ;; tailcall
+        DATA
+??WriteConfig_0:
+        DC32     DefaultConfig
+        DC32     _A_RAMConfig
+        CFI EndBlock cfiBlock3
+//  108 }
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock4 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??sprintf??rA?CODE_I:
+        LDR      R12,??Subroutine3_0  ;; sprintf
+        MOV      PC,R12
+        DATA
+??Subroutine3_0:
+        DC32     sprintf
+        CFI EndBlock cfiBlock4
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock5 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??DBGU_SendBuf??rA?CODE_I:
+        LDR      R12,??Subroutine4_0  ;; DBGU_SendBuf
+        MOV      PC,R12
+        DATA
+??Subroutine4_0:
+        DC32     DBGU_SendBuf
+        CFI EndBlock cfiBlock5
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock6 Using cfiCommon0
+        CFI Function ReadInitConfig
+        ARM
+//  109 void ReadInitConfig()
+//  110 {
+ReadInitConfig:
+        PUSH     {R4-R6,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R6 Frame(CFA, -8)
+        CFI R5 Frame(CFA, -12)
+        CFI R4 Frame(CFA, -16)
+        CFI CFA R13+16
+//  111   unsigned int i;
+//  112   for (i=0; i<FPageSize; i++) RAMConfig[i] = FlashConfig[i]; //copy flash to ram
+        MOV      R0,#+0
+        LDR      R4,??DataTable28  ;; _A_RAMConfig
+        LDR      R5,??ReadInitConfig_0  ;; DefaultConfig
+??ReadInitConfig_1:
+        ADD      R1,R5,R0, LSL #+2
+        LDR      R1,[R1, #+256]
+        STR      R1,[R4, +R0, LSL #+2]
+        ADD      R0,R0,#+1
+        CMP      R0,#+64
+        BCC      ??ReadInitConfig_1
+//  113   myprintf ("Config read...\n\r");
+        MOV      R6,#+512
+        ADD      R1,R5,#+532
+        ADD      R0,R6,R4
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  114   if (Config.UARTRate > 9) //wrong rate - no config
+        LDR      R0,[R4, #+0]
+        CMP      R0,#+10
+        BCC      ??ReadInitConfig_2
+//  115   {
+//  116     Config = DefaultConfig;
+        MOV      R1,#+144
+??ReadInitConfig_3:
+        SUBS     R1,R1,#+4
+        LDR      R0,[R5, R1]
+        STR      R0,[R4, R1]
+        BNE      ??ReadInitConfig_3
+//  117     myprintf ("Config wrong, use default config...\n\r");
+        ADD      R1,R5,#+552
+        ADD      R0,R6,R4
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  118     WriteConfig();
+        POP      {R4-R6,LR}       ;; Pop
+        _BF      WriteConfig,??WriteConfig??rA  ;; tailcall
+//  119     return;
+//  120   }
+//  121   myprintf ("Config read OK!\n\r");
+??ReadInitConfig_2:
+        ADD      R1,R5,#+592
+        ADD      R0,R6,R4
+        _BLF     sprintf,??sprintf??rA
+        POP      {R4-R6,LR}       ;; Pop
+        B        DBGU_SendBuf     ;; tailcall
+        DATA
+??ReadInitConfig_0:
+        DC32     DefaultConfig
+        CFI EndBlock cfiBlock6
+//  122 }
+//  123 
+//  124 
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock7 Using cfiCommon0
+        CFI Function MyprintfConfig
+        ARM
+//  125 void MyprintfConfig()
+//  126 {
+MyprintfConfig:
+        PUSH     {LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI CFA R13+4
+//  127   myprintf ("UART: %6d, Addr: %3d = 0x%2X Freq: %2d (Enter to save)\n\r",
+//  128             UARTRateTable [Config.UARTRate],
+//  129             Config.ModbusAddr, Config.ModbusAddr,
+//  130             Config.ValFreqCount );
+        LDR      R0,??DataTable28  ;; _A_RAMConfig
+        LDR      R3,[R0, #+4]
+        LDR      R1,[R0, #+8]
+        PUSH     {R1}
+        CFI CFA R13+8
+        MOV      R1,R3
+        PUSH     {R1}
+        CFI CFA R13+12
+        LDR      R1,[R0], #+512
+        LDR      R2,??DataTable27  ;; ValSKZ
+        ADD      R1,R2,R1, LSL #+2
+        LDR      R2,[R1, #+168]
+        LDR      R1,??MyprintfConfig_0  ;; `?<Constant "UART: %6d, Addr: %3d ...">`
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  131 }
+        POP      {R0,R1,PC}       ;; return
+        DATA
+??MyprintfConfig_0:
+        DC32     `?<Constant "UART: %6d, Addr: %3d ...">`
+        CFI EndBlock cfiBlock7
+//  132 
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock8 Using cfiCommon0
+        CFI Function SetUARTRate
+        ARM
+//  133 void SetUARTRate (unsigned char Rate) { Config.UARTRate = Rate; US0_SetBaudRate(Rate);};
+SetUARTRate:
+        LDR      R1,??DataTable28  ;; _A_RAMConfig
+        STR      R0,[R1, #+0]
+        _BF      US0_SetBaudRate,??US0_SetBaudRate??rA  ;; tailcall
+        CFI EndBlock cfiBlock8
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock9 Using cfiCommon0
+        CFI Function SetModbusAddr
+        ARM
+//  134 void SetModbusAddr (unsigned char Addr) { Config.ModbusAddr = Addr; };
+SetModbusAddr:
+        LDR      R1,??SetModbusAddr_0  ;; _A_RAMConfig + 4
+        B        ??Subroutine0_0
+        DATA
+??SetModbusAddr_0:
+        DC32     _A_RAMConfig + 4
+        CFI EndBlock cfiBlock9
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock10 Using cfiCommon0
+        CFI Function SetValFreqCount
+        ARM
+//  135 void SetValFreqCount (unsigned char Count) {Config.ValFreqCount = Count; };
+SetValFreqCount:
+        LDR      R1,??SetValFreqCount_0  ;; _A_RAMConfig + 8
+        B        ??Subroutine0_0
+        DATA
+??SetValFreqCount_0:
+        DC32     _A_RAMConfig + 8
+        CFI EndBlock cfiBlock10
+//  136 
+//  137 inline unsigned short HiLow (unsigned char Hi, unsigned char Low) 
+//  138                             {return ((Hi<<8)|Low);}
+//  139 inline unsigned char Hi (unsigned short Val) {return (Val>>8);}
+//  140 inline unsigned char Low (unsigned short Val) {return (Val&0xFF);}
+//  141 
+//  142 #include "Frequency.c"
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock11 Using cfiCommon0
+        CFI Function CalcValSKZ
+        ARM
+// __??Code32?? __code __arm __atpcs unsigned short CalcValSKZ(unsigned short *)
+CalcValSKZ:
+        PUSH     {R4-R6,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R6 Frame(CFA, -8)
+        CFI R5 Frame(CFA, -12)
+        CFI R4 Frame(CFA, -16)
+        CFI CFA R13+16
+        MOV      R2,R0
+        MOV      R0,#+0
+        MOV      R1,#+0
+        MOV      R3,R0
+        LDR      R12,??DataTable28  ;; _A_RAMConfig
+        LDR      R6,[R12, #+8]
+        B        ??CalcValSKZ_0
+??CalcValSKZ_1:
+        ADD      LR,R3,R12
+        LDRB     LR,[LR, #+124]
+        ADD      LR,R2,LR, LSL #+1
+        LDRH     R4,[LR, #+0]
+        UMLAL    R0,R1,R4,R4
+        ADD      R3,R3,#+1
+??CalcValSKZ_0:
+        CMP      R3,R6
+        BCC      ??CalcValSKZ_1
+        _BLF     __longLongToFloat,??__longLongToFloat??rA
+        _BLF     __floatToDouble,??__floatToDouble??rA
+        _BLF     sqrt,??sqrt??rA
+        MOV      R4,R0
+        MOV      R5,R1
+        MOV      R0,R6
+        _BLF     __ulongToDouble,??__ulongToDouble??rA
+        MOV      R2,R0
+        MOV      R3,R1
+        MOV      R0,R4
+        MOV      R1,R5
+        _BLF     __dDiv,??__dDiv??rA
+        _BLF     __doubleToLong,??__doubleToLong??rA
+        MOV      R0,R0, LSL #+16
+        MOV      R0,R0, LSR #+16
+        POP      {R4-R6,PC}       ;; return
+        CFI EndBlock cfiBlock11
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock12 Using cfiCommon0
+        CFI Function CalcSKZ
+        ARM
+// __??Code32?? __code __arm __atpcs void CalcSKZ()
+CalcSKZ:
+        PUSH     {R4-R11,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R11 Frame(CFA, -8)
+        CFI R10 Frame(CFA, -12)
+        CFI R9 Frame(CFA, -16)
+        CFI R8 Frame(CFA, -20)
+        CFI R7 Frame(CFA, -24)
+        CFI R6 Frame(CFA, -28)
+        CFI R5 Frame(CFA, -32)
+        CFI R4 Frame(CFA, -36)
+        CFI CFA R13+36
+        SUB      SP,SP,#+864
+        CFI CFA R13+900
+        MOV      R2,#+0
+        MOV      R3,#+0
+        MOV      R4,R2
+        LDR      R9,??DataTable6  ;; ADC_Buf
+??CalcSKZ_0:
+        ADD      R0,R9,R4, LSL #+1
+        LDRSH    R0,[R0, #+0]
+        ASR      R1,R0,#+31
+        ADDS     R2,R2,R0
+        ADC      R3,R3,R1
+        ADD      R4,R4,#+1
+        CMP      R4,#+512
+        BCC      ??CalcSKZ_0
+        LSR      R2,R2,#+9
+        ORR      R2,R2,R3, LSL #+23
+        MOV      R12,#+0
+??CalcSKZ_1:
+        ADD      R4,R9,R12, LSL #+1
+        LDRSH    R5,[R4, #+0]
+        SUB      R0,R5,R2
+        STRH     R0,[R4, #+0]
+        ADD      R12,R12,#+1
+        CMP      R12,#+512
+        BCC      ??CalcSKZ_1
+        MOV      R8,#+8
+        MOV      R5,#+0
+??CalcSKZ_2:
+        MOV      LR,#+0
+        MOV      R2,#+0
+        MOV      R3,R2
+        MOV      R0,R2
+        MOV      R1,R0
+        MOV      R12,R0
+??CalcSKZ_3:
+        ADD      R4,R9,R12, LSL #+1
+        LDRSH    R10,[R4, #+0]
+        LDR      R4,??DataTable23  ;; ValSKZ
+        LDR      R6,[R4, #+40]
+        ADD      R6,R6,LR, LSL #+1
+        LDRSH    R7,[R6, #+0]
+        MUL      R6,R7,R10
+        ASR      R7,R6,#+31
+        ADDS     R2,R2,R6
+        ADC      R3,R3,R7
+        LDR      R6,[R4, #+44]
+        ADD      R6,R6,LR, LSL #+1
+        LDRSH    R7,[R6, #+0]
+        MUL      R6,R7,R10
+        ASR      R7,R6,#+31
+        ADDS     R0,R0,R6
+        ADC      R1,R1,R7
+        ADD      R6,LR,R8, LSL #+5
+        LSL      R6,R6,#+18
+        LSR      LR,R6,#+18
+        ADD      R12,R12,#+1
+        CMP      R12,#+512
+        BCC      ??CalcSKZ_3
+        LSR      R2,R2,#+9
+        ORR      R2,R2,R3, LSL #+23
+        ASR      R3,R3,#+9
+        LSR      R0,R0,#+9
+        ORR      R0,R0,R1, LSL #+23
+        ASR      R1,R1,#+9
+        UMULL    R6,R7,R2,R2
+        MLA      R7,R2,R3,R7
+        MLA      R7,R3,R2,R7
+        UMULL    R2,R3,R0,R0
+        MLA      R3,R0,R1,R3
+        MLA      R3,R1,R0,R3
+        ADDS     R0,R6,R2
+        ADC      R1,R7,R3
+        MOV      R2,SP
+        ADD      R6,R2,R5, LSL #+3
+        STM      R6,{R0,R1}
+        _BLF     __longLongToDouble,??__longLongToDouble??rA
+        _BLF     sqrt,??sqrt??rA
+        _BLF     __doubleToLongLong,??__doubleToLongLong??rA
+        STM      R6,{R0,R1}
+        LDM      R6,{R0,R1}
+        LSR      R0,R0,#+14
+        ORR      R0,R0,R1, LSL #+18
+        ASR      R1,R1,#+14
+        STM      R6,{R0,R1}
+        ADD      R5,R5,#+1
+        ADD      R8,R8,#+1
+        CMP      R5,#+90
+        BCC      ??CalcSKZ_2
+        MOV      R9,#+1
+        MOV      R0,#+0
+        MOV      R5,#+0
+??CalcSKZ_4:
+        MOV      R1,SP
+        ADD      R1,R1,R0, LSL #+3
+        LDM      R1,{R2,R3}
+        CMP      R3,#+0
+        BLT      ??CalcSKZ_5
+        BGT      ??CalcSKZ_6
+        CMP      R2,#+33
+        BCC      ??CalcSKZ_5
+??CalcSKZ_6:
+        MOV      R9,#+0
+??CalcSKZ_5:
+        ADD      R0,R0,#+1
+        CMP      R0,#+90
+        BCC      ??CalcSKZ_4
+        MOV      R0,#+0
+??CalcSKZ_7:
+        MOV      R1,SP
+        ADD      R1,R1,R0, LSL #+3
+        LDM      R1,{R2,R3}
+        CMP      R3,#+0
+        BLT      ??CalcSKZ_8
+        BGT      ??CalcSKZ_9
+        CMP      R2,#+129
+        BCC      ??CalcSKZ_8
+??CalcSKZ_9:
+        MVN      R9,R5
+??CalcSKZ_8:
+        ADD      R0,R0,#+1
+        CMP      R0,#+90
+        BCC      ??CalcSKZ_7
+        MOV      R3,#+0
+??CalcSKZ_10:
+        MOV      R0,SP
+        ADD      R6,R0,R3, LSL #+3
+        LDM      R6,{R0,R1}
+        LDRB     R2,[R4, #+248]
+        RSB      R2,R2,#+8
+        _BLF     ??lllsl_a,??rA??lllsl_a
+        STM      R6,{R0,R1}
+        ADD      R3,R3,#+1
+        CMP      R3,#+90
+        BCC      ??CalcSKZ_10
+        MOV      R8,#+0
+??CalcSKZ_11:
+        ADD      R0,SP,#+720
+        ADD      LR,R0,R8, LSL #+3
+        MOV      R0,#+0
+        MOV      R1,R0
+        STM      LR,{R0,R1}
+        MOV      R12,R0
+??CalcSKZ_12:
+        MOV      R0,#+5
+        MLA      R1,R0,R8,R12
+        MOV      R0,SP
+        ADD      R0,R0,R1, LSL #+3
+        LDM      R0,{R0,R1}
+        LDM      LR,{R2,R3}
+        MOV      R6,R2
+        MOV      R7,R3
+        UMULL    R2,R3,R0,R0
+        MLA      R3,R0,R1,R3
+        MLA      R3,R1,R0,R3
+        MOV      R1,R7
+        ADDS     R0,R6,R2
+        ADC      R1,R1,R3
+        STM      LR,{R0,R1}
+        ADD      R12,R12,#+1
+        CMP      R12,#+5
+        BCC      ??CalcSKZ_12
+        ADD      R8,R8,#+1
+        CMP      R8,#+18
+        BCC      ??CalcSKZ_11
+        STR      R5,[R4, #+160]
+        MOV      R8,#+0
+??CalcSKZ_13:
+        ADD      R6,R4,R8, LSL #+2
+        ADD      R0,SP,#+720
+        ADD      R0,R0,R8, LSL #+3
+        LDM      R0,{R0,R1}
+        _BLF     __longLongToFloat,??__longLongToFloat??rA
+        _BLF     __floatToDouble,??__floatToDouble??rA
+        _BLF     sqrt,??sqrt??rA
+        MOV      R2,R0
+        MOV      R3,R1
+        MOV      R0,#-1610612736
+        LDR      R1,??CalcSKZ_14  ;; 0x3fc99999
+        _BLF     __dMul,??__dMul??rA
+        MOV      R10,R0
+        MOV      R11,R1
+        LDR      R1,[R6, #+80]
+        LDR      R0,??CalcSKZ_14+0x4  ;; 0x3f4ccccd
+        _BLF     __fMul,??__fMul??rA
+        _BLF     __floatToDouble,??__floatToDouble??rA
+        MOV      R2,R10
+        MOV      R3,R11
+        _BLF     __dAdd,??__dAdd??rA
+        _BLF     __doubleToFloat,??__doubleToFloat??rA
+        STR      R0,[R6, #+80]
+        ADD      R10,R4,R8, LSL #+1
+        _BLF     floorf,??floorf??rA
+        _BLF     __floatToLong,??__floatToLong??rA
+        STRH     R0,[R10, #+4]
+        LDRH     R0,[R10, #+4]
+        LDR      R1,[R4, #+152]
+        CMP      R0,R1
+        STRHCC   R5,[R10, #+4]
+        LDR      R0,[R4, #+156]
+        LDRH     R1,[R10, #+4]
+        CMP      R0,R1
+        MOVCC    R0,#+255
+        ORRCC    R0,R0,#0xFF00
+        STRCC    R0,[R4, #+160]
+        ADD      R8,R8,#+1
+        CMP      R8,#+18
+        BCC      ??CalcSKZ_13
+        ADD      R0,R4,#+4
+        BL       CalcValSKZ
+        STRH     R0,[R4, #+0]
+        LDR      R6,??DataTable16  ;; _A_RAMConfig
+        LDRH     R8,[R6, #+120]
+        LDRH     R0,[R6, #+122]
+        CMP      R0,R8
+        ADDEQ    R0,R0,#+1
+        STRHEQ   R0,[R6, #+122]
+        LDRH     R0,[R4, #+0]
+        SUB      R0,R0,R8
+        _BLF     __longToDouble,??__longToDouble??rA
+        MOV      R2,R0
+        MOV      R3,R1
+        MOV      R0,#+0
+        MOV      R1,#+1073741824
+        ORR      R1,R1,#0x590000
+        _BLF     __dMul,??__dMul??rA
+        MOV      R10,R0
+        MOV      R11,R1
+        LDRH     R0,[R6, #+122]
+        SUB      R0,R0,R8
+        _BLF     __longToDouble,??__longToDouble??rA
+        MOV      R2,R0
+        MOV      R3,R1
+        MOV      R0,R10
+        MOV      R1,R11
+        _BLF     __dDiv,??__dDiv??rA
+        _BLF     __doubleToLong,??__doubleToLong??rA
+        CMP      R0,#+1000
+        MOVGE    R0,#+231
+        ORRGE    R0,R0,#0x300
+        BGE      ??CalcSKZ_15
+        MVN      R1,#+230
+        BIC      R1,R1,#0x300
+        CMP      R0,R1
+        MOVLT    R0,R1
+??CalcSKZ_15:
+        STR      R0,[R4, #+164]
+        LDRSB    R0,[R4, #+248]
+        ADD      R0,R9,R0
+        MOV      R0,R0, LSL #+24
+        MOV      R0,R0, ASR #+24
+        CMP      R0,#+9
+        MOVGE    R0,#+8
+        BGE      ??CalcSKZ_16
+        CMP      R0,#+0
+        MOVMI    R0,#+0
+??CalcSKZ_16:
+        STRB     R0,[R4, #+248]
+        _BLF     SetGain,??SetGain??rA
+        ADD      SP,SP,#+864      ;; stack cleaning
+        CFI CFA R13+36
+        POP      {R4-R11,PC}      ;; return
+        DATA
+??CalcSKZ_14:
+        DC32     0x3fc99999
+        DC32     0x3f4ccccd
+        CFI EndBlock cfiBlock12
+
+        RSEG CODE:CODE:NOROOT(2)
+        DATA
+??DataTable6:
+        DC32     ADC_Buf
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock13 Using cfiCommon0
+        CFI Function SetSKZ_1
+        ARM
+// __??Code32?? __code __arm __atpcs void SetSKZ_1()
+SetSKZ_1:
+        LDR      R0,??DataTable27  ;; ValSKZ
+        MOV      R1,#+0
+        STR      R1,[R0, #+76]
+        MOV      R2,#+36
+        ADD      R1,R0,#+4
+        LDR      R0,??SetSKZ_1_0  ;; _A_RAMConfig + 12
+        _BF      memcpy,??memcpy??rA  ;; tailcall
+        DATA
+??SetSKZ_1_0:
+        DC32     _A_RAMConfig + 12
+        CFI EndBlock cfiBlock13
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock14 Using cfiCommon0
+        CFI Function SetSKZ_2
+        ARM
+// __??Code32?? __code __arm __atpcs void SetSKZ_2()
+SetSKZ_2:
+        PUSH     {R4-R11,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R11 Frame(CFA, -8)
+        CFI R10 Frame(CFA, -12)
+        CFI R9 Frame(CFA, -16)
+        CFI R8 Frame(CFA, -20)
+        CFI R7 Frame(CFA, -24)
+        CFI R6 Frame(CFA, -28)
+        CFI R5 Frame(CFA, -32)
+        CFI R4 Frame(CFA, -36)
+        CFI CFA R13+36
+        SUB      SP,SP,#+144
+        CFI CFA R13+180
+        LDR      R7,??DataTable27  ;; ValSKZ
+        MOV      R0,#+0
+        STR      R0,[R7, #+76]
+        LDR      R10,??DataTable28  ;; _A_RAMConfig
+        MOV      R2,#+36
+        ADD      R1,R7,#+4
+        ADD      R0,R10,#+48
+        _BLF     memcpy,??memcpy??rA
+        MOV      R6,#+0
+??SetSKZ_2_0:
+        MOV      R0,SP
+        ADD      R11,R0,R6, LSL #+3
+        ADD      R8,R10,R6, LSL #+1
+        ADD      R0,R10,#+12
+        ADD      R0,R0,R6, LSL #+1
+        LDRH     R0,[R0, #+0]
+        CMP      R0,#+0
+        LDRH     R0,[R8, #+48]
+        BNE      ??SetSKZ_2_1
+        _BLF     __ulongToDouble,??__ulongToDouble??rA
+        MOV      R4,R0
+        MOV      R5,R1
+        LDR      R0,[R7, #+152]
+        B        ??SetSKZ_2_2
+??SetSKZ_2_1:
+        _BLF     __ulongToDouble,??__ulongToDouble??rA
+        MOV      R4,R0
+        MOV      R5,R1
+        LDRH     R0,[R8, #+12]
+??SetSKZ_2_2:
+        _BLF     __ulongToDouble,??__ulongToDouble??rA
+        MOV      R2,R0
+        MOV      R3,R1
+        MOV      R0,R4
+        MOV      R1,R5
+        _BLF     __dDiv,??__dDiv??rA
+        MOV      R2,#+0
+        MOV      R3,#+1073741824
+        ORR      R3,R3,#0x590000
+        _BLF     __dMul,??__dMul??rA
+        STM      R11,{R0,R1}
+        ADD      R6,R6,#+1
+        CMP      R6,#+18
+        BCC      ??SetSKZ_2_0
+        B        ?Subroutine1
+        CFI EndBlock cfiBlock14
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock15 Using cfiCommon0
+        CFI Function SetSKZ_2_
+        ARM
+// __??Code32?? __code __arm __atpcs void SetSKZ_2_()
+SetSKZ_2_:
+        PUSH     {R4-R11,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R11 Frame(CFA, -8)
+        CFI R10 Frame(CFA, -12)
+        CFI R9 Frame(CFA, -16)
+        CFI R8 Frame(CFA, -20)
+        CFI R7 Frame(CFA, -24)
+        CFI R6 Frame(CFA, -28)
+        CFI R5 Frame(CFA, -32)
+        CFI R4 Frame(CFA, -36)
+        CFI CFA R13+36
+        SUB      SP,SP,#+144
+        CFI CFA R13+180
+        LDR      R7,??DataTable27  ;; ValSKZ
+        MOV      R0,#+0
+        STR      R0,[R7, #+76]
+        MOV      R6,#+0
+        LDR      R10,??DataTable28  ;; _A_RAMConfig
+??SetSKZ_2__0:
+        MOV      R0,SP
+        ADD      R11,R0,R6, LSL #+3
+        ADD      R8,R10,R6, LSL #+1
+        ADD      R0,R10,#+12
+        ADD      R0,R0,R6, LSL #+1
+        LDRH     R0,[R0, #+0]
+        CMP      R0,#+0
+        LDRH     R0,[R8, #+48]
+        BNE      ??SetSKZ_2__1
+        _BLF     __ulongToDouble,??__ulongToDouble??rA
+        MOV      R4,R0
+        MOV      R5,R1
+        LDR      R0,[R7, #+152]
+        B        ??SetSKZ_2__2
+??SetSKZ_2__1:
+        _BLF     __ulongToDouble,??__ulongToDouble??rA
+        MOV      R4,R0
+        MOV      R5,R1
+        LDRH     R0,[R8, #+12]
+??SetSKZ_2__2:
+        _BLF     __ulongToDouble,??__ulongToDouble??rA
+        MOV      R2,R0
+        MOV      R3,R1
+        MOV      R0,R4
+        MOV      R1,R5
+        _BLF     __dDiv,??__dDiv??rA
+        MOV      R2,#+0
+        MOV      R3,#+1073741824
+        ORR      R3,R3,#0x590000
+        _BLF     __dMul,??__dMul??rA
+        STM      R11,{R0,R1}
+        ADD      R6,R6,#+1
+        CMP      R6,#+18
+        BCC      ??SetSKZ_2__0
+        CFI EndBlock cfiBlock15
+        REQUIRE ?Subroutine1
+        ;; // Fall through to label ?Subroutine1
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock16 Using cfiCommon0
+        CFI NoFunction
+        CFI CFA R13+180
+        CFI R4 Frame(CFA, -36)
+        CFI R5 Frame(CFA, -32)
+        CFI R6 Frame(CFA, -28)
+        CFI R7 Frame(CFA, -24)
+        CFI R8 Frame(CFA, -20)
+        CFI R9 Frame(CFA, -16)
+        CFI R10 Frame(CFA, -12)
+        CFI R11 Frame(CFA, -8)
+        CFI ?RET Frame(CFA, -4)
+        ARM
+?Subroutine1:
+        MOV      R11,#+0
+??Subroutine1_0:
+        MOV      R7,#+0
+        MOV      R0,SP
+        LDM      R0,{R4,R5}
+        MOV      R6,#+0
+??Subroutine1_1:
+        MOV      R0,SP
+        ADD      R0,R0,R6, LSL #+3
+        LDM      R0,{R8,R9}
+        MOV      R0,R4
+        MOV      R1,R5
+        MOV      R2,R8
+        MOV      R3,R9
+        _BLF     __dLess,??__dLess??rA
+        CMP      R0,#+0
+        MOVNE    R7,R6
+        MOVNE    R4,R8
+        MOVNE    R5,R9
+        ADD      R6,R6,#+1
+        CMP      R6,#+18
+        BCC      ??Subroutine1_1
+        ADD      R0,R10,#+84
+        ADD      R6,R0,R7, LSL #+1
+        MOV      R0,R4
+        MOV      R1,R5
+        _BLF     __doubleToLong,??__doubleToLong??rA
+        STRH     R0,[R6, #+0]
+        ADD      R0,R10,#+124
+        STRB     R7,[R11, +R0]
+        MOV      R0,SP
+        ADD      R0,R0,R7, LSL #+3
+        MOV      R2,#-402653184
+        LDR      R3,??DataTable14  ;; 0xc2374876
+        STM      R0,{R2,R3}
+        ADD      R11,R11,#+1
+        CMP      R11,#+18
+        BCC      ??Subroutine1_0
+        ADD      R0,R10,#+12
+        BL       CalcValSKZ
+        STRH     R0,[R10, #+120]
+        ADD      R0,R10,#+48
+        BL       CalcValSKZ
+        STRH     R0,[R10, #+122]
+        _BLF     WriteConfig,??WriteConfig??rA
+        ADD      SP,SP,#+144      ;; stack cleaning
+        CFI CFA R13+36
+        POP      {R4-R11,PC}      ;; return
+        CFI EndBlock cfiBlock16
+
+        RSEG CODE:CODE:NOROOT(2)
+        DATA
+??DataTable14:
+        DC32     0xc2374876
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock17 Using cfiCommon0
+        CFI Function myprintfSKZSpectr
+        ARM
+// __??Code32?? __code __arm __atpcs void myprintfSKZSpectr()
+myprintfSKZSpectr:
+        PUSH     {R4-R10,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R10 Frame(CFA, -8)
+        CFI R9 Frame(CFA, -12)
+        CFI R8 Frame(CFA, -16)
+        CFI R7 Frame(CFA, -20)
+        CFI R6 Frame(CFA, -24)
+        CFI R5 Frame(CFA, -28)
+        CFI R4 Frame(CFA, -32)
+        CFI CFA R13+32
+        MOV      R4,#+512
+        LDR      R5,??DataTable16  ;; _A_RAMConfig
+        LDR      R6,??myprintfSKZSpectr_0+0x8  ;; `?<Constant "_____________________...">`
+        MOV      R1,R6
+        ADD      R0,R4,R5
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+        MOV      R7,#+0
+        MOV      R8,#+1
+??myprintfSKZSpectr_1:
+        MOV      R9,#+1
+        MOV      R2,R7
+        ADD      R1,R6,#+40
+        ADD      R0,R4,R5
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+        MOV      R10,#+0
+??myprintfSKZSpectr_2:
+        LDR      R0,??DataTable27  ;; ValSKZ
+        ADD      R0,R0,R10, LSL #+1
+        LDRH     R0,[R0, #+4]
+        CMP      R0,R8, LSL R7
+        BLT      ??myprintfSKZSpectr_3
+        ADR      R1,??myprintfSKZSpectr_0  ;; "*"
+        ADD      R0,R4,R5
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+        MOV      R9,#+0
+        B        ??myprintfSKZSpectr_4
+??myprintfSKZSpectr_3:
+        ADR      R1,??myprintfSKZSpectr_0+0x4  ;; " "
+        ADD      R0,R4,R5
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+??myprintfSKZSpectr_4:
+        ADD      R10,R10,#+1
+        CMP      R10,#+18
+        BCC      ??myprintfSKZSpectr_2
+        ADD      R7,R7,#+1
+        ADR      R1,??DataTable15  ;; "\n\r"
+        ADD      R0,R4,R5
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+        CMP      R9,#+0
+        BEQ      ??myprintfSKZSpectr_1
+        POP      {R4-R10,PC}      ;; return
+        DATA
+??myprintfSKZSpectr_0:
+        DC8      "*",+0,+0
+        DC8      " ",+0,+0
+        DC32     `?<Constant "_____________________...">`
+        CFI EndBlock cfiBlock17
+
+        RSEG CODE:CODE:NOROOT(2)
+        DATA
+??DataTable15:
+        DC8      "\n\r",+0
+
+        RSEG CODE:CODE:NOROOT(2)
+        DATA
+??DataTable16:
+        DC32     _A_RAMConfig
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock18 Using cfiCommon0
+        CFI Function myprintfSKZ
+        ARM
+// __??Code32?? __code __arm __atpcs void myprintfSKZ()
+myprintfSKZ:
+        PUSH     {R4,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R4 Frame(CFA, -8)
+        CFI CFA R13+8
+        MOV      R4,#+0
+??myprintfSKZ_0:
+        LDR      R0,??DataTable27  ;; ValSKZ
+        ADD      R0,R0,R4, LSL #+1
+        LDRH     R3,[R0, #+4]
+        MOV      R2,R4
+        LDR      R1,??myprintfSKZ_1  ;; `?<Constant "SKZ[%2d] = %d\\n\\r">`
+        LDR      R0,??DataTable19  ;; _A_RAMConfig + 512
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+        ADD      R4,R4,#+1
+        CMP      R4,#+18
+        BLT      ??myprintfSKZ_0
+        POP      {R4,PC}          ;; return
+        DATA
+??myprintfSKZ_1:
+        DC32     `?<Constant "SKZ[%2d] = %d\\n\\r">`
+        CFI EndBlock cfiBlock18
+
+        RSEG CODE:CODE:NOROOT(2)
+        DATA
+??DataTable19:
+        DC32     _A_RAMConfig + 512
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock19 Using cfiCommon0
+        CFI Function myprintfSKZ_1
+        ARM
+// __??Code32?? __code __arm __atpcs void myprintfSKZ_1()
+myprintfSKZ_1:
+        PUSH     {R4,R5,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R5 Frame(CFA, -8)
+        CFI R4 Frame(CFA, -12)
+        CFI CFA R13+12
+        MOV      R4,#+0
+        LDR      R5,??DataTable28  ;; _A_RAMConfig
+??myprintfSKZ_1_0:
+        ADD      R0,R5,#+12
+        ADD      R0,R0,R4, LSL #+1
+        LDRH     R3,[R0, #+0]
+        MOV      R2,R4
+        LDR      R1,??myprintfSKZ_1_1  ;; `?<Constant "SKZ1[%2d] = %d\\n\\r">`
+        ADD      R0,R5,#+512
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+        ADD      R4,R4,#+1
+        CMP      R4,#+18
+        BLT      ??myprintfSKZ_1_0
+        POP      {R4,R5,PC}       ;; return
+        DATA
+??myprintfSKZ_1_1:
+        DC32     `?<Constant "SKZ1[%2d] = %d\\n\\r">`
+        CFI EndBlock cfiBlock19
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock20 Using cfiCommon0
+        CFI Function myprintfSKZ_2
+        ARM
+// __??Code32?? __code __arm __atpcs void myprintfSKZ_2()
+myprintfSKZ_2:
+        PUSH     {R4,R5,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R5 Frame(CFA, -8)
+        CFI R4 Frame(CFA, -12)
+        CFI CFA R13+12
+        MOV      R4,#+0
+        LDR      R5,??DataTable28  ;; _A_RAMConfig
+??myprintfSKZ_2_0:
+        ADD      R0,R5,#+48
+        ADD      R0,R0,R4, LSL #+1
+        LDRH     R3,[R0, #+0]
+        MOV      R2,R4
+        LDR      R1,??myprintfSKZ_2_1  ;; `?<Constant "SKZ2[%2d] = %d\\n\\r">`
+        ADD      R0,R5,#+512
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+        ADD      R4,R4,#+1
+        CMP      R4,#+18
+        BLT      ??myprintfSKZ_2_0
+        POP      {R4,R5,PC}       ;; return
+        DATA
+??myprintfSKZ_2_1:
+        DC32     `?<Constant "SKZ2[%2d] = %d\\n\\r">`
+        CFI EndBlock cfiBlock20
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock21 Using cfiCommon0
+        CFI Function myprintfFreqOrder
+        ARM
+// __??Code32?? __code __arm __atpcs void myprintfFreqOrder()
+myprintfFreqOrder:
+        PUSH     {R4,R5,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R5 Frame(CFA, -8)
+        CFI R4 Frame(CFA, -12)
+        CFI CFA R13+12
+        MOV      R4,#+0
+        LDR      R5,??DataTable28  ;; _A_RAMConfig
+??myprintfFreqOrder_0:
+        ADD      R0,R5,#+84
+        ADD      R0,R0,R4, LSL #+1
+        LDRH     R0,[R0, #+0]
+        PUSH     {R0}
+        CFI CFA R13+16
+        ADD      R0,R5,#+124
+        LDRB     R3,[R4, +R0]
+        MOV      R2,R4
+        LDR      R1,??myprintfFreqOrder_1  ;; `?<Constant "FreqOrder[%2d] = %d  ...">`
+        ADD      R0,R5,#+512
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+        ADD      R4,R4,#+1
+        CMP      R4,#+18
+        ADD      SP,SP,#+4        ;; stack cleaning
+        CFI CFA R13+12
+        BLT      ??myprintfFreqOrder_0
+        POP      {R4,R5,PC}       ;; return
+        DATA
+??myprintfFreqOrder_1:
+        DC32     `?<Constant "FreqOrder[%2d] = %d  ...">`
+        CFI EndBlock cfiBlock21
+
+        RSEG DATA_I:DATA:SORT:NOROOT(2)
+ValSKZ:
+        DS8 2
+        REQUIRE `?<Initializer for ValSKZ>`
+        DS8 2
+SKZ:
+        DS8 36
+        REQUIRE `?<Initializer for SKZ>`
+// signed short const *__data Cos
+Cos:
+        DS8 4
+        REQUIRE `?<Initializer for Cos>`
+// signed short const *__data Sin
+Sin:
+        DS8 4
+        REQUIRE `?<Initializer for Sin>`
+pPMC:
+        DS8 4
+        REQUIRE `?<Initializer for pPMC>`
+pPIO:
+        DS8 4
+        REQUIRE `?<Initializer for pPIO>`
+pTC0:
+        DS8 4
+        REQUIRE `?<Initializer for pTC0>`
+pDBGU:
+        DS8 4
+        REQUIRE `?<Initializer for pDBGU>`
+pADC:
+        DS8 4
+        REQUIRE `?<Initializer for pADC>`
+pSPI:
+        DS8 4
+        REQUIRE `?<Initializer for pSPI>`
+pUS0:
+        DS8 4
+        REQUIRE `?<Initializer for pUS0>`
+first_pass:
+        DS8 4
+        REQUIRE `?<Initializer for first_pass>`
+f_SKZ:
+        DS8 72
+        REQUIRE `?<Initializer for f_SKZ>`
+MinSKZ_val:
+        DS8 4
+        REQUIRE `?<Initializer for MinSKZ_val>`
+Object_on_level:
+        DS8 4
+        REQUIRE `?<Initializer for Object_on_level>`
+Object_on:
+        DS8 4
+        REQUIRE `?<Initializer for Object_on>`
+RelValSKZ:
+        DS8 4
+        REQUIRE `?<Initializer for RelValSKZ>`
+UARTRateTable:
+        DS8 40
+        REQUIRE `?<Initializer for UARTRateTable>`
+UARTTimeoutTable:
+        DS8 40
+        REQUIRE `?<Initializer for UARTTimeoutTable>`
+Gain:
+        DS8 1
+        REQUIRE `?<Initializer for Gain>`
+RelValSKZ1toSKZ2:
+        DS8 1
+        REQUIRE `?<Initializer for RelValSKZ1toSKZ2>`
+//  143 
+//  144 unsigned char ViewModbus = 0;
+ViewModbus:
+        DS8 1
+        REQUIRE `?<Initializer for ViewModbus>`
+        DS8 1
+GainTable:
+        DS8 12
+        REQUIRE `?<Initializer for GainTable>`
+//  145 #define modbus_printf(...) if (ViewModbus) DBGU_SendBuf(sprintf(&DBGU_Buf[0],__VA_ARGS__));
+//  146 
+//  147 //*******************************************************************
+//  148 //* crc for Buf
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock22 Using cfiCommon0
+        CFI Function ModbusCRC
+        ARM
+//  149 unsigned short ModbusCRC (unsigned char *Buf, unsigned int Count)
+//  150 {
+ModbusCRC:
+        PUSH     {R4,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R4 Frame(CFA, -8)
+        CFI CFA R13+8
+//  151   unsigned short s,j,t,i;
+//  152   s = 0xFFFF;
+        MOV      R2,#+255
+        ORR      R2,R2,#0xFF00
+//  153   for(i=0; i<Count; i++)
+        MOV      R3,#+0
+        B        ??ModbusCRC_0
+//  154   {
+//  155     t = Buf[i];
+//  156     s = t^s;
+//  157     for(j=0; j<8; j++)
+??ModbusCRC_1:
+        SUBS     R4,R4,#+1
+        BNE      ??ModbusCRC_2
+        ADD      R3,R3,#+1
+        MOV      R3,R3, LSL #+16
+        MOV      R3,R3, LSR #+16
+??ModbusCRC_0:
+        CMP      R3,R1
+        BCS      ??ModbusCRC_3
+        LDRB     R4,[R3, +R0]
+        EOR      R2,R2,R4
+        MOV      R2,R2, LSL #+16
+        MOV      R2,R2, LSR #+16
+        MOV      R4,#+8
+//  158     {  
+//  159       if(s & 0x0001 == 1)  {s >>= 1;  s ^= 0xA001;}
+??ModbusCRC_2:
+        LSL      R12,R2,#+16
+        LSR      R12,R12,#+17
+        TST      R2,#0x1
+        MOVEQ    R2,R12
+        MOVNE    R2,#+1
+        ORRNE    R2,R2,#0xA000
+        EORNE    R2,R2,R12
+        B        ??ModbusCRC_1
+//  160       else { s >>= 1;} 
+//  161     } 
+//  162   }
+//  163   return s;
+??ModbusCRC_3:
+        MOV      R0,R2, LSL #+16
+        MOV      R0,R0, LSR #+16
+        POP      {R4,PC}          ;; return
+        CFI EndBlock cfiBlock22
+//  164 }
+//  165 
+//  166 //*******************************************************************
+//  167 //* reads  logical modbus registers as physical variables 
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock23 Using cfiCommon0
+        CFI Function ReadInputReg
+        ARM
+//  168 unsigned short ReadInputReg (unsigned short Addr)
+//  169 {
+//  170   if ((Addr>=0x00) & (Addr<=0x12)) return (SKZ[Addr]);// SKZ values
+ReadInputReg:
+        LDR      R2,??DataTable23  ;; ValSKZ
+        CMP      R0,#+19
+        ADDCC    R0,R2,R0, LSL #+1
+        LDRHCC   R0,[R0, #+4]
+        MOVCC    PC,LR
+//  171   if ((Addr>=0x20) & (Addr<=0x32)) return (Config.SKZ_1[Addr-0x20]);// SKZ1 values
+        LDR      R3,??DataTable28  ;; _A_RAMConfig
+        ADD      R12,R3,R0, LSL #+1
+        SUB      R12,R12,#+80
+        CMP      R0,#+32
+        BCC      ??ReadInputReg_0
+        CMP      R0,#+51
+        LDRHCC   R0,[R12, #+28]
+        MOVCC    PC,LR
+//  172   if ((Addr>=0x40) & (Addr<=0x52)) return (Config.SKZ_2[Addr-0x40]);// SKZ2 values
+??ReadInputReg_0:
+        CMP      R0,#+64
+        BCC      ??ReadInputReg_1
+        CMP      R0,#+83
+        LDRHCC   R0,[R12, #+0]
+        MOVCC    PC,LR
+//  173   if ((Addr>=0x60) & (Addr<=0x72)) return (Config.FreqOrder[Addr-0x60]);//order
+??ReadInputReg_1:
+        CMP      R0,#+96
+        BCC      ??ReadInputReg_2
+        CMP      R0,#+115
+        ADDCC    R0,R0,R3
+        LDRBCC   R0,[R0, #+28]
+        MOVCC    PC,LR
+//  174   
+//  175   if (Addr==0x80) return Config.ValFreqCount;
+??ReadInputReg_2:
+        CMP      R0,#+128
+        LDREQ    R0,[R3, #+8]
+        BEQ      ??ReadInputReg_3
+//  176   if (Addr==0x83) return Config.ValSKZ_1;
+        CMP      R0,#+131
+        LDRHEQ   R0,[R3, #+120]
+        MOVEQ    PC,LR
+//  177   if (Addr==0x84) return Config.ValSKZ_2;
+        CMP      R0,#+132
+        LDRHEQ   R0,[R3, #+122]
+        MOVEQ    PC,LR
+//  178   if (Addr==0x85) return ValSKZ;
+        CMP      R0,#+133
+        LDRHEQ   R0,[R2, #+0]
+        MOVEQ    PC,LR
+//  179   if (Addr==0x86) return RelValSKZ;
+        CMP      R0,#+134
+        BNE      ??ReadInputReg_4
+        LDR      R0,[R2, #+164]
+??ReadInputReg_3:
+        MOV      R0,R0, LSL #+16
+        MOV      R0,R0, LSR #+16
+        MOV      PC,LR
+//  180   if (Addr==0x87) return RelValSKZ1toSKZ2;
+??ReadInputReg_4:
+        CMP      R0,#+135
+        LDRBEQ   R0,[R2, #+249]
+        MOVEQ    PC,LR
+//  181   if (Addr==0x88) return Object_on;
+        CMP      R0,#+136
+        LDREQ    R0,[R2, #+160]
+        BEQ      ??ReadInputReg_3
+//  182   return 0; 
+        MOV      R0,#+0
+        MOV      PC,LR            ;; return
+        CFI EndBlock cfiBlock23
+//  183 }
+
+        RSEG CODE:CODE:NOROOT(2)
+        DATA
+??DataTable23:
+        DC32     ValSKZ
+//  184 
+//  185 //*******************************************************************
+//  186 //* func code 0x0C - функция, которую мы используем для сохранения обоих массивов SKZ в памяти еепром БКИ  
+//  187 inline void Read_SKZ_func (unsigned char *Frame, unsigned char FrameCount)
+//  188 { 
+//  189 Config.ValSKZ_1=((unsigned int)Frame[2]<<8)+Frame[3];
+//  190 Config.ValSKZ_2=((unsigned int)Frame[4]<<8)+Frame[5];
+//  191 CalcSKZ(); 
+//  192 first_pass=0; 
+//  193   return;
+//  194 }
+//  195 
+//  196 inline void Read_freq_count (unsigned char *Frame, unsigned char FrameCount)
+//  197 {
+//  198 Config.ValFreqCount=Frame[2];
+//  199 return; 
+//  200 }
+//  201 
+//  202 inline void Read_object_on_level (unsigned char *Frame, unsigned char FrameCount)
+//  203 {
+//  204 //Object_on_level=(int);  
+//  205 Object_on_level=0;  
+//  206 Object_on_level=(int)(Frame[2]<<8)|Frame[3];
+//  207 Object_on_level = Object_on_level/sqrt(Config.ValFreqCount);
+//  208 return; 
+//  209 }
+//  210 
+//  211 inline void Read_MINSKZ_value (unsigned char *Frame, unsigned char FrameCount)
+//  212 {
+//  213 MinSKZ_val=Frame[2]<<8;  
+//  214 MinSKZ_val=MinSKZ_val+Frame[3];
+//  215 
+//  216 return; 
+//  217 }
+//  218 //* func code 0xCC - функция, которую мы используем для сохранения обоих массивов SKZ в памяти еепром БКИ 
+//  219 /*inline void Write_SKZ_arrays_func (unsigned char *Frame,unsigned char FrameCount, 
+//  220                                   unsigned char *Answ,unsigned char *AnswCount )
+//  221 { unsigned int m=0;
+//  222   Answ[0] = Frame[0]; //address
+//  223   Answ[1] = Frame[1]; //func code
+//  224   for (m=0;m<19;m++)
+//  225   {Answ[2+m*2] = Config.SKZ_1[m]>>8;
+//  226    Answ[3+m*2] = Config.SKZ_1[m];}
+//  227   for (m=0;m<19;m++)
+//  228   {Answ[40+m*2] = Config.SKZ_2[m]>>8;
+//  229   Answ[41+m*2] = Config.SKZ_2[m];}
+//  230   unsigned short crc = ModbusCRC(Answ, 78);
+//  231   Answ[78] = Low(crc);
+//  232   Answ[79] = Hi(crc);
+//  233   *AnswCount = 80;
+//  234   return;}*/
+//  235 //* func code 0xCD - функция, которую мы используем для чтения обоих массивов SKZ из памяти еепром БКИ
+//  236 inline void SKZ_arrays_read (unsigned char *Frame,unsigned char FrameCount 
+//  237                                   )
+//  238 { unsigned int m=0;
+//  239 
+//  240   for (m=0;m<19;m++)
+//  241   {Config.SKZ_1[m] = ((unsigned int)Frame[2+m*2]<<8)+Frame[3+m*2];//сохраняем 1й массив
+//  242  }
+//  243 // SetSKZ_1();
+//  244   for (m=0;m<19;m++)
+//  245   {Config.SKZ_2[m] = ((unsigned int)Frame[40+m*2]<<8)+Frame[41+m*2];//сохраняем 2й массив
+//  246  }
+//  247 
+//  248 
+//  249  
+//  250 SetSKZ_2_ ();
+//  251 if((Config.ValSKZ_1==0xfffe)&&(Config.ValSKZ_2==0xfffe)){
+//  252 for (m=0;m<19;m++){  Config.SKZ_1[m]=0;Config.SKZ_2[m]=0;}}
+//  253 SetSKZ_2_ ();  
+//  254   return;}
+//  255 
+//  256 inline void Freq_Order_Read (unsigned char *Frame,unsigned char FrameCount 
+//  257                                   )
+//  258 { unsigned int m=0;
+//  259 
+//  260   for (m=0;m<19;m++)
+//  261   {Config.FreqOrder[m] = Frame[2];//сохраняем 1й массив
+//  262  }
+//  263 // SetSKZ_1();
+//  264 
+//  265  return;}
+//  266 
+//  267 inline void ParseRead_InputReg (unsigned char *Frame, unsigned char FrameCount,
+//  268                                   unsigned char *Answ, unsigned char *AnswCount)
+//  269 {
+//  270   if (FrameCount != 8) // addr + funccode + 2regaddr + 2regcount + 2crc
+//  271     { modbus_printf("Wrong 04func frame length %d\n\r", FrameCount); return;}
+//  272   
+//  273   unsigned short StartAddr = HiLow (Frame[2], Frame[3]);
+//  274   unsigned short RegCount  = HiLow (Frame[4], Frame[5]);
+//  275   
+//  276   if ((RegCount<1) || (RegCount>125)) 
+//  277     { modbus_printf("Wrong 04func reg count %d\n\r", RegCount); return;}
+//  278 
+//  279   // 1) form header of frame
+//  280   Answ[0] = Frame[0]; //address
+//  281   Answ[1] = Frame[1]; //func code
+//  282   Answ[2] = (unsigned char) (2 * RegCount); //byte count
+//  283   unsigned char Count = 3;
+//  284 
+//  285   // 2) reading registers and appending them to answer
+//  286   unsigned short Addr;
+//  287   for (Addr = StartAddr; Addr < StartAddr+RegCount; Addr++)
+//  288   {
+//  289     signed int Reg = ReadInputReg(Addr);
+//  290     modbus_printf ("Read input reg 0x%X = %d\n\r", Addr, Reg);
+//  291     Answ[Count] = Hi(Reg);
+//  292     Count++;
+//  293     Answ[Count] = Low(Reg);
+//  294     Count++;
+//  295   }
+//  296   
+//  297   // 3) appending CRC
+//  298   unsigned short crc = ModbusCRC(Answ, Count);
+//  299   Answ[Count] = Low(crc);
+//  300   Count++;
+//  301   Answ[Count] = Hi(crc);
+//  302   Count++;
+//  303   
+//  304   // 4) returning answer frame length
+//  305   *AnswCount = Count;
+//  306   return;
+//  307 }
+//  308 //*******************************************************************
+//  309 //* writes physical variables as logical modbus registers в этом виде отправляются регистры 
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock24 Using cfiCommon0
+        CFI Function WriteHoldingReg
+        ARM
+//  310 void WriteHoldingReg( unsigned short Addr, unsigned short Value)
+//  311 {
+WriteHoldingReg:
+        PUSH     {R4-R7,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R7 Frame(CFA, -8)
+        CFI R6 Frame(CFA, -12)
+        CFI R5 Frame(CFA, -16)
+        CFI R4 Frame(CFA, -20)
+        CFI CFA R13+20
+        MOV      R4,R0
+        MOV      R5,R1
+//  312   modbus_printf ("Write holding reg 0x%X = %d\n\r", Addr, Value)
+        LDR      R7,??DataTable28  ;; _A_RAMConfig
+        LDR      R6,??DataTable27  ;; ValSKZ
+        LDRB     R0,[R6, #+250]
+        CMP      R0,#+0
+        BEQ      ??WriteHoldingReg_0
+        MOV      R3,R5
+        MOV      R2,R4
+        LDR      R1,??WriteHoldingReg_1  ;; `?<Constant "Write holding reg 0x%...">`
+        ADD      R0,R7,#+512
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  313   if (Addr==0x80) {Config.ValFreqCount = Value; WriteConfig();}
+??WriteHoldingReg_0:
+        CMP      R4,#+128
+        BNE      ??WriteHoldingReg_2
+        STR      R5,[R7, #+8]
+        POP      {R4-R7,LR}       ;; Pop
+        _BF      WriteConfig,??WriteConfig??rA  ;; tailcall
+//  314   if (Addr==0x81) {SetSKZ_1(); return;}
+??WriteHoldingReg_2:
+        CMP      R4,#+129
+        BNE      ??WriteHoldingReg_3
+        POP      {R4-R7,LR}       ;; Pop
+        B        SetSKZ_1         ;; tailcall
+//  315   if (Addr==0x82) {SetSKZ_2(); 
+??WriteHoldingReg_3:
+        CMP      R4,#+130
+        POPNE    {R4-R7,PC}
+        BL       SetSKZ_2
+//  316   RelValSKZ1toSKZ2 =100*(double)(Config.ValSKZ_2)/(double)(Config.ValSKZ_1)-100; //relation value of levels (first calibration point to second calibration point)
+        LDRH     R0,[R7, #+122]
+        _BLF     __ulongToDouble,??__ulongToDouble??rA
+        MOV      R2,#+0
+        MOV      R3,#+1073741824
+        ORR      R3,R3,#0x590000
+        _BLF     __dMul,??__dMul??rA
+        MOV      R4,R0
+        MOV      R5,R1
+        LDRH     R0,[R7, #+120]
+        _BLF     __ulongToDouble,??__ulongToDouble??rA
+        MOV      R2,R0
+        MOV      R3,R1
+        MOV      R0,R4
+        MOV      R1,R5
+        _BLF     __dDiv,??__dDiv??rA
+        MOV      R2,#+0
+        MOV      R3,#-1073741824
+        ORR      R3,R3,#0x590000
+        _BLF     __dAdd,??__dAdd??rA
+        _BLF     __doubleToLong,??__doubleToLong??rA
+        STRB     R0,[R6, #+249]
+//  317   if(RelValSKZ1toSKZ2 <= 0)RelValSKZ1toSKZ2=0;
+//  318   if(RelValSKZ1toSKZ2 > 100)RelValSKZ1toSKZ2=100;
+        AND      R0,R0,#0xFF
+        CMP      R0,#+101
+        MOVCS    R0,#+100
+        STRBCS   R0,[R6, #+249]
+        POP      {R4-R7,PC}       ;; return
+        DATA
+??WriteHoldingReg_1:
+        DC32     `?<Constant "Write holding reg 0x%...">`
+        CFI EndBlock cfiBlock24
+//  319   return; }
+//  320   return;
+//  321 }
+//  322 
+//  323 //*******************************************************************
+//  324 //* func code 0x06 ф-я записывает регистр ожидания одиночный
+//  325 inline void ParseWriteSingle_HoldingReg (unsigned char *Frame, unsigned char FrameCount,
+//  326                                          unsigned char *Answ, unsigned char *AnswCount)
+//  327 {
+//  328   if (FrameCount != 8) // addr + funccode + 2regaddr + 2regvalue + 2crc
+//  329     { modbus_printf("Wrong 06func frame length %d\n\r", FrameCount); return;}
+//  330 
+//  331   unsigned short RegAddr = HiLow (Frame[2], Frame[3]);
+//  332   unsigned short RegValue = HiLow (Frame[4], Frame[5]);
+//  333 
+//  334   // 1) form header of frame
+//  335   Answ[0] = Frame[0]; //address
+//  336   Answ[1] = Frame[1]; //func code
+//  337   Answ[2] = Frame[2]; //addr hi
+//  338   Answ[3] = Frame[3]; //addr low
+//  339   Answ[4] = Frame[4]; //val hi
+//  340   Answ[5] = Frame[5]; //val low
+//  341 
+//  342   // 2) writing reg
+//  343   WriteHoldingReg( RegAddr, RegValue);
+//  344 
+//  345   // 3) appending CRC
+//  346   unsigned short crc = ModbusCRC(Answ, 6);
+//  347   Answ[6] = Low(crc);
+//  348   Answ[7] = Hi(crc);
+//  349   
+//  350   // 4) returning answer frame length
+//  351   *AnswCount = 8;
+//  352   return;
+//  353 }
+//  354 
+//  355 //*******************************************************************
+//  356 //* func code 0x10 ф-я записывает множественный регистр ожидания
+//  357 inline void ParseWriteMulty_HoldingReg (unsigned char *Frame, unsigned char FrameCount,
+//  358                                         unsigned char *Answ, unsigned char *AnswCount)
+//  359 {
+//  360   unsigned short StartAddr = HiLow (Frame[2], Frame[3]);
+//  361   unsigned short RegCount = HiLow (Frame[4], Frame[5]);
+//  362   unsigned char ByteCount = Frame[6];
+//  363   
+//  364   if ((RegCount<1) || (RegCount>123) || (ByteCount!=RegCount*2))
+//  365       { modbus_printf("Wrong 10func reg count %d or wrong bytecount%d\n\r", RegCount, ByteCount); return;}
+//  366   
+//  367   if (FrameCount != (9+RegCount*2)) // addr + funccode + 2regaddr + 2regcount + bytecount + 2crc +2*RegCount
+//  368   { modbus_printf("Wrong 10func frame length %d\n\r", FrameCount); return;}
+//  369 
+//  370   // 1) form header of frame
+//  371   Answ[0] = Frame[0]; //address
+//  372   Answ[1] = Frame[1]; //func code
+//  373   Answ[2] = Frame[2]; //addr hi
+//  374   Answ[3] = Frame[3]; //addr low
+//  375   Answ[4] = Frame[4]; //count hi
+//  376   Answ[5] = Frame[5]; //count low
+//  377 
+//  378   // 2) writing regs
+//  379   unsigned short RegIndex, RegValue;
+//  380   for (RegIndex = 0; RegIndex < RegCount; RegIndex++)
+//  381   {
+//  382     RegValue = HiLow ( Frame[7+RegIndex*2], Frame[8+RegIndex*2] );
+//  383     WriteHoldingReg( StartAddr + RegIndex, RegValue);
+//  384   }
+//  385 
+//  386   // 3) appending CRC
+//  387   unsigned short crc = ModbusCRC(Answ, 6);
+//  388   Answ[6] = Low(crc);
+//  389   Answ[7] = Hi(crc);
+//  390   
+//  391   // 4) returning answer frame length
+//  392   *AnswCount = 8;
+//  393   return;
+//  394 }
+//  395 
+//  396 //*******************************************************************
+//  397 //* if AnswCount = 0, then no answer.
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock25 Using cfiCommon0
+        CFI Function ProcessModbusFrame
+        ARM
+//  398 void ProcessModbusFrame (unsigned char *Frame, unsigned char FrameCount,
+//  399                        unsigned char *Answ, unsigned char *AnswCount)
+//  400 {
+ProcessModbusFrame:
+        PUSH     {R4-R11,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R11 Frame(CFA, -8)
+        CFI R10 Frame(CFA, -12)
+        CFI R9 Frame(CFA, -16)
+        CFI R8 Frame(CFA, -20)
+        CFI R7 Frame(CFA, -24)
+        CFI R6 Frame(CFA, -28)
+        CFI R5 Frame(CFA, -32)
+        CFI R4 Frame(CFA, -36)
+        CFI CFA R13+36
+        MOV      R4,R0
+        MOV      R5,R1
+        MOV      R7,R2
+        MOV      R8,R3
+        MOV      R0,#+0
+        STRB     R0,[R8, #+0]
+//  401   *AnswCount = 0;
+//  402   //check  address
+//  403   unsigned char Addr = Frame[0];
+//  404   if (Addr!=Config.ModbusAddr) 
+        MOV      R9,#+512
+        LDR      R10,??ProcessModbusFrame_0  ;; `?<Constant "Wrong modbus addr\\n\\r">`
+        LDR      R6,??DataTable27  ;; ValSKZ
+        LDR      R11,??DataTable28  ;; _A_RAMConfig
+        LDRB     R0,[R4, #+0]
+        LDR      R1,[R11, #+4]
+        CMP      R0,R1
+        BEQ      ??ProcessModbusFrame_1
+//  405   { modbus_printf("Wrong modbus addr\n\r"); return;}
+        LDRB     R0,[R6, #+250]
+        CMP      R0,#+0
+        POPEQ    {R4-R11,PC}
+        MOV      R1,R10
+        B        ??ProcessModbusFrame_2
+//  406   //check crc
+//  407   unsigned short crc;
+//  408   crc = ModbusCRC (Frame, FrameCount);
+??ProcessModbusFrame_1:
+        MOV      R1,R5
+        MOV      R0,R4
+        BL       ModbusCRC
+//  409   if (crc!=0) { modbus_printf("Wrong modbus crc\n\r"); return;}
+        LDRB     R1,[R6, #+250]
+        CMP      R0,#+0
+        BEQ      ??ProcessModbusFrame_3
+        CMP      R1,#+0
+        POPEQ    {R4-R11,PC}
+        ADD      R1,R10,#+20
+??ProcessModbusFrame_2:
+        ADD      R0,R9,R11
+        _BLF     sprintf,??sprintf??rA
+        B        ??ProcessModbusFrame_4
+//  410   //parsing func code
+//  411   unsigned char FuncCode = Frame[1];
+??ProcessModbusFrame_3:
+        LDRB     R2,[R4, #+1]
+//  412   switch (FuncCode)
+        SUBS     R0,R2,#+4
+        BEQ      ??ProcessModbusFrame_5
+        SUBS     R0,R0,#+2
+        BEQ      ??ProcessModbusFrame_6
+        SUBS     R0,R0,#+6
+        BEQ      ??ProcessModbusFrame_7
+        SUBS     R0,R0,#+4
+        BEQ      ??ProcessModbusFrame_8
+        SUBS     R0,R0,#+187
+        BEQ      ??ProcessModbusFrame_9
+        SUBS     R0,R0,#+1
+        BEQ      ??ProcessModbusFrame_10
+        SUBS     R0,R0,#+1
+        BEQ      ??ProcessModbusFrame_11
+        SUBS     R0,R0,#+1
+        BEQ      ??ProcessModbusFrame_12
+        SUBS     R0,R0,#+1
+        BEQ      ??ProcessModbusFrame_13
+        B        ??ProcessModbusFrame_14
+//  413   {
+//  414   case 0xCD: SKZ_arrays_read (Frame, FrameCount);break;  
+??ProcessModbusFrame_11:
+        MOV      R1,R5
+        MOV      R0,R4
+        POP      {R4-R11,LR}      ;; Pop
+        _BF      SKZ_arrays_read,??SKZ_arrays_read??rA  ;; tailcall
+//  415   case 0xCE: Freq_Order_Read (Frame, FrameCount);break;  
+??ProcessModbusFrame_12:
+        MOV      R0,#+0
+        ADD      R1,R11,#+124
+??ProcessModbusFrame_15:
+        LDRB     R2,[R4, #+2]
+        STRB     R2,[R0, +R1]
+        ADD      R0,R0,#+1
+        CMP      R0,#+19
+        POPCS    {R4-R11,PC}
+        B        ??ProcessModbusFrame_15
+//  416   case 0xCC: Read_freq_count(Frame, FrameCount); break;
+??ProcessModbusFrame_10:
+        LDRB     R0,[R4, #+2]
+        STR      R0,[R11, #+8]
+        POP      {R4-R11,PC}
+//  417   case 0xCF: Read_object_on_level(Frame, FrameCount); break;
+??ProcessModbusFrame_13:
+        MOV      R0,#+0
+        STR      R0,[R6, #+156]
+        LDRB     R0,[R4, #+2]
+        LDRB     R1,[R4, #+3]
+        ORR      R0,R1,R0, LSL #+8
+        STR      R0,[R6, #+156]
+        LDR      R0,[R11, #+8]
+        _BLF     __ulongToDouble,??__ulongToDouble??rA
+        _BLF     sqrt,??sqrt??rA
+        MOV      R4,R0
+        MOV      R5,R1
+        LDR      R0,[R6, #+156]
+        _BLF     __ulongToDouble,??__ulongToDouble??rA
+        MOV      R2,R4
+        MOV      R3,R5
+        _BLF     __dDiv,??__dDiv??rA
+        _BLF     __doubleToUlong,??__doubleToUlong??rA
+        STR      R0,[R6, #+156]
+        POP      {R4-R11,PC}
+//  418   case 0xCB: Read_MINSKZ_value(Frame, FrameCount);break;
+??ProcessModbusFrame_9:
+        LDRB     R0,[R4, #+2]
+        LSL      R0,R0,#+8
+        STR      R0,[R6, #+152]
+        LDRB     R1,[R4, #+3]
+        ADD      R0,R1,R0
+        STR      R0,[R6, #+152]
+        POP      {R4-R11,PC}
+//  419   case 0x0C: Read_SKZ_func(Frame, FrameCount);break;  
+??ProcessModbusFrame_7:
+        MOV      R1,R5
+        MOV      R0,R4
+        POP      {R4-R11,LR}      ;; Pop
+        _BF      Read_SKZ_func,??Read_SKZ_func??rA  ;; tailcall
+//  420   case 0x04: ParseRead_InputReg(Frame, FrameCount, Answ, AnswCount); break; //читаем регистр MODBUS
+??ProcessModbusFrame_5:
+        MOV      R3,R8
+        MOV      R2,R7
+        MOV      R1,R5
+        MOV      R0,R4
+        POP      {R4-R11,LR}      ;; Pop
+        _BF      ParseRead_InputReg,??ParseRead_InputReg??rA  ;; tailcall
+//  421   case 0x06: ParseWriteSingle_HoldingReg(Frame, FrameCount, Answ, AnswCount); break;//читаем регистр MODBUS и отправляем значение на БКИ
+??ProcessModbusFrame_6:
+        MOV      R3,R8
+        MOV      R2,R7
+        MOV      R1,R5
+        MOV      R0,R4
+        POP      {R4-R11,LR}      ;; Pop
+        _BF      ParseWriteSingle_HoldingReg,??ParseWriteSingle_HoldingReg??rA  ;; tailcall
+//  422   case 0x10: ParseWriteMulty_HoldingReg(Frame, FrameCount, Answ, AnswCount); break;
+??ProcessModbusFrame_8:
+        MOV      R3,R8
+        MOV      R2,R7
+        MOV      R1,R5
+        MOV      R0,R4
+        POP      {R4-R11,LR}      ;; Pop
+        _BF      ParseWriteMulty_HoldingReg,??ParseWriteMulty_HoldingReg??rA  ;; tailcall
+//  423   default: modbus_printf ("Wrong func code %d\n\r", FuncCode)//AnswerIllegalFuncCode(Frame, FrameCount, Answ, AnswCount);
+??ProcessModbusFrame_14:
+        CMP      R1,#+0
+        POPEQ    {R4-R11,PC}
+        ADD      R1,R10,#+40
+        ADD      R0,R9,R11
+        _BLF     sprintf,??sprintf??rA
+??ProcessModbusFrame_4:
+        POP      {R4-R11,LR}      ;; Pop
+        B        DBGU_SendBuf     ;; tailcall
+        DATA
+??ProcessModbusFrame_0:
+        DC32     `?<Constant "Wrong modbus addr\\n\\r">`
+        CFI EndBlock cfiBlock25
+//  424   }
+//  425 }
+
+        RSEG CODE:CODE:NOROOT(2)
+        DATA
+??DataTable27:
+        DC32     ValSKZ
+
+        RSEG CODE:CODE:NOROOT(2)
+        DATA
+??DataTable28:
+        DC32     _A_RAMConfig
+//  426 
+//  427 //*********************************************************
+//  428 //  USART0 waiting frame - setting pdc, writing sttto
+//  429 inline void StartTimeout ()
+//  430 {
+//  431   pUS0->US_RPR=(unsigned int)&US0_RecvBuf[0]; 
+//  432   pUS0->US_RCR = US0_BufSize; 
+//  433   pUS0->US_CR |= (1<<11);
+//  434 }
+//  435 
+//  436 //**************************************************
+//  437 //* Function  main
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock26 Using cfiCommon0
+        CFI Function main
+        ARM
+//  438 int main( void )
+//  439 { 
+main:
+        PUSH     {R0,R4-R11,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R11 Frame(CFA, -8)
+        CFI R10 Frame(CFA, -12)
+        CFI R9 Frame(CFA, -16)
+        CFI R8 Frame(CFA, -20)
+        CFI R7 Frame(CFA, -24)
+        CFI R6 Frame(CFA, -28)
+        CFI R5 Frame(CFA, -32)
+        CFI R4 Frame(CFA, -36)
+        CFI CFA R13+40
+//  440   //*******************************************************
+//  441   //  Configuring PMC controller
+//  442   pPMC->PMC_PCER = (1 << AT91C_ID_SYS) |
+//  443                    (1 << AT91C_ID_PIOA) |
+//  444                    (1 << AT91C_ID_TC0) |
+//  445                    (1 << AT91C_ID_SPI) |
+//  446                    (1 << AT91C_ID_US0) ;
+        LDR      R4,??DataTable30  ;; ValSKZ
+        LDR      R0,[R4, #+48]
+        MOV      R1,#+102
+        ORR      R1,R1,#0x1000
+        STR      R1,[R0, #+16]
+//  447   
+//  448   //*******************************************************
+//  449   //  Configuring PIO Controller
+//  450   
+//  451   #define ConfigPIOA(a) pPIO->PIO_ASR |= a; pPIO->PIO_PDR |=a;
+//  452   #define ConfigPIOB(a) pPIO->PIO_BSR |= a; pPIO->PIO_PDR |=a;
+//  453   #define ConfigGPIO_Out(a) pPIO->PIO_PER |= a; pPIO->PIO_OER |= a;
+//  454   
+//  455   ConfigPIOA (AT91C_PIO_PA9 |  //drxd
+//  456               AT91C_PIO_PA10 | //dtxd
+//  457               AT91C_PIO_PA12 | //spi miso
+//  458               AT91C_PIO_PA13 | //spi mosi
+//  459               AT91C_PIO_PA14 | //spi sck
+//  460               AT91C_PIO_PA5| //usart0 rxd
+//  461               AT91C_PIO_PA6| //usart0 txd
+//  462               AT91C_PIO_PA7| //usart0 rts (for 485)
+//  463               AT91C_PIO_PA31 ); //spi npcs1 - for attenuator
+        LDR      R0,[R4, #+52]
+        LDR      R1,??main_0      ;; 0x800076e0
+        LDR      R2,[R0, #+112]
+        ORR      R2,R1,R2
+        STR      R2,[R0, #+112]
+        LDR      R2,[R0, #+4]
+        ORR      R1,R1,R2
+        STR      R1,[R0, #+4]
+//  464   ConfigPIOB (AT91C_PIO_PA0); //tioa0 output
+        LDR      R1,[R0, #+116]
+        ORR      R1,R1,#0x1
+        STR      R1,[R0, #+116]
+        LDR      R1,[R0, #+4]
+        ORR      R1,R1,#0x1
+        STR      R1,[R0, #+4]
+//  465   ConfigGPIO_Out (AT91C_PIO_PA1);//led
+        LDR      R1,[R0, #+0]
+        ORR      R1,R1,#0x2
+        STR      R1,[R0, #+0]
+        LDR      R1,[R0, #+16]
+        ORR      R1,R1,#0x2
+        STR      R1,[R0, #+16]
+//  466 
+//  467   //********************************************************
+//  468   //  Configuring Timer 0
+//  469 //  unsigned int dummy;
+//  470   pTC0 = AT91C_BASE_TC0;
+        MOV      R0,#-16777216
+        ORR      R0,R0,#0xFA0000
+        STR      R0,[R4, #+56]
+        MOV      R1,#+0
+        STR      R1,[R0, #+0]
+//  471 
+//  472   pTC0->TC_CCR = 0; //disable clock
+//  473   pTC0->TC_IDR = 0xFFFFFFFF ; //disable all interrupt
+        ORR      R1,R0,#0x28
+        MVN      R2,#+0
+        STR      R2,[R1, #+0]
+//  474 //  dummy = pTC0->TC_SR;
+//  475 //  dummy = dummy;
+//  476   
+//  477   pTC0->TC_CMR = 0x0009C000; //MCK/2, wave with trigger on rc
+        ORR      R1,R0,#0x4
+        MOV      R2,#+638976
+        STR      R2,[R1, #+0]
+//  478   pTC0->TC_RA = 500; //800;
+        ORR      R1,R0,#0x14
+        MOV      R2,#+500
+        STR      R2,[R1, #+0]
+        ORR      R1,R0,#0x1C
+        MOV      R2,#+1008
+        STR      R2,[R1, #+0]
+        MOV      R1,#+1
+        STR      R1,[R0, #+0]
+//  479   pTC0->TC_RC = 1008; //25600Hz  //1613; //16KHz
+//  480   pTC0->TC_CCR = 1; //enable clock
+//  481   pTC0->TC_CCR = 4; //start
+        MOV      R1,#+4
+        STR      R1,[R0, #+0]
+//  482   
+//  483   //*********************************************************
+//  484   //  Configuring DBGU for printing 115200 8 bit no parity
+//  485   pDBGU->DBGU_BRGR = 28;
+        LDR      R0,[R4, #+60]
+        MOV      R1,#+28
+        STR      R1,[R0, #+32]
+//  486   pDBGU->DBGU_MR = 0x800;
+        MOV      R1,#+2048
+        STR      R1,[R0, #+4]
+//  487   pDBGU->DBGU_CR = (1<<6) | (1<<4); //TXEN & RXEN
+        MOV      R8,#+80
+        STR      R8,[R0, #+0]
+//  488   pDBGU->DBGU_PTCR = (1 << 8); //TXTEN for PDC
+        MOV      R10,#+256
+        STR      R10,[R0, #+288]
+//  489 
+//  490   //*********************************************************
+//  491   //  Configuring ADC
+//  492   pADC->ADC_MR = 0x00013001; //trigger on TIOA0 clock 500K
+        LDR      R0,[R4, #+64]
+        MOV      R1,#+1
+        ORR      R1,R1,#0x13000
+        STR      R1,[R0, #+4]
+//  493   pADC->ADC_CHER = (1<<4);
+        MOV      R1,#+16
+        STR      R1,[R0, #+16]
+//  494   pADC->ADC_PTCR = 1; //RXTEN
+        MOV      R1,#+1
+        STR      R1,[R0, #+288]
+//  495 
+//  496   //*********************************************************
+//  497   //  Configuring SPI
+//  498   pSPI->SPI_CSR[1] = 0x0000FF02; //200KHz, 8 bit, rising edge
+        LDR      R0,[R4, #+68]
+        MOV      R1,#+2
+        ORR      R1,R1,#0xFF00
+        STR      R1,[R0, #+52]
+//  499   pSPI->SPI_MR = 0xFF000013; 
+        MOV      R1,#+19
+        ORR      R1,R1,#0xFF000000
+        STR      R1,[R0, #+4]
+//  500   pSPI->SPI_CR = 1;//enabled
+        MOV      R1,#+1
+        STR      R1,[R0, #+0]
+//  501 
+//  502   //**********************************************************
+//  503   // Application initialization
+//  504   myprintf("\n\r>Start of work\n\r");
+        MOV      R5,#+512
+        LDR      R6,??DataTable31  ;; _A_RAMConfig
+        LDR      R7,??main_0+0x4  ;; `?<Constant "\\n\\r>Start of work\\n\\r">`
+        MOV      R1,R7
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  505   SetGain(0);
+        MOV      R0,#+0
+        _BLF     SetGain,??SetGain??rA
+//  506   myprintf (">Debug interface ready\n\r");
+        ADD      R1,R7,#+20
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  507 
+//  508   ReadInitConfig();
+        BL       ReadInitConfig
+//  509 
+//  510   //*********************************************************
+//  511   //  Configuring USART0 for speed
+//  512   pUS0->US_MR = 0x000000C1;  //8 bit EVEN parity, RS485
+        LDR      R0,[R4, #+72]
+        MOV      R1,#+193
+        STR      R1,[R0, #+4]
+//  513   pUS0->US_CR = (1<<6) | (1<<4); //TXEN & RXEN
+        STR      R8,[R0, #+0]
+//  514   pUS0->US_PTCR = (1 << 8) | (1); //TXTEN & RXTEN for PDC
+        ADD      R1,R1,#+64
+        STR      R1,[R0, #+288]
+//  515   US0_SetBaudRate(Config.UARTRate);
+        LDR      R0,[R6, #+0]
+        _BLF     US0_SetBaudRate,??US0_SetBaudRate??rA
+//  516 //  Config.ValFreqCount = Value;
+//  517 //  SetSKZ_2 ();
+//  518   StartTimeout();
+        _BLF     StartTimeout,??StartTimeout??rA
+//  519 //  SetGainCode(GainCode);
+//  520   myprintf ("Entering main endless loop\n\r");
+        ADD      R1,R7,#+48
+??main_1:
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+??main_2:
+        BL       DBGU_SendBuf
+        B        ??main_3
+//  521 // CalcSKZ();
+//  522 for (;;) //********* MAIN ENDLES LOOP *************************
+//  523 {   
+//  524     //sampling buffer from ADC
+//  525     pADC->ADC_RPR = (unsigned int)&ADC_Buf[0]; 
+//  526     pADC->ADC_RCR = ADC_Buf_Size;
+//  527         
+//  528     while (pADC->ADC_RCR != 0) {} //wait ADC buf recieving
+//  529 //    if(!first_pass){
+//  530       CalcSKZ();//} 
+//  531     
+//  532     myprintf("\rSKZ1:%6d SKZ2:%6d SKZ:%6d=%3d SKZ1/SKZ2:%3d EnVal:%6d MinVal:%6d", Config.ValSKZ_1, Config.ValSKZ_2, ValSKZ, RelValSKZ,RelValSKZ1toSKZ2,(int)(Object_on_level/sqrt(Config.ValFreqCount)),MinSKZ_val);//SKZ1/SKZ2:%3d должно быть таким иначе всё ломается//(int)(Object_on_level*sqrt(Config.ValFreqCount))
+//  533 
+//  534   unsigned int i;
+//  535   unsigned char Count;
+//  536     
+//  537   //*******************************************************************
+//  538   // checking MODBUS frame recieved, processing it
+//  539   
+//  540   if (pUS0->US_CSR & (1<<8)) //is timeout
+//  541   {
+//  542     Count = US0_BufSize - pUS0->US_RCR; //save count
+//  543     pUS0->US_RCR = 0;                    //no more recieve
+//  544 
+//  545     modbus_printf ("Recieved %d chars\n\r", Count); //test print buf
+//  546     for (i=0; i<Count; i++) modbus_printf ("%2X ", US0_RecvBuf[i]);
+//  547     modbus_printf ("\n\r");
+//  548 
+//  549     //parsing frame and sending answer
+//  550     ProcessModbusFrame ((unsigned char*)&US0_RecvBuf[0], Count, (unsigned char*)&US0_SendBuf, &Count);    
+//  551     US0_Send(Count);
+//  552     
+//  553     StartTimeout(); //start waiting new frame
+//  554   }
+//  555 
+//  556   unsigned char Sym;
+//  557 
+//  558   //if symbol recieved trough DBGU, then handle it
+//  559   if (pDBGU->DBGU_CSR & 1) //symbol recieved
+//  560   {
+//  561     Sym = pDBGU->DBGU_RHR;
+//  562     myprintf("\n\r");
+//  563 //    myprintf ("Recieved symbol <%c> with code <%2X>\n\r", Sym, Sym)
+//  564     switch (Sym)
+//  565     {
+//  566     //******************  configuration commands  ********************//
+//  567     case '0': 
+//  568     case '1':
+//  569     case '2':
+//  570     case '3':
+//  571     case '4':
+//  572     case '5':
+//  573     case '6':
+//  574     case '7':
+//  575     case '8': 
+//  576     case '9': SetUARTRate (Sym-'0'); MyprintfConfig(); break;
+??main_4:
+        ADD      R0,R9,#+208
+        AND      R0,R0,#0xFF
+        BL       SetUARTRate
+//  577 
+//  578     case 0x3D: //Config.ModbusAddr++; 
+//  579                //if (Config.ModbusAddr>255) Config.ModbusAddr = 255; 
+//  580                MyprintfConfig ();
+??main_5:
+        BL       MyprintfConfig
+??main_3:
+        LDR      R0,[R4, #+64]
+        LDR      R1,??DataTable32  ;; ADC_Buf
+        STR      R1,[R0, #+256]
+        STR      R5,[R0, #+260]
+??main_6:
+        LDR      R1,[R0, #+260]
+        CMP      R1,#+0
+        BNE      ??main_6
+        BL       CalcSKZ
+        LDR      R0,[R6, #+8]
+        _BLF     __ulongToDouble,??__ulongToDouble??rA
+        _BLF     sqrt,??sqrt??rA
+        MOV      R8,R0
+        MOV      R9,R1
+        LDR      R11,[R4, #+152]
+        LDR      R0,[R4, #+156]
+        _BLF     __ulongToDouble,??__ulongToDouble??rA
+        MOV      R2,R8
+        MOV      R3,R9
+        _BLF     __dDiv,??__dDiv??rA
+        _BLF     __doubleToLong,??__doubleToLong??rA
+        MOV      R1,R11
+        PUSH     {R0,R1}
+        CFI CFA R13+48
+        LDRB     R0,[R4, #+249]
+        PUSH     {R0}
+        CFI CFA R13+52
+        LDR      R0,[R4, #+164]
+        PUSH     {R0}
+        CFI CFA R13+56
+        LDRH     R0,[R4, #+0]
+        PUSH     {R0}
+        CFI CFA R13+60
+        LDRH     R3,[R6, #+122]
+        LDRH     R2,[R6, #+120]
+        ADD      R1,R7,#+80
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+        LDR      R0,[R4, #+72]
+        ADD      R11,R5,#+1000
+        ADR      R8,??DataTable29  ;; "\n\r"
+        LDR      R1,[R0, #+20]
+        TST      R1,#0x100
+        ADD      SP,SP,#+20       ;; stack cleaning
+        CFI CFA R13+40
+        BEQ      ??main_7
+        LDR      R2,[R0, #+260]
+        RSB      R2,R2,#+0
+        STRB     R2,[SP, #+0]
+        MOV      R1,#+0
+        STR      R1,[R0, #+260]
+        LDRB     R0,[R4, #+250]
+        CMP      R0,#+0
+        BEQ      ??main_8
+        LDRB     R2,[SP, #+0]
+        ADD      R1,R7,#+148
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+??main_8:
+        MOV      R9,#+0
+        B        ??main_9
+??main_10:
+        CMP      R0,#+0
+        BEQ      ??main_11
+        ADD      R0,R9,R6
+        LDRB     R2,[R0, #+256]
+        ADD      R1,R7,#+168
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+??main_11:
+        ADD      R9,R9,#+1
+??main_9:
+        LDRB     R0,[R4, #+250]
+        LDRB     R1,[SP, #+0]
+        CMP      R9,R1
+        BCC      ??main_10
+        CMP      R0,#+0
+        BEQ      ??main_12
+        MOV      R1,R8
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+??main_12:
+        MOV      R3,SP
+        ADD      R2,R11,R6
+        LDRB     R1,[SP, #+0]
+        ADD      R0,R10,R6
+        BL       ProcessModbusFrame
+        LDRB     R0,[SP, #+0]
+        BL       US0_Send
+        _BLF     StartTimeout,??StartTimeout??rA
+??main_7:
+        LDR      R0,[R4, #+60]
+        LDR      R1,[R0, #+20]
+        TST      R1,#0x1
+        BEQ      ??main_3
+        LDR      R9,[R0, #+24]
+        AND      R9,R9,#0xFF
+        MOV      R1,R8
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+        SUBS     R0,R9,#+13
+        BEQ      ??main_13
+        SUBS     R0,R0,#+32
+        BEQ      ??main_5
+        SUB      R0,R0,#+3
+        CMP      R0,#+9
+        BLS      ??main_4
+        SUBS     R0,R0,#+13
+        BEQ      ??main_5
+        SUBS     R0,R0,#+30
+        BEQ      ??main_14
+        SUBS     R0,R0,#+2
+        BEQ      ??main_15
+        SUBS     R0,R0,#+4
+        BEQ      ??main_16
+        SUBS     R0,R0,#+2
+        BEQ      ??main_5
+        SUBS     R0,R0,#+3
+        BEQ      ??main_17
+        SUBS     R0,R0,#+1
+        BEQ      ??main_18
+        SUBS     R0,R0,#+1
+        BEQ      ??main_19
+        SUBS     R0,R0,#+1
+        BEQ      ??main_20
+        SUBS     R0,R0,#+4
+        BEQ      ??main_21
+        SUBS     R0,R0,#+4
+        BEQ      ??main_22
+        SUBS     R0,R0,#+2
+        BEQ      ??main_23
+        SUBS     R0,R0,#+1
+        BEQ      ??main_24
+        SUBS     R0,R0,#+2
+        BEQ      ??main_25
+        SUBS     R0,R0,#+1
+        BEQ      ??main_26
+        SUBS     R0,R0,#+1
+        BEQ      ??main_27
+        SUBS     R0,R0,#+2
+        BEQ      ??main_28
+        B        ??main_29
+//  581                break; 
+//  582     case 0x2D: //Config.ModbusAddr--; 
+//  583                //if (Config.ModbusAddr<1) Config.ModbusAddr = 1; 
+//  584                MyprintfConfig ();
+//  585                break; 
+//  586     case ']':  Config.ValFreqCount++; 
+??main_15:
+        LDR      R0,[R6, #+8]
+        ADD      R0,R0,#+1
+        STR      R0,[R6, #+8]
+//  587                if (Config.ValFreqCount>Max_ValFreqCount) Config.ValFreqCount = Max_ValFreqCount;
+        CMP      R0,#+19
+        BCC      ??main_5
+        MOV      R0,#+18
+??main_30:
+        STR      R0,[R6, #+8]
+        B        ??main_5
+//  588                MyprintfConfig ();
+//  589                break; 
+//  590     case '[':  Config.ValFreqCount--; 
+??main_14:
+        LDR      R0,[R6, #+8]
+        SUBS     R0,R0,#+1
+        STR      R0,[R6, #+8]
+//  591                if (Config.ValFreqCount<1) Config.ValFreqCount = 1; 
+        BNE      ??main_5
+        MOV      R0,#+1
+        B        ??main_30
+//  592                MyprintfConfig ();
+//  593                break; 
+//  594     case 0x0D: WriteConfig (); 
+??main_13:
+        _BLF     WriteConfig,??WriteConfig??rA
+        B        ??main_3
+//  595                break; 
+//  596     case 'c':  MyprintfConfig (); 
+//  597                break; 
+//  598     case 'v':  myprintf("Current firmware virsion is 1.7.3\n\r"); 
+??main_25:
+        ADD      R1,R7,#+176
+        B        ??main_1
+//  599                break; 
+//  600     case 'i':  myprintf("Identify number of the device is 55485A4D\n\r"); 
+??main_20:
+        ADD      R1,R7,#+212
+??main_31:
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+??main_32:
+        B        ??main_2
+//  601                break; 
+//  602     //******************  calibration commands  ********************//
+//  603     
+//  604     case 'z':  SetSKZ_1(); 
+??main_28:
+        BL       SetSKZ_1
+//  605                myprintf("SET UP SKZ_1\n\r"); 
+        ADD      R1,R10,R7
+        B        ??main_1
+//  606                break; 
+//  607     case 'x':  SetSKZ_2();
+??main_27:
+        BL       SetSKZ_2
+//  608                myprintf("SET UP SKZ_2 AND FREQUENCY ORDER\n\r"); 
+        ADD      R1,R7,#+272
+        B        ??main_31
+//  609                break; 
+//  610     case 'q':  myprintfSKZ_1(); 
+??main_22:
+        BL       myprintfSKZ_1
+        B        ??main_3
+//  611                break; 
+//  612     case 'w':  myprintfSKZ_2(); 
+??main_26:
+        BL       myprintfSKZ_2
+        B        ??main_3
+//  613                break; 
+//  614     case 'f':  myprintfFreqOrder(); 
+??main_17:
+        BL       myprintfFreqOrder
+        B        ??main_3
+//  615                break; 
+//  616     case 's':  myprintfSKZSpectr(); 
+??main_23:
+        BL       myprintfSKZSpectr
+        B        ??main_3
+//  617                break; 
+//  618     case 'a':  myprintfSKZ(); 
+??main_16:
+        BL       myprintfSKZ
+        B        ??main_3
+//  619                break; 
+//  620 
+//  621     //******************  calibration commands  ********************//
+//  622 
+//  623     case 'h': myprintf ("0 ... 9 - Set UART speed 300 ... 115200\n\r"); 
+??main_19:
+        ADD      R1,R7,#+308
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  624               myprintf ("- / +  - Decrement / increment MODBUS address\n\r"); 
+        ADD      R1,R7,#+352
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  625               myprintf ("[ / ]  - Decrement / increment frecuency count\n\r"); 
+        ADD      R1,R7,#+400
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  626               myprintf ("c      - Display current configuration\n\r"); 
+        ADD      R1,R7,#+452
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  627               myprintf ("Enter  - Save currrent configuration to flash memory\n\r"); 
+        ADD      R1,R7,#+496
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  628               myprintf ("z / x  - Save current SKZ as first / second calibration point\n\r"); 
+        ADD      R1,R7,#+552
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  629               myprintf ("q / w  - Display first / second calibration point\n\r"); 
+        ADD      R1,R7,#+616
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  630               myprintf ("f      - View frequency order\n\r"); 
+        ADD      R1,R7,#+668
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  631               myprintf ("s      - View current SKZ as spectre\n\r"); 
+        ADD      R1,R7,#+700
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  632               myprintf ("a      - View current SKZ as values\n\r"); 
+        ADD      R1,R7,#+1088
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  633               myprintf ("h      - This help screen\n\r"); 
+        ADD      R1,R7,#+740
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  634               myprintf ("g      - Display current gain\n\r"); 
+        ADD      R1,R7,#+768
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  635               myprintf ("t      - Test message to MODBUS port\n\r"); 
+        ADD      R1,R7,#+800
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  636               myprintf ("m      - Toggle on/off displaying MODBUS command processing\n\r"); 
+        ADD      R1,R7,#+840
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  637               myprintf ("v      - View version of firmware\n\r"); 
+        ADD      R1,R7,#+904
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  638               myprintf ("i      - View identify number of the device\n\r"); 
+        ADD      R1,R7,#+940
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  639               myprintf ("\n\r"); 
+        MOV      R1,R8
+        B        ??main_1
+//  640               break;
+//  641     case 'g': myprintf ("Current gain <%d>\n\r", Gain); 
+??main_18:
+        LDRSB    R2,[R4, #+248]
+        ADD      R1,R7,#+988
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        B        ??main_2
+//  642               break; 
+//  643     case 't': myprintf("Test UART for send\n\r"); 
+??main_24:
+        ADD      R1,R7,#+1008
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+//  644               US0printf("Test UART for send\n\r");
+        ADD      R1,R7,#+1008
+        ADD      R0,R11,R6
+        _BLF     sprintf,??sprintf??rA
+        BL       US0_Send
+        B        ??main_3
+//  645               break; 
+//  646     case 'm': ViewModbus ^= 0x01; myprintf("Modbus is %d\n\r", ViewModbus); 
+??main_21:
+        LDRB     R0,[R4, #+250]
+        EOR      R2,R0,#0x1
+        STRB     R2,[R4, #+250]
+        ADD      R0,R5,#+520
+        ADD      R1,R0,R7
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        B        ??main_2
+//  647               break; 
+//  648 
+//  649 /*    case '/': CalcSKZ(); 
+//  650               break; 
+//  651 */
+//  652 /*    case ',': GainCode--; SetGainCode(GainCode); myprintf("Gain Code %3d\n\r", GainCode);
+//  653               break;
+//  654     case '.': GainCode++; SetGainCode(GainCode); myprintf("Gain Code %3d\n\r", GainCode);
+//  655               break;
+//  656 */
+//  657     default: myprintf ("Recieved symbol <%c> with code <%2X>\n\r", Sym, Sym);
+??main_29:
+        MOV      R3,R9
+        MOV      R2,R9
+        ADD      R0,R5,#+536
+        ADD      R1,R0,R7
+        ADD      R0,R5,R6
+        _BLF     sprintf,??sprintf??rA
+        B        ??main_2
+        DATA
+??main_0:
+        DC32     0x800076e0
+        DC32     `?<Constant "\\n\\r>Start of work\\n\\r">`
+        CFI EndBlock cfiBlock26
+//  658     }
+//  659   }
+//  660 }
+//  661 }
+
+        RSEG CODE:CODE:NOROOT(2)
+        DATA
+??DataTable29:
+        DC8      "\n\r",+0
+
+        RSEG CODE:CODE:NOROOT(2)
+        DATA
+??DataTable30:
+        DC32     ValSKZ
+
+        RSEG CODE:CODE:NOROOT(2)
+        DATA
+??DataTable31:
+        DC32     _A_RAMConfig
+
+        RSEG CODE:CODE:NOROOT(2)
+        DATA
+??DataTable32:
+        DC32     ADC_Buf
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock27 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??rA??divu32_a:
+        LDR      R12,??Subroutine2_0  ;; ??divu32_a
+        MOV      PC,R12
+        DATA
+??Subroutine2_0:
+        DC32     ??divu32_a
+        CFI EndBlock cfiBlock27
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock28 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??sprintf??rA:
+        LDR      R12,??Subroutine5_0  ;; sprintf
+        MOV      PC,R12
+        DATA
+??Subroutine5_0:
+        DC32     sprintf
+        CFI EndBlock cfiBlock28
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock29 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??WriteConfig??rA:
+        LDR      R12,??Subroutine6_0  ;; WriteConfig
+        MOV      PC,R12
+        DATA
+??Subroutine6_0:
+        DC32     WriteConfig
+        CFI EndBlock cfiBlock29
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock30 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??US0_SetBaudRate??rA:
+        LDR      R12,??Subroutine7_0  ;; US0_SetBaudRate
+        MOV      PC,R12
+        DATA
+??Subroutine7_0:
+        DC32     US0_SetBaudRate
+        CFI EndBlock cfiBlock30
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock31 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??__longLongToFloat??rA:
+        LDR      R3,??Subroutine8_0  ;; __longLongToFloat
+        BX       R3
+        DATA
+??Subroutine8_0:
+        DC32     __longLongToFloat
+        CFI EndBlock cfiBlock31
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock32 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??__floatToDouble??rA:
+        LDR      R3,??Subroutine9_0  ;; __floatToDouble
+        BX       R3
+        DATA
+??Subroutine9_0:
+        DC32     __floatToDouble
+        CFI EndBlock cfiBlock32
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock33 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??sqrt??rA:
+        LDR      R12,??Subroutine10_0  ;; sqrt
+        MOV      PC,R12
+        DATA
+??Subroutine10_0:
+        DC32     sqrt
+        CFI EndBlock cfiBlock33
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock34 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??__ulongToDouble??rA:
+        LDR      R3,??Subroutine11_0  ;; __ulongToDouble
+        BX       R3
+        DATA
+??Subroutine11_0:
+        DC32     __ulongToDouble
+        CFI EndBlock cfiBlock34
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock35 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??__dDiv??rA:
+        LDR      R12,??Subroutine12_0  ;; __dDiv
+        BX       R12
+        DATA
+??Subroutine12_0:
+        DC32     __dDiv
+        CFI EndBlock cfiBlock35
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock36 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??__doubleToLong??rA:
+        LDR      R3,??Subroutine13_0  ;; __doubleToLong
+        BX       R3
+        DATA
+??Subroutine13_0:
+        DC32     __doubleToLong
+        CFI EndBlock cfiBlock36
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock37 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??__longLongToDouble??rA:
+        LDR      R3,??Subroutine14_0  ;; __longLongToDouble
+        BX       R3
+        DATA
+??Subroutine14_0:
+        DC32     __longLongToDouble
+        CFI EndBlock cfiBlock37
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock38 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??__doubleToLongLong??rA:
+        LDR      R3,??Subroutine15_0  ;; __doubleToLongLong
+        BX       R3
+        DATA
+??Subroutine15_0:
+        DC32     __doubleToLongLong
+        CFI EndBlock cfiBlock38
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock39 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??rA??lllsl_a:
+        LDR      R12,??Subroutine16_0  ;; ??lllsl_a
+        MOV      PC,R12
+        DATA
+??Subroutine16_0:
+        DC32     ??lllsl_a
+        CFI EndBlock cfiBlock39
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock40 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??__dMul??rA:
+        LDR      R12,??Subroutine17_0  ;; __dMul
+        BX       R12
+        DATA
+??Subroutine17_0:
+        DC32     __dMul
+        CFI EndBlock cfiBlock40
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock41 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??__fMul??rA:
+        LDR      R3,??Subroutine18_0  ;; __fMul
+        BX       R3
+        DATA
+??Subroutine18_0:
+        DC32     __fMul
+        CFI EndBlock cfiBlock41
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock42 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??__dAdd??rA:
+        LDR      R12,??Subroutine19_0  ;; __dAdd
+        BX       R12
+        DATA
+??Subroutine19_0:
+        DC32     __dAdd
+        CFI EndBlock cfiBlock42
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock43 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??__doubleToFloat??rA:
+        LDR      R3,??Subroutine20_0  ;; __doubleToFloat
+        BX       R3
+        DATA
+??Subroutine20_0:
+        DC32     __doubleToFloat
+        CFI EndBlock cfiBlock43
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock44 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??floorf??rA:
+        LDR      R12,??Subroutine21_0  ;; floorf
+        MOV      PC,R12
+        DATA
+??Subroutine21_0:
+        DC32     floorf
+        CFI EndBlock cfiBlock44
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock45 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??__floatToLong??rA:
+        LDR      R3,??Subroutine22_0  ;; __floatToLong
+        BX       R3
+        DATA
+??Subroutine22_0:
+        DC32     __floatToLong
+        CFI EndBlock cfiBlock45
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock46 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??__longToDouble??rA:
+        LDR      R3,??Subroutine23_0  ;; __longToDouble
+        BX       R3
+        DATA
+??Subroutine23_0:
+        DC32     __longToDouble
+        CFI EndBlock cfiBlock46
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock47 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??SetGain??rA:
+        LDR      R12,??Subroutine24_0  ;; SetGain
+        MOV      PC,R12
+        DATA
+??Subroutine24_0:
+        DC32     SetGain
+        CFI EndBlock cfiBlock47
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock48 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??memcpy??rA:
+        LDR      R12,??Subroutine25_0  ;; memcpy
+        MOV      PC,R12
+        DATA
+??Subroutine25_0:
+        DC32     memcpy
+        CFI EndBlock cfiBlock48
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock49 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??__dLess??rA:
+        LDR      R12,??Subroutine26_0  ;; __dLess
+        BX       R12
+        DATA
+??Subroutine26_0:
+        DC32     __dLess
+        CFI EndBlock cfiBlock49
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock50 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??SKZ_arrays_read??rA:
+        LDR      R12,??Subroutine27_0  ;; SKZ_arrays_read
+        MOV      PC,R12
+        DATA
+??Subroutine27_0:
+        DC32     SKZ_arrays_read
+        CFI EndBlock cfiBlock50
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock51 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??__doubleToUlong??rA:
+        LDR      R3,??Subroutine28_0  ;; __doubleToUlong
+        BX       R3
+        DATA
+??Subroutine28_0:
+        DC32     __doubleToUlong
+        CFI EndBlock cfiBlock51
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock52 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??Read_SKZ_func??rA:
+        LDR      R12,??Subroutine29_0  ;; Read_SKZ_func
+        MOV      PC,R12
+        DATA
+??Subroutine29_0:
+        DC32     Read_SKZ_func
+        CFI EndBlock cfiBlock52
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock53 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??ParseRead_InputReg??rA:
+        LDR      R12,??Subroutine30_0  ;; ParseRead_InputReg
+        MOV      PC,R12
+        DATA
+??Subroutine30_0:
+        DC32     ParseRead_InputReg
+        CFI EndBlock cfiBlock53
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock54 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??ParseWriteSingle_HoldingReg??rA:
+        LDR      R12,??Subroutine31_0  ;; ParseWriteSingle_HoldingReg
+        MOV      PC,R12
+        DATA
+??Subroutine31_0:
+        DC32     ParseWriteSingle_HoldingReg
+        CFI EndBlock cfiBlock54
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock55 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??ParseWriteMulty_HoldingReg??rA:
+        LDR      R12,??Subroutine32_0  ;; ParseWriteMulty_HoldingReg
+        MOV      PC,R12
+        DATA
+??Subroutine32_0:
+        DC32     ParseWriteMulty_HoldingReg
+        CFI EndBlock cfiBlock55
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock56 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??StartTimeout??rA:
+        LDR      R12,??Subroutine33_0  ;; StartTimeout
+        MOV      PC,R12
+        DATA
+??Subroutine33_0:
+        DC32     StartTimeout
+        CFI EndBlock cfiBlock56
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock57 Using cfiCommon0
+        CFI Function SetGain
+        ARM
+SetGain:
+        LDR      R1,??SetGain_0   ;; ValSKZ
+        STRB     R0,[R1, #+248]
+        LDR      R2,[R1, #+68]
+        ADD      R0,R0,R1
+        LDRB     R0,[R0, #+252]
+        MOV      R1,#+16777216
+        ORR      R1,R1,#0xD0000
+        ORR      R0,R1,R0
+        STR      R0,[R2, #+12]
+??SetGain_1:
+        LDR      R0,[R2, #+16]
+        TST      R0,#0x200
+        BEQ      ??SetGain_1
+        MOV      PC,LR            ;; return
+        DATA
+??SetGain_0:
+        DC32     ValSKZ
+        CFI EndBlock cfiBlock57
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock58 Using cfiCommon0
+        CFI Function US0_SetBaudRate
+        ARM
+US0_SetBaudRate:
+        PUSH     {LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI CFA R13+4
+        LDR      R1,??US0_SetBaudRate_0  ;; ValSKZ
+        ADD      R2,R1,R0, LSL #+2
+        LDR      R3,[R1, #+72]
+        MOV      R0,#+3145728
+        ORR      R0,R0,#0x13800
+        LDR      R1,[R2, #+168]
+        _BLF     ??divu32_a,??rA??divu32_a
+        STR      R1,[R3, #+32]
+        LDR      R0,[R2, #+208]
+        STR      R0,[R3, #+36]
+        POP      {PC}             ;; return
+        DATA
+??US0_SetBaudRate_0:
+        DC32     ValSKZ
+        CFI EndBlock cfiBlock58
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock59 Using cfiCommon0
+        CFI Function Read_SKZ_func
+        ARM
+Read_SKZ_func:
+        PUSH     {LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI CFA R13+4
+        LDR      R1,??Read_SKZ_func_0  ;; _A_RAMConfig
+        LDRB     R2,[R0, #+2]
+        LDRB     R3,[R0, #+3]
+        ADD      R2,R3,R2, LSL #+8
+        STRH     R2,[R1, #+120]
+        LDRB     R2,[R0, #+4]
+        LDRB     R0,[R0, #+5]
+        ADD      R0,R0,R2, LSL #+8
+        STRH     R0,[R1, #+122]
+        BL       CalcSKZ
+        LDR      R0,??Read_SKZ_func_0+0x4  ;; ValSKZ + 76
+        MOV      R1,#+0
+        STR      R1,[R0, #+0]
+        POP      {PC}             ;; return
+        DATA
+??Read_SKZ_func_0:
+        DC32     _A_RAMConfig
+        DC32     ValSKZ + 76
+        CFI EndBlock cfiBlock59
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock60 Using cfiCommon0
+        CFI Function SKZ_arrays_read
+        ARM
+SKZ_arrays_read:
+        PUSH     {R0,R1,R4,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R4 Frame(CFA, -8)
+        CFI CFA R13+16
+        MOV      R1,#+0
+        LDR      R4,??SKZ_arrays_read_0  ;; _A_RAMConfig
+??SKZ_arrays_read_1:
+        LSL      R2,R1,#+1
+        ADD      R3,R4,#+12
+        ADD      R3,R3,R1, LSL #+1
+        ADD      R12,R0,#+2
+        LDRB     R12,[R2, +R12]
+        ADD      LR,R0,#+3
+        LDRB     R2,[R2, +LR]
+        ADD      R2,R2,R12, LSL #+8
+        STRH     R2,[R3, #+0]
+        ADD      R1,R1,#+1
+        CMP      R1,#+19
+        BCC      ??SKZ_arrays_read_1
+        MOV      R1,#+0
+??SKZ_arrays_read_2:
+        LSL      R2,R1,#+1
+        ADD      R3,R4,#+48
+        ADD      R3,R3,R1, LSL #+1
+        ADD      R12,R0,#+40
+        LDRB     R12,[R2, +R12]
+        ADD      LR,R0,#+41
+        LDRB     R2,[R2, +LR]
+        ADD      R2,R2,R12, LSL #+8
+        STRH     R2,[R3, #+0]
+        ADD      R1,R1,#+1
+        CMP      R1,#+19
+        BCC      ??SKZ_arrays_read_2
+        BL       SetSKZ_2_
+        MOV      R0,#+254
+        ORR      R0,R0,#0xFF00
+        LDRH     R1,[R4, #+120]
+        CMP      R1,R0
+        LDRHEQ   R1,[R4, #+122]
+        CMPEQ    R1,R0
+        BNE      ??SKZ_arrays_read_3
+        MOV      R1,#+0
+        MOV      R0,#+0
+??SKZ_arrays_read_4:
+        ADD      R2,R4,#+12
+        ADD      R2,R2,R1, LSL #+1
+        STRH     R0,[R2, #+0]
+        ADD      R2,R4,#+48
+        ADD      R2,R2,R1, LSL #+1
+        STRH     R0,[R2, #+0]
+        ADD      R1,R1,#+1
+        CMP      R1,#+19
+        BCC      ??SKZ_arrays_read_4
+??SKZ_arrays_read_3:
+        BL       SetSKZ_2_
+        POP      {R0,R1,R4,PC}    ;; return
+        DATA
+??SKZ_arrays_read_0:
+        DC32     _A_RAMConfig
+        CFI EndBlock cfiBlock60
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock61 Using cfiCommon0
+        CFI Function ParseRead_InputReg
+        ARM
+ParseRead_InputReg:
+        PUSH     {R0,R3-R10,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R10 Frame(CFA, -8)
+        CFI R9 Frame(CFA, -12)
+        CFI R8 Frame(CFA, -16)
+        CFI R7 Frame(CFA, -20)
+        CFI R6 Frame(CFA, -24)
+        CFI R5 Frame(CFA, -28)
+        CFI R4 Frame(CFA, -32)
+        CFI CFA R13+40
+        MOV      R5,R2
+        LDR      R2,??ParseRead_InputReg_0  ;; ValSKZ + 250
+        LDRB     R2,[R2, #+0]
+        LDR      R6,??ParseRead_InputReg_0+0x4  ;; `?<Constant "Wrong 04func frame le...">`
+        CMP      R1,#+8
+        BEQ      ??ParseRead_InputReg_1
+        CMP      R2,#+0
+        POPEQ    {R0,R1,R4-R10,PC}
+        MOV      R2,R1
+        MOV      R1,R6
+        B        ??ParseRead_InputReg_2
+??ParseRead_InputReg_1:
+        LDRB     R3,[R0, #+2]
+        LDRB     R4,[R0, #+3]
+        ORR      R3,R4,R3, LSL #+8
+        STR      R3,[SP, #+0]
+        LDRB     R1,[R0, #+4]
+        LDRB     R3,[R0, #+5]
+        ORRS     R7,R3,R1, LSL #+8
+        BEQ      ??ParseRead_InputReg_3
+        CMP      R7,#+126
+        BCC      ??ParseRead_InputReg_4
+??ParseRead_InputReg_3:
+        CMP      R2,#+0
+        POPEQ    {R0,R1,R4-R10,PC}
+        MOV      R2,R7
+        ADD      R1,R6,#+32
+??ParseRead_InputReg_2:
+        LDR      R0,??ParseRead_InputReg_0+0x8  ;; _A_RAMConfig + 512
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+        POP      {R0,R1,R4-R10,PC}
+??ParseRead_InputReg_4:
+        LDRB     R1,[R0, #+0]
+        STRB     R1,[R5, #+0]
+        LDRB     R0,[R0, #+1]
+        STRB     R0,[R5, #+1]
+        MOV      R0,R7
+        LSL      R0,R0,#+1
+        STRB     R0,[R5, #+2]
+        MOV      R1,#+3
+        LDR      R8,[SP, #+0]
+        B        ??ParseRead_InputReg_5
+??ParseRead_InputReg_6:
+        MOV      R0,R8
+        BL       ReadInputReg
+        MOV      R9,R0
+        LDR      R0,??ParseRead_InputReg_0  ;; ValSKZ + 250
+        LDRB     R0,[R0, #+0]
+        CMP      R0,#+0
+        BEQ      ??ParseRead_InputReg_7
+        MOV      R3,R9
+        MOV      R2,R8
+        ADD      R1,R6,#+60
+        LDR      R0,??ParseRead_InputReg_0+0x8  ;; _A_RAMConfig + 512
+        _BLF     sprintf,??sprintf??rA
+        BL       DBGU_SendBuf
+??ParseRead_InputReg_7:
+        LSR      R0,R9,#+8
+        STRB     R0,[R10, #+0]
+        STRB     R9,[R4, +R5]
+        ADD      R1,R4,#+1
+        AND      R1,R1,#0xFF
+        ADD      R8,R8,#+1
+??ParseRead_InputReg_5:
+        MOV      R8,R8, LSL #+16
+        MOV      R8,R8, LSR #+16
+        ADD      R4,R1,#+1
+        AND      R4,R4,#0xFF
+        ADD      R10,R1,R5
+        LDR      R0,[SP, #+0]
+        MOV      R0,R0, LSL #+16
+        MOV      R0,R0, LSR #+16
+        ADD      R0,R7,R0
+        CMP      R8,R0
+        BLT      ??ParseRead_InputReg_6
+        MOV      R0,R5
+        BL       ModbusCRC
+        STRB     R0,[R10, #+0]
+        LSR      R0,R0,#+8
+        STRB     R0,[R4, +R5]
+        LDR      R0,[SP, #+4]
+        ADD      R1,R4,#+1
+        STRB     R1,[R0, #+0]
+        POP      {R0,R1,R4-R10,PC}
+        DATA
+??ParseRead_InputReg_0:
+        DC32     ValSKZ + 250
+        DC32     `?<Constant "Wrong 04func frame le...">`
+        DC32     _A_RAMConfig + 512
+        CFI EndBlock cfiBlock61
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock62 Using cfiCommon0
+        CFI Function ParseWriteSingle_HoldingReg
+        ARM
+ParseWriteSingle_HoldingReg:
+        PUSH     {R4,R5,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R5 Frame(CFA, -8)
+        CFI R4 Frame(CFA, -12)
+        CFI CFA R13+12
+        MOV      R4,R2
+        MOV      R5,R3
+        CMP      R1,#+8
+        BEQ      ??ParseWriteSingle_HoldingReg_0
+        LDR      R0,??ParseWriteSingle_HoldingReg_1  ;; ValSKZ + 250
+        LDRB     R0,[R0, #+0]
+        CMP      R0,#+0
+        POPEQ    {R4,R5,PC}
+        MOV      R2,R1
+        LDR      R1,??ParseWriteSingle_HoldingReg_1+0x4  ;; `?<Constant "Wrong 06func frame le...">`
+        LDR      R0,??ParseWriteSingle_HoldingReg_1+0x8  ;; _A_RAMConfig + 512
+        _BLF     sprintf,??sprintf??rA
+        POP      {R4,R5,LR}       ;; Pop
+        B        DBGU_SendBuf     ;; tailcall
+??ParseWriteSingle_HoldingReg_0:
+        LDRB     R1,[R0, #+2]
+        LDRB     R2,[R0, #+3]
+        ORR      R2,R2,R1, LSL #+8
+        LDRB     R1,[R0, #+4]
+        LDRB     R3,[R0, #+5]
+        ORR      R1,R3,R1, LSL #+8
+        LDRB     R3,[R0, #+0]
+        STRB     R3,[R4, #+0]
+        LDRB     R3,[R0, #+1]
+        STRB     R3,[R4, #+1]
+        LDRB     R3,[R0, #+2]
+        STRB     R3,[R4, #+2]
+        LDRB     R3,[R0, #+3]
+        STRB     R3,[R4, #+3]
+        LDRB     R3,[R0, #+4]
+        STRB     R3,[R4, #+4]
+        LDRB     R0,[R0, #+5]
+        STRB     R0,[R4, #+5]
+        MOV      R0,R2
+        BL       WriteHoldingReg
+        MOV      R1,#+6
+        MOV      R0,R4
+        BL       ModbusCRC
+        STRB     R0,[R4, #+6]
+        LSR      R0,R0,#+8
+        STRB     R0,[R4, #+7]
+        MOV      R0,#+8
+        STRB     R0,[R5, #+0]
+        POP      {R4,R5,PC}       ;; return
+        DATA
+??ParseWriteSingle_HoldingReg_1:
+        DC32     ValSKZ + 250
+        DC32     `?<Constant "Wrong 06func frame le...">`
+        DC32     _A_RAMConfig + 512
+        CFI EndBlock cfiBlock62
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock63 Using cfiCommon0
+        CFI Function ParseWriteMulty_HoldingReg
+        ARM
+ParseWriteMulty_HoldingReg:
+        PUSH     {R4-R9,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R9 Frame(CFA, -8)
+        CFI R8 Frame(CFA, -12)
+        CFI R7 Frame(CFA, -16)
+        CFI R6 Frame(CFA, -20)
+        CFI R5 Frame(CFA, -24)
+        CFI R4 Frame(CFA, -28)
+        CFI CFA R13+28
+        MOV      R6,R0
+        MOV      R4,R2
+        MOV      R5,R3
+        LDRB     R0,[R6, #+2]
+        LDRB     R2,[R6, #+3]
+        ORR      R7,R2,R0, LSL #+8
+        LDRB     R0,[R6, #+4]
+        LDRB     R2,[R6, #+5]
+        ORRS     R8,R2,R0, LSL #+8
+        LDRB     R3,[R6, #+6]
+        LDR      R0,??ParseWriteMulty_HoldingReg_0  ;; ValSKZ + 250
+        LDRB     R2,[R0, #+0]
+        MOV      R12,#+512
+        LDR      LR,??ParseWriteMulty_HoldingReg_0+0x4  ;; _A_RAMConfig
+        LDR      R0,??ParseWriteMulty_HoldingReg_0+0x8  ;; `?<Constant "Wrong 10func reg coun...">`
+        BEQ      ??ParseWriteMulty_HoldingReg_1
+        MOV      R9,R8
+        CMP      R9,#+124
+        BCS      ??ParseWriteMulty_HoldingReg_1
+        LSL      R9,R9,#+1
+        CMP      R3,R9
+        BEQ      ??ParseWriteMulty_HoldingReg_2
+??ParseWriteMulty_HoldingReg_1:
+        CMP      R2,#+0
+        POPEQ    {R4-R9,PC}
+        MOV      R2,R8
+        MOV      R1,R0
+        ADD      R0,R12,LR
+        _BLF     sprintf,??sprintf??rA
+        B        ??ParseWriteMulty_HoldingReg_3
+??ParseWriteMulty_HoldingReg_2:
+        ADD      R3,R9,#+9
+        CMP      R1,R3
+        BEQ      ??ParseWriteMulty_HoldingReg_4
+        CMP      R2,#+0
+        POPEQ    {R4-R9,PC}
+        MOV      R2,R1
+        ADD      R1,R0,#+52
+        ADD      R0,R12,LR
+        _BLF     sprintf,??sprintf??rA
+??ParseWriteMulty_HoldingReg_3:
+        POP      {R4-R9,LR}
+        B        DBGU_SendBuf     ;; tailcall
+??ParseWriteMulty_HoldingReg_4:
+        LDRB     R0,[R6, #+0]
+        STRB     R0,[R4, #+0]
+        LDRB     R0,[R6, #+1]
+        STRB     R0,[R4, #+1]
+        LDRB     R0,[R6, #+2]
+        STRB     R0,[R4, #+2]
+        LDRB     R0,[R6, #+3]
+        STRB     R0,[R4, #+3]
+        LDRB     R0,[R6, #+4]
+        STRB     R0,[R4, #+4]
+        LDRB     R0,[R6, #+5]
+        STRB     R0,[R4, #+5]
+        MOV      R9,#+0
+        B        ??ParseWriteMulty_HoldingReg_5
+??ParseWriteMulty_HoldingReg_6:
+        ADD      R0,R6,R9, LSL #+1
+        LDRB     R1,[R0, #+7]
+        LDRB     R0,[R0, #+8]
+        ORR      R1,R0,R1, LSL #+8
+        ADD      R0,R9,R7
+        MOV      R0,R0, LSL #+16
+        MOV      R0,R0, LSR #+16
+        BL       WriteHoldingReg
+        ADD      R9,R9,#+1
+        MOV      R9,R9, LSL #+16
+        MOV      R9,R9, LSR #+16
+??ParseWriteMulty_HoldingReg_5:
+        CMP      R9,R8
+        BCC      ??ParseWriteMulty_HoldingReg_6
+        MOV      R1,#+6
+        MOV      R0,R4
+        BL       ModbusCRC
+        STRB     R0,[R4, #+6]
+        LSR      R0,R0,#+8
+        STRB     R0,[R4, #+7]
+        MOV      R0,#+8
+        STRB     R0,[R5, #+0]
+        POP      {R4-R9,PC}
+        DATA
+??ParseWriteMulty_HoldingReg_0:
+        DC32     ValSKZ + 250
+        DC32     _A_RAMConfig
+        DC32     `?<Constant "Wrong 10func reg coun...">`
+        CFI EndBlock cfiBlock63
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock64 Using cfiCommon0
+        CFI Function StartTimeout
+        ARM
+StartTimeout:
+        LDR      R0,??StartTimeout_0  ;; ValSKZ + 72
+        LDR      R0,[R0, #+0]
+        MOV      R1,#+256
+        LDR      R2,??StartTimeout_0+0x4  ;; _A_RAMConfig
+        ADD      R2,R1,R2
+        STR      R2,[R0, #+256]
+        STR      R1,[R0, #+260]
+        LDR      R1,[R0, #+0]
+        ORR      R1,R1,#0x800
+        STR      R1,[R0, #+0]
+        MOV      PC,LR            ;; return
+        DATA
+??StartTimeout_0:
+        DC32     ValSKZ + 72
+        DC32     _A_RAMConfig
+        CFI EndBlock cfiBlock64
+
+        RSEG DATA_ID:CONST:SORT:NOROOT(2)
+`?<Initializer for ValSKZ>`:
+        DATA
+        DC8 0, 0
+        DC8 0, 0
+`?<Initializer for SKZ>`:
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+`?<Initializer for Cos>`:
+        DC32 CosSinTable
+`?<Initializer for Sin>`:
+        DC32 CosSinTable + 2000H
+`?<Initializer for pPMC>`:
+        DC32 0FFFFFC00H
+`?<Initializer for pPIO>`:
+        DC32 0FFFFF400H
+`?<Initializer for pTC0>`:
+        DC32 0FFFA0000H
+`?<Initializer for pDBGU>`:
+        DC32 0FFFFF200H
+`?<Initializer for pADC>`:
+        DC32 0FFFD8000H
+`?<Initializer for pSPI>`:
+        DC32 0FFFE0000H
+`?<Initializer for pUS0>`:
+        DC32 0FFFC0000H
+`?<Initializer for first_pass>`:
+        DC32 1
+`?<Initializer for f_SKZ>`:
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0
+`?<Initializer for MinSKZ_val>`:
+        DC32 30
+`?<Initializer for Object_on_level>`:
+        DC32 40
+`?<Initializer for Object_on>`:
+        DC32 0
+`?<Initializer for RelValSKZ>`:
+        DC8 0, 0, 0, 0
+`?<Initializer for UARTRateTable>`:
+        DC32 300, 600, 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200
+`?<Initializer for UARTTimeoutTable>`:
+        DC32 39, 39, 39, 39, 39, 39, 39, 78, 117, 234
+`?<Initializer for Gain>`:
+        DC8 0
+`?<Initializer for RelValSKZ1toSKZ2>`:
+        DC8 0
+`?<Initializer for ViewModbus>`:
+        DC8 0
+        DC8 0
+`?<Initializer for GainTable>`:
+        DC8 0, 128, 192, 224, 240, 248, 252, 254, 255, 0, 0, 0
+
+        RSEG CODE_ID:CODE:NOROOT(2)
+`?*?CODE_ID`:
+
+        RSEG INITTAB:CODE:ROOT(2)
+        DATA
+?init?tab?CODE_I:
+        DCD      sfe(CODE_I) - sfb(CODE_I), sfb(CODE_I), sfb(CODE_ID)
+
+        RSEG INITTAB:CODE:ROOT(2)
+        DATA
+?init?tab?DATA_Z:
+        DCD      sfe(DATA_Z) - sfb(DATA_Z), sfb(DATA_Z), sfb(DATA_Z)
+
+        RSEG DATA_ID:CONST:SORT:NOROOT(2)
+`?*?DATA_ID`:
+
+        RSEG INITTAB:CODE:ROOT(2)
+        DATA
+?init?tab?DATA_I:
+        DCD      sfe(DATA_I) - sfb(DATA_I), sfb(DATA_I), sfb(DATA_ID)
+
+        END
+// 
+// 6 632 bytes in segment CODE
+//   148 bytes in segment CODE_I
+// 2 239 bytes in segment DATA_C
+//   264 bytes in segment DATA_I
+//   264 bytes in segment DATA_ID
+// 2 792 bytes in segment DATA_N
+//   145 bytes in segment DATA_Z
+//    36 bytes in segment INITTAB
+// 
+// 5 132 bytes of CODE  memory (+ 1 684 bytes shared)
+// 2 503 bytes of CONST memory
+// 3 201 bytes of DATA  memory
+//
+//Errors: none
+//Warnings: 12

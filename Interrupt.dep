@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <configuration>
+    <name>Flash_Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$PROJ_DIR$\lib_AT91SAM7S256.h</file>
+      <file>$PROJ_DIR$\Flash_Debug\Obj\cossintable.r79</file>
+      <file>$TOOLKIT_DIR$\inc\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\inc\math.h</file>
+      <file>$PROJ_DIR$\Flash_Debug\List\Interrupt.map</file>
+      <file>$PROJ_DIR$\cossintable.c</file>
+      <file>$PROJ_DIR$\resource\at91sam7s256_NoRemap.xcl</file>
+      <file>$PROJ_DIR$\SrcIAR\Cstartup.s79</file>
+      <file>$PROJ_DIR$\SrcIAR\Cstartup_SAM7.c</file>
+      <file>$PROJ_DIR$\Flash_Debug\Exe\Interrupt.sim</file>
+      <file>$PROJ_DIR$\Flash_Debug\Obj\Cstartup_SAM7.r79</file>
+      <file>$TOOLKIT_DIR$\lib\dl4tptinl8n.r79</file>
+      <file>$TOOLKIT_DIR$\inc\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\inc\ymath.h</file>
+      <file>$TOOLKIT_DIR$\inc\stdio.h</file>
+      <file>$PROJ_DIR$\AT91SAM7S256.h</file>
+      <file>$PROJ_DIR$\Flash_Debug\Obj\cossintable.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\string.h</file>
+      <file>$PROJ_DIR$\myprintf.c</file>
+      <file>$TOOLKIT_DIR$\lib\dl4tptinl8n.h</file>
+      <file>$PROJ_DIR$\Flash_Debug\Obj\Cstartup.r79</file>
+      <file>$PROJ_DIR$\Frequency.c</file>
+      <file>$PROJ_DIR$\Flash_Debug\Obj\Interrupt.pbd</file>
+      <file>$PROJ_DIR$\Flash_Debug\Obj\main.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\DLib_Defaults.h</file>
+      <file>$PROJ_DIR$\cossintable.h</file>
+      <file>$PROJ_DIR$\SrcIAR\Board.h</file>
+      <file>$PROJ_DIR$\Flash_Debug\Obj\Cstartup_SAM7.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\Flash_Debug\Exe\Interrupt.d79</file>
+      <file>$TOOLKIT_DIR$\inc\DLib_Product.h</file>
+      <file>$PROJ_DIR$\Flash_Debug\Obj\main.r79</file>
+      <file>$PROJ_DIR$\AT91SAM7S256_inc.h</file>
+      <file>$PROJ_DIR$\Board.h</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 33</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 25</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 17 1 16 3 26 21 32 30 14 4 5 15 19 35 27 20 23</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 1 16 3 26 32 30 14 4 5 15 19 35 27 20 23</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\cossintable.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 2</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 18</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\SrcIAR\Cstartup.s79</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 22</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>AARM</name>
+          <file> 34</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\SrcIAR\Cstartup_SAM7.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 12</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 29</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 28 17 1</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 28 17 1</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 6 11 31</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Flash_Debug\Obj\Interrupt.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 29 18 25</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Flash_Debug\Exe\Interrupt.d79</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 6 11</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 8 22 12 2 33 13</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Flash_Flash</name>
+    <outputs>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$PROJ_DIR$\lib_AT91SAM7S256.h</file>
+      <file>$TOOLKIT_DIR$\inc\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\inc\math.h</file>
+      <file>$PROJ_DIR$\cossintable.c</file>
+      <file>$PROJ_DIR$\resource\at91sam7s256_NoRemap.xcl</file>
+      <file>$PROJ_DIR$\SrcIAR\Cstartup.s79</file>
+      <file>$PROJ_DIR$\SrcIAR\Cstartup_SAM7.c</file>
+      <file>$TOOLKIT_DIR$\inc\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\inc\ymath.h</file>
+      <file>$TOOLKIT_DIR$\inc\stdio.h</file>
+      <file>$PROJ_DIR$\AT91SAM7S256.h</file>
+      <file>$TOOLKIT_DIR$\inc\string.h</file>
+      <file>$PROJ_DIR$\myprintf.c</file>
+      <file>$PROJ_DIR$\Flash_Flash\List\flashd_efc.lst</file>
+      <file>$PROJ_DIR$\Flash_Flash\Obj\flashd_efc.r79</file>
+      <file>$PROJ_DIR$\Flash_Flash\Obj\Flash.pbi</file>
+      <file>$PROJ_DIR$\Flash_Flash\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Frequency.c</file>
+      <file>$TOOLKIT_DIR$\inc\DLib_Defaults.h</file>
+      <file>$PROJ_DIR$\cossintable.h</file>
+      <file>$PROJ_DIR$\SrcIAR\Board.h</file>
+      <file>$TOOLKIT_DIR$\inc\xencoding_limits.h</file>
+      <file>$TOOLKIT_DIR$\inc\DLib_Product.h</file>
+      <file>$PROJ_DIR$\AT91SAM7S256_inc.h</file>
+      <file>$PROJ_DIR$\Board.h</file>
+      <file>$PROJ_DIR$\Flash_Flash\Obj\cossintable.r79</file>
+      <file>$PROJ_DIR$\Flash_Flash\List\flashd_efc.s79</file>
+      <file>$PROJ_DIR$\Flash.c</file>
+      <file>$PROJ_DIR$\Flash_Flash\Obj\main.r79</file>
+      <file>$PROJ_DIR$\Flash_Flash\Obj\cossintable.pbi</file>
+      <file>$PROJ_DIR$\Flash_Flash\Exe\Interrupt.bin</file>
+      <file>$PROJ_DIR$\Flash_Flash\List\main.lst</file>
+      <file>$PROJ_DIR$\Flash_Flash\List\Cstartup_SAM7.lst</file>
+      <file>$PROJ_DIR$\Flash_Flash\Obj\Interrupt.pbd</file>
+      <file>$PROJ_DIR$\flashd_efc.c</file>
+      <file>$PROJ_DIR$\Flash_Flash\List\cossintable.s79</file>
+      <file>$PROJ_DIR$\Flash_Flash\Obj\Flash.r79</file>
+      <file>$PROJ_DIR$\Flash_Flash\List\Cstartup.lst</file>
+      <file>$PROJ_DIR$\Flash_Flash\Obj\Cstartup.r79</file>
+      <file>$PROJ_DIR$\flashd.h</file>
+      <file>$PROJ_DIR$\Flash_Flash\List\Flash.lst</file>
+      <file>$PROJ_DIR$\Flash_Flash\List\cossintable.lst</file>
+      <file>$PROJ_DIR$\Flash_Flash\List\main.s79</file>
+      <file>$PROJ_DIR$\Flash_Flash\Obj\Cstartup_SAM7.r79</file>
+      <file>$PROJ_DIR$\Flash_Flash\List\Cstartup_SAM7.s79</file>
+      <file>$PROJ_DIR$\Flash.h</file>
+      <file>$PROJ_DIR$\Flash_Flash\Obj\flashd_efc.pbi</file>
+      <file>$TOOLKIT_DIR$\lib\dl4tpannl8n.r79</file>
+      <file>$TOOLKIT_DIR$\lib\dl4tpannl8n.h</file>
+      <file>$PROJ_DIR$\Flash_Flash\List\Flash.s79</file>
+      <file>$PROJ_DIR$\Flash_Flash\Obj\Cstartup_SAM7.pbi</file>
+      <file>$PROJ_DIR$\Flash_Flash\List\Interrupt.map</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 30 33</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 18</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 12 1 11 2 20 50 24 23 9 3 4 10 13 26 21 14 19</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 12 1 11 2 20 24 23 9 3 4 10 13 26 21 14 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\cossintable.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 27 37 43</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 31</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\SrcIAR\Cstartup.s79</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 40 39</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>AARM</name>
+          <file> 25</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\SrcIAR\Cstartup_SAM7.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 45 46 34</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 52</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 22 12 1</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 22 12 1</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 32 53</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Flash.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 38 51 42</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 26 12 1 47</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 26 12 1 47</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Flash_Flash\Exe\Interrupt.bin</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 53</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 6 40 45 27 30 49</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Flash_Flash\Obj\Interrupt.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 52 31 18</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\flashd_efc.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 16 28 15</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 48</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 41 22 12 1</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 41 22 12 1</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>RAM_Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\SrcIAR\Cstartup.s79</file>
+      <file>$PROJ_DIR$\SrcIAR\Cstartup_SAM7.c</file>
+      <file>$PROJ_DIR$\RAM_Debug\Obj\interrupt_Usart.pbi</file>
+      <file>$PROJ_DIR$\RAM_Debug\Obj\main.r79</file>
+      <file>$PROJ_DIR$\RAM_Debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\..\Src\ext_irq.c</file>
+      <file>$PROJ_DIR$\..\Src\main.c</file>
+      <file>$PROJ_DIR$\RAM_Debug\Obj\Cstartup_SAM7.pbi</file>
+      <file>$PROJ_DIR$\RAM_Debug\Obj\Interrupt.pbd</file>
+      <file>$TOOLKIT_DIR$\examples\Atmel\SAM7S256\Include\AT91SAM7S256.h</file>
+      <file>$TOOLKIT_DIR$\examples\Atmel\SAM7S256\Include\lib_AT91SAM7S256.h</file>
+      <file>$PROJ_DIR$\RAM_Debug\Obj\ext_irq.r79</file>
+      <file>$PROJ_DIR$\RAM_Debug\Exe\Interrupt.d79</file>
+      <file>$PROJ_DIR$\..\Src\interrupt_timer.c</file>
+      <file>$PROJ_DIR$\RAM_Debug\Obj\interrupt_timer.r79</file>
+      <file>$PROJ_DIR$\RAM_Debug\Obj\interrupt_Usart.r79</file>
+      <file>$PROJ_DIR$\..\Src\interrupt_Usart.c</file>
+      <file>$PROJ_DIR$\RAM_Debug\Obj\Cstartup.r79</file>
+      <file>$PROJ_DIR$\RAM_Debug\Obj\interrupt_timer.pbi</file>
+      <file>$PROJ_DIR$\RAM_Debug\Obj\Cstartup_SAM7.r79</file>
+      <file>$PROJ_DIR$\RAM_Debug\Obj\ext_irq.pbi</file>
+      <file>$PROJ_DIR$\SrcIAR\Board.h</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\SrcIAR\Cstartup.s79</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 17</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\SrcIAR\Cstartup_SAM7.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 19</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21 9 10</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 12</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\ext_irq.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 11</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21 9 10</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 3</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 4</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21 9 10</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\RAM_Debug\Obj\Interrupt.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 7 20 2 18 4</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\interrupt_timer.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 14</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 18</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21 9 10</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\interrupt_Usart.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 15</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 2</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21 9 10</file>
+        </tool>
+      </inputs>
+    </file>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>XLINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

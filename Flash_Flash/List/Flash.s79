@@ -1,0 +1,879 @@
+//////////////////////////////////////////////////////////////////////////////
+//                                                                           /
+// IAR ARM ANSI C/C++ Compiler V4.41A/W32 EVALUATION   11/Dec/2009  16:53:49 /
+// Copyright 1999-2005 IAR Systems. All rights reserved.                     /
+//                                                                           /
+//    Cpu mode        =  arm                                                 /
+//    Endian          =  little                                              /
+//    Stack alignment =  4                                                   /
+//    Source file     =  D:\Öóðêàí\ÓÊÇÌ_ïðîãðàììà\ÁÏÑ\SPA_Vibro\SPA_iar\Comp /
+//                       il\Flash.c                                          /
+//    Command line    =  D:\Öóðêàí\ÓÊÇÌ_ïðîãðàììà\ÁÏÑ\SPA_Vibro\SPA_iar\Comp /
+//                       il\Flash.c -D ESS -lC D:\Öóðêàí\ÓÊÇÌ_ïðîãðàììà\ÁÏÑ\ /
+//                       SPA_Vibro\SPA_iar\Compil\Flash_Flash\List\ -lA      /
+//                       D:\Öóðêàí\ÓÊÇÌ_ïðîãðàììà\ÁÏÑ\SPA_Vibro\SPA_iar\Comp /
+//                       il\Flash_Flash\List\ -o D:\Öóðêàí\ÓÊÇÌ_ïðîãðàììà\ÁÏ /
+//                       Ñ\SPA_Vibro\SPA_iar\Compil\Flash_Flash\Obj\ -z9     /
+//                       --debug --cpu_mode arm --endian little --cpu        /
+//                       ARM7TDMI --stack_align 4 -e --fpu None              /
+//                       --dlib_config "C:\Program Files\IAR                 /
+//                       Systems\Embedded Workbench 4.0                      /
+//                       Evaluation\ARM\LIB\dl4tpannl8n.h" -I                /
+//                       D:\Öóðêàí\ÓÊÇÌ_ïðîãðàììà\ÁÏÑ\SPA_Vibro\SPA_iar\Comp /
+//                       il\srciar\ -I D:\Öóðêàí\ÓÊÇÌ_ïðîãðàììà\ÁÏÑ\SPA_Vibr /
+//                       o\SPA_iar\Compil\..\..\ -I "C:\Program Files\IAR    /
+//                       Systems\Embedded Workbench 4.0                      /
+//                       Evaluation\ARM\INC\" --inline_threshold=2           /
+//    List file       =  D:\Öóðêàí\ÓÊÇÌ_ïðîãðàììà\ÁÏÑ\SPA_Vibro\SPA_iar\Comp /
+//                       il\Flash_Flash\List\Flash.s79                       /
+//                                                                           /
+//                                                                           /
+//////////////////////////////////////////////////////////////////////////////
+
+        NAME Flash
+
+        RTMODEL "StackAlign4", "USED"
+        RTMODEL "__cpu_mode", "__pcs__arm"
+        RTMODEL "__data_model", "absolute"
+        RTMODEL "__endian", "little"
+        RTMODEL "__rt_version", "6"
+
+        RSEG CSTACK:DATA:NOROOT(2)
+
+        PUBWEAK `?*?CODE_ID`
+        MULTWEAK ??AT91F_Flash_Unlock??rA
+        MULTWEAK ??AT91F_Flash_Write??rA
+        MULTWEAK ??AT91F_disable_interrupt??rA?CODE_I
+        MULTWEAK ??AT91F_enable_interrupt??rA?CODE_I
+        PUBWEAK ?init?tab?CODE_I
+        PUBLIC AT91F_Flash_Check_Erase
+        FUNCTION AT91F_Flash_Check_Erase,0203H
+        PUBLIC AT91F_Flash_Erase_All
+        FUNCTION AT91F_Flash_Erase_All,0203H
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC AT91F_Flash_Init
+        FUNCTION AT91F_Flash_Init,0203H
+        PUBLIC AT91F_Flash_Lock
+        FUNCTION AT91F_Flash_Lock,0203H
+        LOCFRAME CSTACK, 8, STACK
+        PUBLIC AT91F_Flash_Lock_Status
+        FUNCTION AT91F_Flash_Lock_Status,0203H
+        PUBLIC AT91F_Flash_Ready
+        FUNCTION AT91F_Flash_Ready,0203H
+        PUBLIC AT91F_Flash_Unlock
+        FUNCTION AT91F_Flash_Unlock,0203H
+        LOCFRAME CSTACK, 8, STACK
+        PUBLIC AT91F_Flash_Write
+        FUNCTION AT91F_Flash_Write,0203H
+        LOCFRAME CSTACK, 8, STACK
+        PUBLIC AT91F_Flash_Write_all
+        FUNCTION AT91F_Flash_Write_all,0203H
+        LOCFRAME CSTACK, 20, STACK
+        PUBLIC AT91F_NVM_Clear
+        FUNCTION AT91F_NVM_Clear,0203H
+        LOCFRAME CSTACK, 8, STACK
+        PUBLIC AT91F_NVM_Init
+        FUNCTION AT91F_NVM_Init,0203H
+        PUBLIC AT91F_NVM_Set
+        FUNCTION AT91F_NVM_Set,0203H
+        LOCFRAME CSTACK, 8, STACK
+        PUBLIC AT91F_NVM_Status
+        FUNCTION AT91F_NVM_Status,0203H
+        PUBLIC AT91F_SET_Security
+        FUNCTION AT91F_SET_Security,0203H
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC AT91F_SET_Security_Status
+        FUNCTION AT91F_SET_Security_Status,0203H
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA R13 HUGEDATA
+        CFI Resource R0:32, R1:32, R2:32, R3:32, R4:32, R5:32, R6:32, R7:32
+        CFI Resource R8:32, R9:32, R10:32, R11:32, R12:32, CPSR:32, R13:32
+        CFI Resource R14:32, SPSR:32
+        CFI VirtualResource ?RET:32
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 4
+        CFI DataAlign 4
+        CFI ReturnAddress ?RET CODE
+        CFI CFA R13+0
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI R8 SameValue
+        CFI R9 SameValue
+        CFI R10 SameValue
+        CFI R11 SameValue
+        CFI R12 Undefined
+        CFI CPSR SameValue
+        CFI R14 Undefined
+        CFI SPSR SameValue
+        CFI ?RET R14
+        CFI EndCommon cfiCommon0
+        
+AT91F_disable_interrupt SYMBOL "AT91F_disable_interrupt"
+AT91F_enable_interrupt SYMBOL "AT91F_enable_interrupt"
+AT91F_Flash_Unlock  SYMBOL "AT91F_Flash_Unlock"
+??AT91F_Flash_Unlock??rA SYMBOL "??rA", AT91F_Flash_Unlock
+AT91F_Flash_Write   SYMBOL "AT91F_Flash_Write"
+??AT91F_Flash_Write??rA SYMBOL "??rA", AT91F_Flash_Write
+??AT91F_disable_interrupt??rA?CODE_I SYMBOL "??rA?CODE_I", AT91F_disable_interrupt
+??AT91F_enable_interrupt??rA?CODE_I SYMBOL "??rA?CODE_I", AT91F_enable_interrupt
+
+        EXTERN AT91F_disable_interrupt
+        FUNCTION AT91F_disable_interrupt,0202H
+        EXTERN AT91F_enable_interrupt
+        FUNCTION AT91F_enable_interrupt,0202H
+
+// D:\Öóðêàí\ÓÊÇÌ_ïðîãðàììà\ÁÏÑ\SPA_Vibro\SPA_iar\Compil\Flash.c
+//    1 //*----------------------------------------------------------------------------
+//    2 //*         ATMEL Microcontroller Software Support  -  ROUSSET  -
+//    3 //*----------------------------------------------------------------------------
+//    4 //* The software is delivered "AS IS" without warranty or condition of any
+//    5 //* kind, either express, implied or statutory. This includes without
+//    6 //* limitation any warranty or condition with respect to merchantability or
+//    7 //* fitness for any particular purpose, or against the infringements of
+//    8 //* intellectual property rights of others.
+//    9 //*----------------------------------------------------------------------------
+//   10 //* File Name           : Flash.c
+//   11 //* Object              : Flash routine
+//   12 //* Creation            : JPP   30/Jun/2004
+//   13 //* Modif               : JPM   16/Nov/2004 Flash write status
+//   14 //* 1.1   12/Sep/05 JPP : Change MC_FMR Setting
+//   15 //*----------------------------------------------------------------------------
+//   16 
+//   17 // Include Standard files
+//   18 #include "Board.h"
+//   19 #include "Flash.h"
+//   20 
+//   21 extern  void AT91F_disable_interrupt(void);
+//   22 extern  void AT91F_enable_interrupt(void);
+//   23 
+//   24 
+//   25 //*----------------------------------------------------------------------------
+//   26 //* \fn    AT91F_Flash_Init
+//   27 //* \brief Flash init
+//   28 //*----------------------------------------------------------------------------
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function AT91F_Flash_Init
+        ARM
+//   29 void AT91F_Flash_Init (void)
+//   30 {
+//   31     //* Set number of Flash Waite sate
+//   32     //  SAM7S64 features Single Cycle Access at Up to 30 MHz
+//   33     //  if MCK = 47923200, 72 Cycles for 1 µseconde ( field MC_FMR->FMCN)
+//   34         AT91C_BASE_MC->MC_FMR = ((AT91C_MC_FMCN)&(72 <<16)) | AT91C_MC_FWS_1FWS ;
+AT91F_Flash_Init:
+        MVN      R0,#+159
+        MOV      R1,#+4718592
+        B        ?Subroutine0
+        CFI EndBlock cfiBlock0
+//   35 }
+//   36 //*----------------------------------------------------------------------------
+//   37 //* \fn    AT91F_Flash_Init
+//   38 //* \brief Flash init
+//   39 //*----------------------------------------------------------------------------
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI Function AT91F_NVM_Init
+        ARM
+//   40 void AT91F_NVM_Init (void)
+//   41 {
+//   42     //* Set number of Flash Waite sate
+//   43     //  SAM7S64 features Single Cycle Access at Up to 30 MHz
+//   44     //  if MCK = 47923200, 48 Cycles for 1 µseconde ( field MC_FMR->FMCN)
+//   45         AT91C_BASE_MC->MC_FMR = ((AT91C_MC_FMCN)&(48 <<16)) | AT91C_MC_FWS_1FWS ;
+AT91F_NVM_Init:
+        MVN      R0,#+159
+        MOV      R1,#+3145728
+        CFI EndBlock cfiBlock1
+        REQUIRE ?Subroutine0
+        ;; // Fall through to label ?Subroutine0
+//   46 }
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI NoFunction
+        ARM
+?Subroutine0:
+        ORR      R1,R1,#0x100
+        STR      R1,[R0, #+0]
+        MOV      PC,LR            ;; return
+        CFI EndBlock cfiBlock2
+//   47 
+//   48 //*----------------------------------------------------------------------------
+//   49 //* \fn    AT91F_Flash_Ready
+//   50 //* \brief Wait the flash ready
+//   51 //*----------------------------------------------------------------------------
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock3 Using cfiCommon0
+        CFI Function AT91F_Flash_Ready
+        ARM
+//   52 __ramfunc int AT91F_Flash_Ready (void)
+//   53 {
+//   54     unsigned int status;
+//   55     status = 0;
+//   56 
+//   57     //* Wait the end of command
+//   58         while ((status & AT91C_MC_FRDY) != AT91C_MC_FRDY )
+//   59         {
+//   60           status = AT91C_BASE_MC->MC_FSR;
+AT91F_Flash_Ready:
+??AT91F_Flash_Ready_0:
+        MVN      R0,#+151
+        LDR      R0,[R0, #+0]
+//   61         }
+        TST      R0,#0x1
+        BEQ      ??AT91F_Flash_Ready_0
+//   62         return status;
+        MOV      PC,LR            ;; return
+        CFI EndBlock cfiBlock3
+//   63 }
+//   64 
+//   65 //*----------------------------------------------------------------------------
+//   66 //* \fn    AT91F_Flash_Lock_Status
+//   67 //* \brief Get the Lock bits field status
+//   68 //*----------------------------------------------------------------------------
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock4 Using cfiCommon0
+        CFI Function AT91F_Flash_Lock_Status
+        ARM
+//   69 __ramfunc int AT91F_Flash_Lock_Status(void)
+//   70 {
+//   71   return (AT91C_BASE_MC->MC_FSR & AT91C_MC_FSR_LOCK);
+AT91F_Flash_Lock_Status:
+        MVN      R0,#+151
+        LDR      R0,[R0, #+0]
+        LSR      R0,R0,#+16
+        LSL      R0,R0,#+16
+        MOV      PC,LR            ;; return
+        CFI EndBlock cfiBlock4
+//   72 }
+//   73 //*----------------------------------------------------------------------------
+//   74 //* \fn    AT91F_Flash_Lock
+//   75 //* \brief Write the lock bit and set at 0 FSR Bit = 1
+//   76 //* \input page number (0-1023)
+//   77 //* \output Region
+//   78 //*----------------------------------------------------------------------------
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock5 Using cfiCommon0
+        CFI Function AT91F_Flash_Lock
+        ARM
+//   79 __ramfunc int AT91F_Flash_Lock (unsigned int Flash_Lock_Page)
+//   80 {
+AT91F_Flash_Lock:
+        PUSH     {R4,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R4 Frame(CFA, -8)
+        CFI CFA R13+8
+        MOV      R4,R0
+//   81     //* set the Flash controller base address
+//   82         AT91PS_MC ptMC = AT91C_BASE_MC;
+//   83 
+//   84         AT91F_NVM_Init();
+        MVN      R0,#+159
+        MOV      R1,#+3145728
+        ORR      R1,R1,#0x100
+        STR      R1,[R0, #+0]
+//   85     //* write the flash
+//   86 	//* Protect
+//   87 		AT91F_disable_interrupt();
+        _BLF     AT91F_disable_interrupt,??AT91F_disable_interrupt??rA?CODE_I
+//   88     //* Write the Set Lock Bit command
+//   89         ptMC->MC_FCR = AT91C_MC_CORRECT_KEY | AT91C_MC_FCMD_LOCK | (AT91C_MC_PAGEN & (Flash_Lock_Page << 8) ) ;
+        MVN      R0,#+155
+        MOV      R1,#+196608
+        ORR      R1,R1,#0xFF00
+        AND      R1,R1,R4, LSL #+8
+        MOV      R2,#+2
+        B        ?Subroutine1
+        CFI EndBlock cfiBlock5
+//   90 
+//   91     //* Wait the end of command
+//   92          AT91F_Flash_Ready();
+//   93     //* Protect
+//   94 		AT91F_enable_interrupt();
+//   95 
+//   96 
+//   97   return (AT91F_Flash_Lock_Status());
+//   98 }
+//   99 //*----------------------------------------------------------------------------
+//  100 //* \fn    AT91F_Flash_Unlock
+//  101 //* \brief Clear the lock bit and set at 1 FSR bit=0
+//  102 //* \input page number (0-1023)
+//  103 //* \output Region
+//  104 //*----------------------------------------------------------------------------
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock6 Using cfiCommon0
+        CFI Function AT91F_Flash_Unlock
+        ARM
+//  105 __ramfunc int AT91F_Flash_Unlock(unsigned int Flash_Lock_Page)
+//  106 {
+AT91F_Flash_Unlock:
+        PUSH     {R4,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R4 Frame(CFA, -8)
+        CFI CFA R13+8
+        MOV      R4,R0
+//  107 	    AT91F_NVM_Init();
+        MVN      R0,#+159
+        MOV      R1,#+3145728
+        ORR      R1,R1,#0x100
+        STR      R1,[R0, #+0]
+//  108 
+//  109 	//* Protect
+//  110 		AT91F_disable_interrupt();
+        _BLF     AT91F_disable_interrupt,??AT91F_disable_interrupt??rA?CODE_I
+//  111     //* Write the Clear Lock Bit command
+//  112         AT91C_BASE_MC->MC_FCR = AT91C_MC_CORRECT_KEY | AT91C_MC_FCMD_UNLOCK | (AT91C_MC_PAGEN & (Flash_Lock_Page << 8) ) ;
+        MVN      R0,#+155
+        MOV      R1,#+196608
+        ORR      R1,R1,#0xFF00
+        AND      R1,R1,R4, LSL #+8
+        MOV      R2,#+4
+        CFI EndBlock cfiBlock6
+        REQUIRE ?Subroutine1
+        ;; // Fall through to label ?Subroutine1
+//  113 
+//  114     //* Wait the end of command
+//  115         AT91F_Flash_Ready();
+//  116     //* Protect
+//  117 		AT91F_enable_interrupt();
+//  118 
+//  119   return (AT91F_Flash_Lock_Status());
+//  120 }
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock7 Using cfiCommon0
+        CFI NoFunction
+        CFI CFA R13+8
+        CFI R4 Frame(CFA, -8)
+        CFI ?RET Frame(CFA, -4)
+        ARM
+?Subroutine1:
+        ORR      R2,R2,#0x5A000000
+        ORR      R1,R2,R1
+        STR      R1,[R0, #+0]
+        BL       AT91F_Flash_Ready
+        _BLF     AT91F_enable_interrupt,??AT91F_enable_interrupt??rA?CODE_I
+        MVN      R0,#+151
+        LDR      R0,[R0, #+0]
+        LSR      R0,R0,#+16
+        LSL      R0,R0,#+16
+        POP      {R4,PC}          ;; return
+        CFI EndBlock cfiBlock7
+//  121 
+//  122 
+//  123 //*----------------------------------------------------------------------------
+//  124 //* \fn    AT91F_Flash_Erase_All
+//  125 //* \brief Send command erase all flash
+//  126 //*----------------------------------------------------------------------------
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock8 Using cfiCommon0
+        CFI Function AT91F_Flash_Erase_All
+        ARM
+//  127 __ramfunc int AT91F_Flash_Erase_All(void)
+//  128 {
+AT91F_Flash_Erase_All:
+        PUSH     {LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI CFA R13+4
+//  129         AT91F_Flash_Init();
+        MVN      R0,#+159
+        MOV      R1,#+4718592
+        ORR      R1,R1,#0x100
+        STR      R1,[R0, #+0]
+//  130 	//* Protect
+//  131 		AT91F_disable_interrupt();
+        _BLF     AT91F_disable_interrupt,??AT91F_disable_interrupt??rA?CODE_I
+//  132     //* set the Flash controller base address
+//  133         AT91PS_MC ptMC = AT91C_BASE_MC;
+//  134     //* Write the Erase All command
+//  135         ptMC->MC_FCR = AT91C_MC_CORRECT_KEY | AT91C_MC_FCMD_ERASE_ALL ;
+        MVN      R0,#+155
+        MOV      R1,#+8
+        ORR      R1,R1,#0x5A000000
+        STR      R1,[R0, #+0]
+//  136     //* Wait the end of command
+//  137         AT91F_Flash_Ready();
+        BL       AT91F_Flash_Ready
+//  138    //* Protect
+//  139 		AT91F_enable_interrupt();
+        _BLF     AT91F_enable_interrupt,??AT91F_enable_interrupt??rA?CODE_I
+//  140     //* Check the result
+//  141         return ( (ptMC->MC_FSR & ( AT91C_MC_PROGE | AT91C_MC_LOCKE ))==0) ;
+        MVN      R0,#+151
+        LDR      R0,[R0, #+0]
+        TST      R0,#0xC
+        MOVEQ    R0,#+1
+        POPEQ    {PC}
+        MOV      R0,#+0
+        POP      {PC}             ;; return
+        CFI EndBlock cfiBlock8
+//  142 }
+//  143 
+//  144 //*----------------------------------------------------------------------------
+//  145 //* \fn    AT91F_Flash_Write
+//  146 //* \brief Write in one Flash page located in AT91C_IFLASH,  size in 32 bits
+//  147 //* \input Flash_Address: start at 0x0010 0000 size: in byte
+//  148 //*----------------------------------------------------------------------------
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock9 Using cfiCommon0
+        CFI Function AT91F_Flash_Write
+        ARM
+//  149 __ramfunc int AT91F_Flash_Write( unsigned int Flash_Address ,int size ,unsigned int * buff)
+//  150 {
+AT91F_Flash_Write:
+        PUSH     {R4,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R4 Frame(CFA, -8)
+        CFI CFA R13+8
+//  151     //* set the Flash controller base address
+//  152     AT91PS_MC ptMC = AT91C_BASE_MC;
+//  153     unsigned int i, page, status;
+//  154     unsigned int * Flash;
+//  155     //* init flash pointer
+//  156         Flash = (unsigned int *) Flash_Address;
+//  157 
+//  158         AT91F_Flash_Init();
+        MVN      R3,#+159
+        MOV      R4,#+4718592
+        ORR      R4,R4,#0x100
+        STR      R4,[R3, #+0]
+//  159    //* Get the Flash page number
+//  160         page = ((Flash_Address - (unsigned int)AT91C_IFLASH ) /FLASH_PAGE_SIZE_BYTE);
+        SUB      R3,R0,#+1048576
+        LSR      R4,R3,#+7
+//  161    //* copy the new value
+//  162 	for (i=0; (i < FLASH_PAGE_SIZE_BYTE) & (size > 0) ;i++, Flash++,buff++,size-=4 ){
+        MOV      R3,#+0
+??AT91F_Flash_Write_0:
+        CMP      R1,#+1
+        BLT      ??AT91F_Flash_Write_1
+//  163 	//* copy the flash to the write buffer ensuring code generation
+//  164 	    *Flash=*buff;
+        LDR      R12,[R2], #+4
+        STR      R12,[R0], #+4
+//  165 	}
+        ADD      R3,R3,#+1
+        SUB      R1,R1,#+4
+        CMP      R3,#+128
+        BCC      ??AT91F_Flash_Write_0
+//  166 	//* Protect
+//  167 		AT91F_disable_interrupt();
+??AT91F_Flash_Write_1:
+        _BLF     AT91F_disable_interrupt,??AT91F_disable_interrupt??rA?CODE_I
+//  168     //* Write the write page command
+//  169         ptMC->MC_FCR = AT91C_MC_CORRECT_KEY | AT91C_MC_FCMD_START_PROG | (AT91C_MC_PAGEN & (page <<8)) ;
+        MVN      R0,#+155
+        MOV      R1,#+196608
+        ORR      R1,R1,#0xFF00
+        AND      R1,R1,R4, LSL #+8
+        MOV      R2,#+1
+        ORR      R2,R2,#0x5A000000
+        ORR      R1,R2,R1
+        STR      R1,[R0, #+0]
+//  170     //* Wait the end of command
+//  171         status = AT91F_Flash_Ready();
+        BL       AT91F_Flash_Ready
+        MOV      R4,R0
+//  172     //* Protect
+//  173 		AT91F_enable_interrupt();
+        _BLF     AT91F_enable_interrupt,??AT91F_enable_interrupt??rA?CODE_I
+//  174 
+//  175     //* Check the result
+//  176     if ( (status & ( AT91C_MC_PROGE | AT91C_MC_LOCKE ))!=0) return false;
+        TST      R4,#0xC
+        MOVNE    R0,#+0
+        POPNE    {R4,PC}
+//  177   return true;
+        MVN      R0,#+0
+        POP      {R4,PC}          ;; return
+        CFI EndBlock cfiBlock9
+//  178 }
+//  179 
+//  180 
+//  181 
+//  182 //*----------------------------------------------------------------------------
+//  183 //* \fn    AT91F_NVM_Status
+//  184 //* \brief Get the NVM field status
+//  185 //*----------------------------------------------------------------------------
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock10 Using cfiCommon0
+        CFI Function AT91F_NVM_Status
+        ARM
+//  186 __ramfunc int AT91F_NVM_Status(void)
+//  187 {
+//  188   return (AT91C_BASE_MC->MC_FSR & AT91C_MC_FSR_MVM);
+AT91F_NVM_Status:
+        MVN      R0,#+151
+        LDR      R0,[R0, #+0]
+        AND      R0,R0,#0xFF00
+        MOV      PC,LR            ;; return
+        CFI EndBlock cfiBlock10
+//  189 }
+//  190 
+//  191 //*----------------------------------------------------------------------------
+//  192 //* \fn    AT91F_NVM_Set
+//  193 //* \brief Write the Non Volatile Memory Bits and set at 0 FSR Bit = 1
+//  194 //*----------------------------------------------------------------------------
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock11 Using cfiCommon0
+        CFI Function AT91F_NVM_Set
+        ARM
+//  195 __ramfunc int AT91F_NVM_Set (unsigned char NVM_Number)
+//  196 {
+AT91F_NVM_Set:
+        PUSH     {R4,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R4 Frame(CFA, -8)
+        CFI CFA R13+8
+        MOV      R4,R0
+//  197         AT91F_NVM_Init();
+        MVN      R0,#+159
+        MOV      R1,#+3145728
+        ORR      R1,R1,#0x100
+        STR      R1,[R0, #+0]
+//  198     //* set the Flash controller base address
+//  199         AT91PS_MC ptMC = AT91C_BASE_MC;
+//  200 	//* Protect
+//  201 		AT91F_disable_interrupt();
+        _BLF     AT91F_disable_interrupt,??AT91F_disable_interrupt??rA?CODE_I
+//  202 
+//  203 	 //* write the flash
+//  204     //* Write the Set NVM Bit command
+//  205         ptMC->MC_FCR = AT91C_MC_CORRECT_KEY | AT91C_MC_FCMD_SET_GP_NVM | (AT91C_MC_PAGEN & (NVM_Number << 8) ) ;
+        MVN      R0,#+155
+        MOV      R1,#+11
+        B        ?Subroutine2
+        CFI EndBlock cfiBlock11
+//  206 
+//  207     //* Wait the end of command
+//  208         AT91F_Flash_Ready();
+//  209     //* Protect
+//  210 		AT91F_enable_interrupt();
+//  211 
+//  212   return (AT91F_NVM_Status());
+//  213 }
+//  214 //*----------------------------------------------------------------------------
+//  215 //* \fn    AT91F_NVM_Clear
+//  216 //* \brief Clear the Non Volatile Memory Bits and set at 1 FSR bit=0
+//  217 //*----------------------------------------------------------------------------
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock12 Using cfiCommon0
+        CFI Function AT91F_NVM_Clear
+        ARM
+//  218 __ramfunc int AT91F_NVM_Clear(unsigned char NVM_Number)
+//  219 {
+AT91F_NVM_Clear:
+        PUSH     {R4,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R4 Frame(CFA, -8)
+        CFI CFA R13+8
+        MOV      R4,R0
+//  220         AT91F_NVM_Init();
+        MVN      R0,#+159
+        MOV      R1,#+3145728
+        ORR      R1,R1,#0x100
+        STR      R1,[R0, #+0]
+//  221     //* set the Flash controller base address
+//  222         AT91PS_MC ptMC = AT91C_BASE_MC;
+//  223 
+//  224 	//* Protect
+//  225 		AT91F_disable_interrupt();
+        _BLF     AT91F_disable_interrupt,??AT91F_disable_interrupt??rA?CODE_I
+//  226 	 //* write the flash
+//  227     //* Write the Clear NVM Bit command
+//  228         ptMC->MC_FCR = AT91C_MC_CORRECT_KEY | AT91C_MC_FCMD_CLR_GP_NVM | (AT91C_MC_PAGEN & (NVM_Number << 8) ) ;
+        MVN      R0,#+155
+        MOV      R1,#+13
+        CFI EndBlock cfiBlock12
+        REQUIRE ?Subroutine2
+        ;; // Fall through to label ?Subroutine2
+//  229 
+//  230     //* Wait the end of command
+//  231        AT91F_Flash_Ready();
+//  232     //* Protect
+//  233 		AT91F_enable_interrupt();
+//  234 
+//  235 
+//  236   return (AT91F_NVM_Status());
+//  237 }
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock13 Using cfiCommon0
+        CFI NoFunction
+        CFI CFA R13+8
+        CFI R4 Frame(CFA, -8)
+        CFI ?RET Frame(CFA, -4)
+        ARM
+?Subroutine2:
+        ORR      R1,R1,#0x5A000000
+        ORR      R1,R1,R4, LSL #+8
+        STR      R1,[R0, #+0]
+        BL       AT91F_Flash_Ready
+        _BLF     AT91F_enable_interrupt,??AT91F_enable_interrupt??rA?CODE_I
+        MVN      R0,#+151
+        LDR      R0,[R0, #+0]
+        AND      R0,R0,#0xFF00
+        POP      {R4,PC}          ;; return
+        CFI EndBlock cfiBlock13
+//  238 
+//  239 //*----------------------------------------------------------------------------
+//  240 //* \fn    AT91F_SET_Security_Status
+//  241 //* \brief Get Flash Security Bit Status
+//  242 //*----------------------------------------------------------------------------
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock14 Using cfiCommon0
+        CFI Function AT91F_SET_Security_Status
+        ARM
+//  243 __ramfunc int AT91F_SET_Security_Status (void)
+//  244 {
+//  245   return (AT91C_BASE_MC->MC_FSR & AT91C_MC_SECURITY);
+AT91F_SET_Security_Status:
+        MVN      R0,#+151
+        LDR      R0,[R0, #+0]
+        AND      R0,R0,#0x10
+        MOV      PC,LR            ;; return
+        CFI EndBlock cfiBlock14
+//  246 }
+//  247 
+//  248 //*----------------------------------------------------------------------------
+//  249 //* \fn AT91F_SET_Security
+//  250 //* \brief Set Flash Security Bit
+//  251 //*----------------------------------------------------------------------------
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock15 Using cfiCommon0
+        CFI Function AT91F_SET_Security
+        ARM
+//  252 __ramfunc int AT91F_SET_Security (void)
+//  253 {
+AT91F_SET_Security:
+        PUSH     {LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI CFA R13+4
+//  254         AT91F_NVM_Init();
+        MVN      R0,#+159
+        MOV      R1,#+3145728
+        ORR      R1,R1,#0x100
+        STR      R1,[R0, #+0]
+//  255 	//* Protect
+//  256 		AT91F_disable_interrupt();
+        _BLF     AT91F_disable_interrupt,??AT91F_disable_interrupt??rA?CODE_I
+//  257 	 //* write the flash
+//  258     //* Write the Set Security Bit command
+//  259         AT91C_BASE_MC->MC_FCR = ( AT91C_MC_CORRECT_KEY | AT91C_MC_FCMD_SET_SECURITY ) ;
+        MVN      R0,#+155
+        MOV      R1,#+15
+        ORR      R1,R1,#0x5A000000
+        STR      R1,[R0, #+0]
+//  260 
+//  261     //* Wait the end of command
+//  262        AT91F_Flash_Ready();
+        BL       AT91F_Flash_Ready
+//  263     //* Protect
+//  264 		AT91F_enable_interrupt();
+        _BLF     AT91F_enable_interrupt,??AT91F_enable_interrupt??rA?CODE_I
+//  265 
+//  266   return (AT91F_SET_Security_Status());
+        MVN      R0,#+151
+        LDR      R0,[R0, #+0]
+        AND      R0,R0,#0x10
+        POP      {PC}             ;; return
+        CFI EndBlock cfiBlock15
+//  267 }
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock16 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??AT91F_disable_interrupt??rA?CODE_I:
+        LDR      R12,??Subroutine3_0  ;; AT91F_disable_interrupt
+        MOV      PC,R12
+        DATA
+??Subroutine3_0:
+        DC32     AT91F_disable_interrupt
+        CFI EndBlock cfiBlock16
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock17 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??AT91F_enable_interrupt??rA?CODE_I:
+        LDR      R12,??Subroutine4_0  ;; AT91F_enable_interrupt
+        MOV      PC,R12
+        DATA
+??Subroutine4_0:
+        DC32     AT91F_enable_interrupt
+        CFI EndBlock cfiBlock17
+//  268 //*----------------------------------------------------------------------------
+//  269 //* \fn    AT91F_Flash_Check_Erase
+//  270 //* \brief Check the memory at 0xFF in 32 bits access
+//  271 //*----------------------------------------------------------------------------
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock18 Using cfiCommon0
+        CFI Function AT91F_Flash_Check_Erase
+        ARM
+//  272 int AT91F_Flash_Check_Erase (unsigned int * start, unsigned int size)
+//  273 {
+//  274 	unsigned int i;
+//  275     //* Check if flash is erased
+//  276 	for (i=0; i < (size/4) ; i++ )
+AT91F_Flash_Check_Erase:
+        MOV      R2,#+0
+        B        ??AT91F_Flash_Check_Erase_0
+??AT91F_Flash_Check_Erase_1:
+        ADD      R2,R2,#+1
+??AT91F_Flash_Check_Erase_0:
+        CMP      R2,R1, LSR #+2
+        BCS      ??AT91F_Flash_Check_Erase_2
+//  277 	{
+//  278 	    if ( start[i] != ERASE_VALUE ) return  false;
+        LDR      R3,[R0, +R2, LSL #+2]
+        CMN      R3,#+1
+        BEQ      ??AT91F_Flash_Check_Erase_1
+        MOV      R0,#+0
+        MOV      PC,LR
+//  279 	}
+//  280 	return true ;
+??AT91F_Flash_Check_Erase_2:
+        MVN      R0,#+0
+        MOV      PC,LR            ;; return
+        CFI EndBlock cfiBlock18
+//  281 }
+//  282 
+//  283 //*----------------------------------------------------------------------------
+//  284 //* \fn    AT91F_Flash_Write_all
+//  285 //* \brief Write in one Flash page located in AT91C_IFLASH,  size in byte
+//  286 //* \input Start address (base=AT91C_IFLASH) size (in byte ) and buff address
+//  287 //*----------------------------------------------------------------------------
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock19 Using cfiCommon0
+        CFI Function AT91F_Flash_Write_all
+        ARM
+//  288 int AT91F_Flash_Write_all( unsigned int Flash_Address ,int size ,unsigned int * buff)
+//  289 {
+AT91F_Flash_Write_all:
+        PUSH     {R4-R7,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R7 Frame(CFA, -8)
+        CFI R6 Frame(CFA, -12)
+        CFI R5 Frame(CFA, -16)
+        CFI R4 Frame(CFA, -20)
+        CFI CFA R13+20
+        MOV      R4,R0
+        MOV      R5,R1
+        MOV      R6,R2
+//  290 
+//  291     int   next, status;
+//  292     unsigned int  dest;
+//  293     unsigned int * src;
+//  294 
+//  295     dest = Flash_Address;
+//  296     src = buff;
+//  297     status = true;
+        MVN      R0,#+0
+??AT91F_Flash_Write_all_0:
+        CMP      R5,#+1
+        POPLT    {R4-R7,PC}
+//  298 
+//  299     while( (status == true) & (size > 0) )
+//  300 	{
+//  301         //* Check the size
+//  302         if (size <= FLASH_PAGE_SIZE_BYTE) next = size;
+        CMP      R5,#+129
+        MOVLT    R7,R5
+//  303         else next = FLASH_PAGE_SIZE_BYTE;
+        MOVGE    R7,#+128
+//  304 
+//  305         //* Unlock current sector base address - current address by sector size
+//  306         AT91F_Flash_Unlock((dest - (unsigned int)AT91C_IFLASH ) /FLASH_PAGE_SIZE_BYTE);
+        SUB      R0,R4,#+1048576
+        LSR      R0,R0,#+7
+        _BLF     AT91F_Flash_Unlock,??AT91F_Flash_Unlock??rA
+//  307 
+//  308         //* Write page and get status
+//  309         status = AT91F_Flash_Write( dest ,next ,src);
+        MOV      R2,R6
+        MOV      R1,R7
+        MOV      R0,R4
+        _BLF     AT91F_Flash_Write,??AT91F_Flash_Write??rA
+//  310         // * get next page param
+//  311         size -= next;
+        SUB      R5,R5,R7
+//  312         src += FLASH_PAGE_SIZE_BYTE/4;
+        ADD      R6,R6,#+128
+//  313         dest +=  FLASH_PAGE_SIZE_BYTE;
+        ADD      R4,R4,#+128
+//  314 	}
+        CMN      R0,#+1
+        BEQ      ??AT91F_Flash_Write_all_0
+//  315     return status;
+        POP      {R4-R7,PC}       ;; return
+        CFI EndBlock cfiBlock19
+//  316 }
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock20 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??AT91F_Flash_Unlock??rA:
+        LDR      R12,??Subroutine5_0  ;; AT91F_Flash_Unlock
+        MOV      PC,R12
+        DATA
+??Subroutine5_0:
+        DC32     AT91F_Flash_Unlock
+        CFI EndBlock cfiBlock20
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock21 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??AT91F_Flash_Write??rA:
+        LDR      R12,??Subroutine6_0  ;; AT91F_Flash_Write
+        MOV      PC,R12
+        DATA
+??Subroutine6_0:
+        DC32     AT91F_Flash_Write
+        CFI EndBlock cfiBlock21
+
+        RSEG CODE_ID:CODE:NOROOT(2)
+`?*?CODE_ID`:
+
+        RSEG INITTAB:CODE:ROOT(2)
+        DATA
+?init?tab?CODE_I:
+        DCD      sfe(CODE_I) - sfb(CODE_I), sfb(CODE_I), sfb(CODE_ID)
+
+        END
+// 
+// 196 bytes in segment CODE
+// 620 bytes in segment CODE_I
+//  12 bytes in segment INITTAB
+// 
+// 768 bytes of CODE memory (+ 60 bytes shared)
+//
+//Errors: none
+//Warnings: 14

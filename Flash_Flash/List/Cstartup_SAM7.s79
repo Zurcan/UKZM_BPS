@@ -1,0 +1,251 @@
+//////////////////////////////////////////////////////////////////////////////
+//                                                                           /
+// IAR ARM ANSI C/C++ Compiler V4.40A/W32 EVALUATION   12/Oct/2006  15:23:01 /
+// Copyright 1999-2005 IAR Systems. All rights reserved.                     /
+// Time limited license: 29 days left                                        /
+//                                                                           /
+//    Cpu mode        =  arm                                                 /
+//    Endian          =  little                                              /
+//    Stack alignment =  4                                                   /
+//    Source file     =  C:\SPA_iar\Compil\SrcIAR\Cstartup_SAM7.c            /
+//    Command line    =  C:\SPA_iar\Compil\SrcIAR\Cstartup_SAM7.c -D ESS     /
+//                       -lC C:\SPA_iar\Compil\Flash_Flash\List\ -lA         /
+//                       C:\SPA_iar\Compil\Flash_Flash\List\ -o              /
+//                       C:\SPA_iar\Compil\Flash_Flash\Obj\ -z9 --debug      /
+//                       --cpu_mode arm --endian little --cpu ARM7TDMI       /
+//                       --stack_align 4 -e --fpu None --dlib_config         /
+//                       "C:\Program Files\IAR Systems\Embedded Workbench    /
+//                       4.0 Evaluation\ARM\LIB\dl4tpannl8n.h" -I            /
+//                       C:\SPA_iar\Compil\srciar\ -I                        /
+//                       C:\SPA_iar\Compil\..\..\ -I "C:\Program Files\IAR   /
+//                       Systems\Embedded Workbench 4.0 Evaluation\ARM\INC\" /
+//    List file       =  C:\SPA_iar\Compil\Flash_Flash\List\Cstartup_SAM7.s7 /
+//                       9                                                   /
+//                                                                           /
+//                                                                           /
+//////////////////////////////////////////////////////////////////////////////
+
+        NAME Cstartup_SAM7
+
+        RTMODEL "StackAlign4", "USED"
+        RTMODEL "__cpu_mode", "__pcs__arm"
+        RTMODEL "__data_model", "absolute"
+        RTMODEL "__endian", "little"
+        RTMODEL "__rt_version", "6"
+
+        RSEG CSTACK:DATA:NOROOT(2)
+
+        PUBLIC AT91F_LowLevelInit
+        FUNCTION AT91F_LowLevelInit,0203H
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA R13 HUGEDATA
+        CFI Resource R0:32, R1:32, R2:32, R3:32, R4:32, R5:32, R6:32, R7:32
+        CFI Resource R8:32, R9:32, R10:32, R11:32, R12:32, CPSR:32, R13:32
+        CFI Resource R14:32, SPSR:32
+        CFI VirtualResource ?RET:32
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 4
+        CFI DataAlign 4
+        CFI ReturnAddress ?RET CODE
+        CFI CFA R13+0
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI R8 SameValue
+        CFI R9 SameValue
+        CFI R10 SameValue
+        CFI R11 SameValue
+        CFI R12 Undefined
+        CFI CPSR SameValue
+        CFI R14 Undefined
+        CFI SPSR SameValue
+        CFI ?RET R14
+        CFI EndCommon cfiCommon0
+        
+        EXTERN AT91F_Default_FIQ_handler
+        FUNCTION AT91F_Default_FIQ_handler,0602H
+        EXTERN AT91F_Default_IRQ_handler
+        FUNCTION AT91F_Default_IRQ_handler,0602H
+        EXTERN AT91F_Spurious_handler
+        FUNCTION AT91F_Spurious_handler,0602H
+
+// C:\SPA_iar\Compil\SrcIAR\Cstartup_SAM7.c
+//    1 //*----------------------------------------------------------------------------
+//    2 //*         ATMEL Microcontroller Software Support  -  ROUSSET  -
+//    3 //*----------------------------------------------------------------------------
+//    4 //* The software is delivered "AS IS" without warranty or condition of any
+//    5 //* kind, either express, implied or statutory. This includes without
+//    6 //* limitation any warranty or condition with respect to merchantability or
+//    7 //* fitness for any particular purpose, or against the infringements of
+//    8 //* intellectual property rights of others.
+//    9 //*----------------------------------------------------------------------------
+//   10 //* File Name           : Cstartup_SAM7.c
+//   11 //* Object              : Low level initializations written in C for Tools
+//   12 //* Creation            : 12/Jun/04
+//   13 //* 1.2   28/Feb/05 JPP : LIB change AT91C_WDTC_WDDIS & PLL
+//   14 //* 1.3   21/Mar/05 JPP : Change PLL Wait time
+//   15 //* 1.4   21/Aug/05 JPP : Change MC_FMR Setting
+//   16 //* 1.5   29/Aug/05 JPP : Change PLL error
+//   17 //* 1.6   13/oct/05 JPP : Change comment
+//   18 //*----------------------------------------------------------------------------
+//   19 
+//   20 // Include the board file description
+//   21 #include "Board.h"
+//   22 
+//   23 // The following functions must be write in ARM mode this function called directly
+//   24 // by exception vector
+//   25 extern void AT91F_Spurious_handler(void);
+//   26 extern void AT91F_Default_IRQ_handler(void);
+//   27 extern void AT91F_Default_FIQ_handler(void);
+//   28 
+//   29 //*----------------------------------------------------------------------------
+//   30 //* \fn    AT91F_LowLevelInit
+//   31 //* \brief This function performs very low level HW initialization
+//   32 //*        this function can be use a Stack, depending the compilation
+//   33 //*        optimization mode
+//   34 //*----------------------------------------------------------------------------
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function AT91F_LowLevelInit
+        ARM
+//   35 void AT91F_LowLevelInit(void)
+//   36 {
+//   37  int            i;
+//   38  AT91PS_PMC     pPMC = AT91C_BASE_PMC;
+//   39     //* Set Flash Waite sate
+//   40 	//  Single Cycle Access at Up to 30 MHz, or 40
+//   41 	AT91C_BASE_MC->MC_FMR = 0x00500100;//AT91C_MC_FWS_1FWS ;
+AT91F_LowLevelInit:
+        MVN      R0,#+159
+        MOV      R1,#+5242880
+        ORR      R1,R1,#0x100
+        STR      R1,[R0], #-540
+//   42 
+//   43     //* Watchdog Disable
+//   44         AT91C_BASE_WDTC->WDTC_WDMR= AT91C_WDTC_WDDIS;
+        MOV      R1,#+32768
+        STR      R1,[R0], #-292
+//   45 
+//   46     // 1 Enabling the Main Oscillator:
+//   47         // SCK = 1/32768 = 30.51 uSecond
+//   48     	// Start up time = 8 * 6 / SCK = 56 * 30.51 = 1,46484375 ms
+//   49        pPMC->PMC_MOR = (( AT91C_CKGR_OSCOUNT & (0x06 <<8) | AT91C_CKGR_MOSCEN ));
+        MOV      R1,#+1
+        ORR      R1,R1,#0x600
+        STR      R1,[R0, #+0]
+//   50         // Wait the startup time
+//   51         while(!(pPMC->PMC_SR & AT91C_PMC_MOSCS));
+??AT91F_LowLevelInit_0:
+        MVN      R0,#+151
+        BIC      R0,R0,#0x300
+        LDR      R0,[R0, #+0]
+        TST      R0,#0x1
+        BEQ      ??AT91F_LowLevelInit_0
+//   52 	// 2 Checking the Main Oscillator Frequency (Optional)
+//   53 	// 3 Setting PLL and divider:
+//   54 		// - div by 5 Fin = 3686400
+//   55 		// - Mul 13+1: Fout =	51609600
+//   56 		// Field out NOT USED = 0
+//   57 		// PLLCOUNT pll startup time estimate at : 0.844 ms
+//   58 		// PLLCOUNT 28 = 0.000844 /(1/32768)
+//   59        pPMC->PMC_PLLR = ((AT91C_CKGR_DIV & 5 ) |
+//   60                          (AT91C_CKGR_PLLCOUNT & (28<<8)) |
+//   61                          (AT91C_CKGR_MUL & (13<<16)));
+        MVN      R0,#+211
+        BIC      R0,R0,#0x300
+        LDR      R1,??AT91F_LowLevelInit_1  ;; 0xd1c05
+        STR      R1,[R0, #+0]
+//   62 
+//   63         // Wait the startup time
+//   64         while(!(pPMC->PMC_SR & AT91C_PMC_LOCK));
+??AT91F_LowLevelInit_2:
+        MVN      R0,#+151
+        BIC      R0,R0,#0x300
+        LDR      R0,[R0, #+0]
+        TST      R0,#0x4
+        BEQ      ??AT91F_LowLevelInit_2
+//   65         while(!(pPMC->PMC_SR & AT91C_PMC_MCKRDY));
+??AT91F_LowLevelInit_3:
+        MVN      R0,#+151
+        BIC      R0,R0,#0x300
+        LDR      R0,[R0, #+0]
+        TST      R0,#0x8
+        BEQ      ??AT91F_LowLevelInit_3
+//   66  	// 4. Selection of Master Clock and Processor Clock
+//   67  	// select the PLL clock 
+//   68  	    pPMC->PMC_MCKR =  AT91C_PMC_PRES_CLK ;
+        MVN      R0,#+207
+        BIC      R0,R0,#0x300
+        MOV      R1,#+0
+        STR      R1,[R0, #+0]
+//   69  	    while(!(pPMC->PMC_SR & AT91C_PMC_MCKRDY));
+??AT91F_LowLevelInit_4:
+        ADD      R1,R0,#+56
+        LDR      R1,[R1, #+0]
+        TST      R1,#0x8
+        BEQ      ??AT91F_LowLevelInit_4
+//   70 
+//   71  	    pPMC->PMC_MCKR |= AT91C_PMC_CSS_PLL_CLK  ;
+        LDR      R1,[R0, #+0]
+        ORR      R1,R1,#0x3
+        STR      R1,[R0, #+0]
+//   72  	    while(!(pPMC->PMC_SR & AT91C_PMC_MCKRDY));
+??AT91F_LowLevelInit_5:
+        MVN      R0,#+151
+        BIC      R0,R0,#0x300
+        LDR      R0,[R0, #+0]
+        TST      R0,#0x8
+        BEQ      ??AT91F_LowLevelInit_5
+//   73 
+//   74 	// Set up the default interrupts handler vectors
+//   75 	AT91C_BASE_AIC->AIC_SVR[0] = (int) AT91F_Default_FIQ_handler ;
+        MVN      R0,#+127
+        BIC      R0,R0,#0xF00
+        LDR      R1,??AT91F_LowLevelInit_1+0x4  ;; AT91F_Default_FIQ_handler
+        STR      R1,[R0, #+0]
+//   76 	for (i=1;i < 31; i++)
+        MOV      R0,#+1
+        LDR      R2,??AT91F_LowLevelInit_1+0x8  ;; AT91F_Default_IRQ_handler
+//   77 	{
+//   78 	    AT91C_BASE_AIC->AIC_SVR[i] = (int) AT91F_Default_IRQ_handler ;
+??AT91F_LowLevelInit_6:
+        LSL      R1,R0,#+2
+        STR      R2,[R1, #-3968]
+//   79 	}
+        ADD      R0,R0,#+1
+        CMP      R0,#+31
+        BLT      ??AT91F_LowLevelInit_6
+//   80 	AT91C_BASE_AIC->AIC_SPU  = (int) AT91F_Spurious_handler ;
+        MVN      R0,#+203
+        BIC      R0,R0,#0xE00
+        LDR      R1,??AT91F_LowLevelInit_1+0xC  ;; AT91F_Spurious_handler
+        STR      R1,[R0, #+0]
+//   81 
+//   82 }
+        MOV      PC,LR            ;; return
+        DATA
+??AT91F_LowLevelInit_1:
+        DC32     0xd1c05
+        DC32     AT91F_Default_FIQ_handler
+        DC32     AT91F_Default_IRQ_handler
+        DC32     AT91F_Spurious_handler
+        CFI EndBlock cfiBlock0
+
+        END
+//   83 
+// 
+// 256 bytes in segment CODE
+// 
+// 256 bytes of CODE memory
+//
+//Errors: none
+//Warnings: none

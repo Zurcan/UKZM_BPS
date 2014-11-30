@@ -1,0 +1,541 @@
+##############################################################################
+#                                                                            #
+# IAR ARM ANSI C/C++ Compiler V4.41A/W32 EVALUATION    11/Dec/2009  12:15:23 #
+# Copyright 1999-2005 IAR Systems. All rights reserved.                      #
+#                                                                            #
+#    Cpu mode        =  arm                                                  #
+#    Endian          =  little                                               #
+#    Stack alignment =  4                                                    #
+#    Source file     =  D:\Öףנךאם\ÓÊÇÌ_ןנמדנאללא\ÁÏÑ\SPA_Vibro\SPA_iar\Compi #
+#                       l\flashd_efc.c                                       #
+#    Command line    =  D:\Öףנךאם\ÓÊÇÌ_ןנמדנאללא\ÁÏÑ\SPA_Vibro\SPA_iar\Compi #
+#                       l\flashd_efc.c -D ESS -lC                            #
+#                       D:\Öףנךאם\ÓÊÇÌ_ןנמדנאללא\ÁÏÑ\SPA_Vibro\SPA_iar\Compi #
+#                       l\Flash_Flash\List\ -lA D:\Öףנךאם\ÓÊÇÌ_ןנמדנאללא\ÁÏÑ #
+#                       \SPA_Vibro\SPA_iar\Compil\Flash_Flash\List\ -o       #
+#                       D:\Öףנךאם\ÓÊÇÌ_ןנמדנאללא\ÁÏÑ\SPA_Vibro\SPA_iar\Compi #
+#                       l\Flash_Flash\Obj\ -z9 --debug --cpu_mode arm        #
+#                       --endian little --cpu ARM7TDMI --stack_align 4 -e    #
+#                       --fpu None --dlib_config "C:\Program Files\IAR       #
+#                       Systems\Embedded Workbench 4.0                       #
+#                       Evaluation\ARM\LIB\dl4tpannl8n.h" -I                 #
+#                       D:\Öףנךאם\ÓÊÇÌ_ןנמדנאללא\ÁÏÑ\SPA_Vibro\SPA_iar\Compi #
+#                       l\srciar\ -I D:\Öףנךאם\ÓÊÇÌ_ןנמדנאללא\ÁÏÑ\SPA_Vibro\ #
+#                       SPA_iar\Compil\..\..\ -I "C:\Program Files\IAR       #
+#                       Systems\Embedded Workbench 4.0 Evaluation\ARM\INC\"  #
+#                       --inline_threshold=2                                 #
+#    List file       =  D:\Öףנךאם\ÓÊÇÌ_ןנמדנאללא\ÁÏÑ\SPA_Vibro\SPA_iar\Compi #
+#                       l\Flash_Flash\List\flashd_efc.lst                    #
+#    Object file     =  D:\Öףנךאם\ÓÊÇÌ_ןנמדנאללא\ÁÏÑ\SPA_Vibro\SPA_iar\Compi #
+#                       l\Flash_Flash\Obj\flashd_efc.r79                     #
+#                                                                            #
+#                                                                            #
+##############################################################################
+
+D:\Öףנךאם\ÓÊÇÌ_ןנמדנאללא\ÁÏÑ\SPA_Vibro\SPA_iar\Compil\flashd_efc.c
+      1          /* ----------------------------------------------------------------------------
+      2           *         ATMEL Microcontroller Software Support 
+      3           * ----------------------------------------------------------------------------
+      4           * Copyright (c) 2008, Atmel Corporation
+      5           *
+      6           * All rights reserved.
+      7           *
+      8           * Redistribution and use in source and binary forms, with or without
+      9           * modification, are permitted provided that the following conditions are met:
+     10           *
+     11           * - Redistributions of source code must retain the above copyright notice,
+     12           * this list of conditions and the disclaimer below.
+     13           *
+     14           * Atmel's name may not be used to endorse or promote products derived from
+     15           * this software without specific prior written permission.
+     16           *
+     17           * DISCLAIMER: THIS SOFTWARE IS PROVIDED BY ATMEL "AS IS" AND ANY EXPRESS OR
+     18           * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+     19           * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT ARE
+     20           * DISCLAIMED. IN NO EVENT SHALL ATMEL BE LIABLE FOR ANY DIRECT, INDIRECT,
+     21           * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+     22           * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+     23           * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+     24           * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+     25           * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+     26           * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+     27           * ----------------------------------------------------------------------------
+     28           */
+     29          
+     30          //------------------------------------------------------------------------------
+     31          //         Headers
+     32          //------------------------------------------------------------------------------
+     33          
+     34          #include "flashd.h"
+     35          #include <board.h>
+     36          
+     37          #ifdef BOARD_FLASH_EFC
+     38          
+     39          #include <efc/efc.h>
+     40          #include <utility/math.h>
+     41          #include <utility/assert.h>
+     42          #include <utility/trace.h>
+     43          
+     44          #include <string.h>
+     45          
+     46          //------------------------------------------------------------------------------
+     47          //         Local constants
+     48          //------------------------------------------------------------------------------
+     49          
+     50          #if defined(AT91C_BASE_EFC) && !defined(AT91C_BASE_EFC0)
+     51              #define AT91C_BASE_EFC0     AT91C_BASE_EFC
+     52          #endif
+     53          
+     54          //------------------------------------------------------------------------------
+     55          //         Local functions
+     56          //------------------------------------------------------------------------------
+     57          
+     58          //------------------------------------------------------------------------------
+     59          /// Computes the lock range associated with the given address range.
+     60          /// \param start  Start address of lock range.
+     61          /// \param end  End address of lock range.
+     62          /// \param pActualStart  Actual start address of lock range.
+     63          /// \param pActualEnd  Actual end address of lock range.
+     64          //------------------------------------------------------------------------------
+     65          static void ComputeLockRange(
+     66              unsigned int start,
+     67              unsigned int end,
+     68              unsigned int *pActualStart,
+     69              unsigned int *pActualEnd)
+     70          {
+     71              AT91S_EFC *pStartEfc, *pEndEfc;
+     72              unsigned short startPage, endPage;
+     73              unsigned short numPagesInRegion;
+     74              unsigned short actualStartPage, actualEndPage;
+     75          
+     76              // Convert start and end address in page numbers
+     77              EFC_TranslateAddress(start, &pStartEfc, &startPage, 0);
+     78              EFC_TranslateAddress(end, &pEndEfc, &endPage, 0);
+     79          
+     80              // Find out the first page of the first region to lock
+     81              numPagesInRegion = AT91C_IFLASH_LOCK_REGION_SIZE / AT91C_IFLASH_PAGE_SIZE;
+     82              actualStartPage = startPage - (startPage % numPagesInRegion);
+     83              actualEndPage = endPage;
+     84              if ((endPage % numPagesInRegion) != 0) {
+     85          
+     86                  actualEndPage += numPagesInRegion - (endPage % numPagesInRegion);
+     87              }
+     88          
+     89              // Store actual page numbers
+     90              EFC_ComputeAddress(pStartEfc, actualStartPage, 0, pActualStart);
+     91              EFC_ComputeAddress(pEndEfc, actualEndPage, 0, pActualEnd);
+     92              trace_LOG(trace_DEBUG, "-D- Actual lock range is 0x%06X - 0x%06X\n\r", *pActualStart, *pActualEnd);
+     93          }
+     94          
+     95          //------------------------------------------------------------------------------
+     96          //         Global functions
+     97          //------------------------------------------------------------------------------
+     98          
+     99          //------------------------------------------------------------------------------
+    100          /// Initializes the flash driver.
+    101          /// \param mck  Master clock frequency in Hz.
+    102          //------------------------------------------------------------------------------
+    103          void FLASHD_Initialize(unsigned int mck)
+    104          {
+    105              EFC_SetMasterClock(mck);
+    106              EFC_SetEraseBeforeProgramming(AT91C_BASE_EFC0, 1);
+    107              EFC_DisableIt(AT91C_BASE_EFC0, AT91C_MC_FRDY | AT91C_MC_LOCKE | AT91C_MC_PROGE);
+    108          #ifdef AT91C_BASE_EFC1
+    109              EFC_SetEraseBeforeProgramming(AT91C_BASE_EFC1, 1);
+    110              EFC_DisableIt(AT91C_BASE_EFC1, AT91C_MC_FRDY | AT91C_MC_LOCKE | AT91C_MC_PROGE);
+    111          #endif
+    112          }
+    113          
+    114          //------------------------------------------------------------------------------
+    115          /// Erases the entire flash.
+    116          /// Returns 0 if successful; otherwise returns an error code.
+    117          //------------------------------------------------------------------------------
+    118          unsigned char FLASHD_Erase(void)
+    119          {
+    120              unsigned char error;
+    121          
+    122              error = EFC_PerformCommand(AT91C_BASE_EFC0, AT91C_MC_FCMD_ERASE_ALL, 0);
+    123          #ifdef AT91C_BASE_EFC1
+    124              if (error) {
+    125          
+    126                  return error;
+    127              }
+    128              error = EFC_PerformCommand(AT91C_BASE_EFC1, AT91C_MC_FCMD_ERASE_ALL, 0);
+    129          #endif
+    130          
+    131              return error;
+    132          }
+    133          
+    134          //------------------------------------------------------------------------------
+    135          /// Writes a data buffer in the internal flash. This function works in polling
+    136          /// mode, and thus only returns when the data has been effectively written.
+    137          /// Returns 0 if successful; otherwise returns an error code.
+    138          /// \param address  Write address.
+    139          /// \param pBuffer  Data buffer.
+    140          /// \param size  Size of data buffer in bytes.
+    141          //------------------------------------------------------------------------------
+    142          unsigned char FLASHD_Write(
+    143              unsigned int address,
+    144              const void *pBuffer,
+    145              unsigned int size)
+    146          {
+    147              AT91S_EFC *pEfc;
+    148              unsigned short page;
+    149              unsigned short offset;
+    150              unsigned int writeSize;
+    151              unsigned char pPageBuffer[AT91C_IFLASH_PAGE_SIZE];
+    152              unsigned int pageAddress;
+    153              unsigned short padding;
+    154              unsigned char error;
+    155          
+    156              SANITY_CHECK(address >= AT91C_IFLASH);
+    157              SANITY_CHECK(pBuffer);
+    158              SANITY_CHECK((address + size) <= (AT91C_IFLASH + AT91C_IFLASH_SIZE));
+    159          
+    160              // Translate write address
+    161              EFC_TranslateAddress(address, &pEfc, &page, &offset);
+    162          
+    163              // Write all pages
+    164              while (size > 0) {
+    165          
+    166                  // Copy data in temporary buffer to avoid alignment problems
+    167                  writeSize = min(AT91C_IFLASH_PAGE_SIZE - offset, size);
+    168                  EFC_ComputeAddress(pEfc, page, 0, &pageAddress);
+    169                  padding = AT91C_IFLASH_PAGE_SIZE - offset - writeSize;
+    170          
+    171                  // Pre-buffer data (mask with 0xFF)
+    172                  memcpy(pPageBuffer, (void *) pageAddress, offset);
+    173          
+    174                  // Buffer data
+    175                  memcpy(pPageBuffer + offset, pBuffer, writeSize);
+    176          
+    177                  // Post-buffer data
+    178                  memcpy(pPageBuffer + offset + writeSize, (void *) (pageAddress + offset + writeSize), padding);
+    179          
+    180                  // Write page
+    181                  memcpy((void *) pageAddress, pPageBuffer, AT91C_IFLASH_PAGE_SIZE);
+    182                  error = EFC_PerformCommand(pEfc, AT91C_MC_FCMD_START_PROG, page);
+    183                  if (error) {
+    184          
+    185                      return error;
+    186                  }
+    187          
+    188                  // Progression
+    189                  address += AT91C_IFLASH_PAGE_SIZE;
+    190                  pBuffer = (void *) ((unsigned int) pBuffer + writeSize);
+    191                  size -= writeSize;
+    192                  page++;
+    193                  offset = 0;
+    194          
+    195          #if defined(AT91C_BASE_EFC1)
+    196                  // Handle EFC crossover
+    197                  if ((pEfc == AT91C_BASE_EFC0) && (page >= (AT91C_IFLASH_NB_OF_PAGES / 2))) {
+    198          
+    199                      pEfc = AT91C_BASE_EFC1;
+    200                  }
+    201          #endif
+    202              }
+    203          
+    204              return 0;
+    205          }
+    206          
+    207          //------------------------------------------------------------------------------
+    208          /// Locks all the regions in the given address range. The actual lock range is
+    209          /// reported through two output parameters.
+    210          /// Returns 0 if successful; otherwise returns an error code.
+    211          /// \param start  Start address of lock range.
+    212          /// \param end  End address of lock range.
+    213          /// \param pActualStart  Start address of the actual lock range (optional).
+    214          /// \param pActualEnd  End address of the actual lock range (optional).
+    215          //------------------------------------------------------------------------------
+    216          unsigned char FLASHD_Lock(
+    217              unsigned int start,
+    218              unsigned int end,
+    219              unsigned int *pActualStart,
+    220              unsigned int *pActualEnd)
+    221          {
+    222              AT91S_EFC *pStartEfc, *pEndEfc, *pEfc;
+    223              unsigned int actualStart, actualEnd;
+    224              unsigned short startPage, endPage;
+    225              unsigned char error;
+    226              unsigned short numPagesInRegion = AT91C_IFLASH_LOCK_REGION_SIZE / AT91C_IFLASH_PAGE_SIZE;
+    227          
+    228              // Compute actual lock range and store it
+    229              ComputeLockRange(start, end, &actualStart, &actualEnd);
+    230              if (pActualStart) {
+    231          
+    232                  *pActualStart = actualStart;
+    233              }
+    234              if (pActualEnd) {
+    235          
+    236                  *pActualEnd = actualEnd;
+    237              }
+    238          
+    239              // Compute page numbers
+    240              EFC_TranslateAddress(actualStart, &pStartEfc, &startPage, 0);
+    241              EFC_TranslateAddress(actualEnd, &pEndEfc, &endPage, 0);
+    242          
+    243              // Lock all pages
+    244              // If there is an EFC crossover, lock all pages from first EFC
+    245              if (pStartEfc != pEndEfc) {
+    246          
+    247                  while (startPage < (AT91C_IFLASH_NB_OF_PAGES / 2)) {
+    248          
+    249                      error = EFC_PerformCommand(pStartEfc, AT91C_MC_FCMD_LOCK, startPage);
+    250                      if (error) {
+    251          
+    252                          return error;
+    253                      }
+    254                      startPage += numPagesInRegion;
+    255                  }
+    256                  startPage = 0;
+    257              }
+    258              pEfc = pEndEfc;
+    259          
+    260              // Lock remaining pages
+    261              while (startPage < endPage) {
+    262          
+    263                  error = EFC_PerformCommand(pEfc, AT91C_MC_FCMD_LOCK, startPage);
+    264                  if (error) {
+    265          
+    266                      return error;
+    267                  }
+    268                  startPage += numPagesInRegion;
+    269              }
+    270          
+    271              return 0;
+    272          }
+    273          
+    274          //------------------------------------------------------------------------------
+    275          /// Unlocks all the regions in the given address range. The actual unlock range is
+    276          /// reported through two output parameters.
+    277          /// Returns 0 if successful; otherwise returns an error code.
+    278          /// \param start  Start address of unlock range.
+    279          /// \param end  End address of unlock range.
+    280          /// \param pActualStart  Start address of the actual unlock range (optional).
+    281          /// \param pActualEnd  End address of the actual unlock range (optional).
+    282          //------------------------------------------------------------------------------
+    283          unsigned char FLASHD_Unlock(
+    284              unsigned int start,
+    285              unsigned int end,
+    286              unsigned int *pActualStart,
+    287              unsigned int *pActualEnd)
+    288          {
+    289              AT91S_EFC *pStartEfc, *pEndEfc, *pEfc;
+    290              unsigned int actualStart, actualEnd;
+    291              unsigned short startPage, endPage;
+    292              unsigned char error;
+    293              unsigned short numPagesInRegion = AT91C_IFLASH_LOCK_REGION_SIZE / AT91C_IFLASH_PAGE_SIZE;
+    294          
+    295              // Compute actual unlock range and store it
+    296              ComputeLockRange(start, end, &actualStart, &actualEnd);
+    297              if (pActualStart) {
+    298          
+    299                  *pActualStart = actualStart;
+    300              }
+    301              if (pActualEnd) {
+    302          
+    303                  *pActualEnd = actualEnd;
+    304              }
+    305          
+    306              // Compute page numbers
+    307              EFC_TranslateAddress(actualStart, &pStartEfc, &startPage, 0);
+    308              EFC_TranslateAddress(actualEnd, &pEndEfc, &endPage, 0);
+    309          
+    310              // Unlock all pages
+    311              // If there is an EFC crossover, unlock all pages from first EFC
+    312              if (pStartEfc != pEndEfc) {
+    313          
+    314                  while (startPage < (AT91C_IFLASH_NB_OF_PAGES / 2)) {
+    315          
+    316                      error = EFC_PerformCommand(pStartEfc, AT91C_MC_FCMD_UNLOCK, startPage);
+    317                      if (error) {
+    318          
+    319                          return error;
+    320                      }
+    321                      startPage += numPagesInRegion;
+    322                  }
+    323                  startPage = 0;
+    324              }
+    325              pEfc = pEndEfc;
+    326          
+    327              // Unlock remaining pages
+    328              while (startPage < endPage) {
+    329          
+    330                  error = EFC_PerformCommand(pEfc, AT91C_MC_FCMD_UNLOCK, startPage);
+    331                  if (error) {
+    332          
+    333                      return error;
+    334                  }
+    335                  startPage += numPagesInRegion;
+    336              }
+    337          
+    338              return 0;
+    339          }
+    340          
+    341          //------------------------------------------------------------------------------
+    342          /// Returns the number of locked regions inside the given address range.
+    343          /// \param start  Start address of range.
+    344          /// \param end  End address of range.
+    345          //------------------------------------------------------------------------------
+    346          unsigned char FLASHD_IsLocked(unsigned int start, unsigned int end)
+    347          {
+    348              AT91S_EFC *pStartEfc, *pEndEfc, *pEfc;
+    349              unsigned short startPage, endPage;
+    350              unsigned char startRegion, endRegion;
+    351              unsigned int numPagesInRegion;
+    352              unsigned int numLockedRegions = 0;
+    353              unsigned int status;
+    354          
+    355              // Get EFC & page values
+    356              EFC_TranslateAddress(start, &pStartEfc, &startPage, 0);
+    357              EFC_TranslateAddress(end, &pEndEfc, &endPage, 0);
+    358          
+    359              // Compute region indexes
+    360              numPagesInRegion = AT91C_IFLASH_LOCK_REGION_SIZE / AT91C_IFLASH_PAGE_SIZE;
+    361              startRegion = startPage / numPagesInRegion;
+    362              endRegion = endPage / numPagesInRegion;
+    363              if ((endPage % numPagesInRegion) != 0) {
+    364          
+    365                  endRegion++;
+    366              }
+    367          
+    368              // EFC cross-over, handle starting page -> end page of EFC0
+    369              if (pStartEfc != pEndEfc) {
+    370          
+    371                  status = EFC_GetStatus(pStartEfc);
+    372                  while (startRegion < 16) {
+    373          
+    374                      if ((status & (1 << startRegion << 16)) != 0) {
+    375          
+    376                          numLockedRegions++;
+    377                      }
+    378                      startRegion++;
+    379                  }
+    380                  startRegion = 0;
+    381              }
+    382              pEfc = pEndEfc;
+    383          
+    384              // Remaining regions / no EFC cross-over
+    385              status = EFC_GetStatus(pEfc);
+    386              while (startRegion < endRegion) {
+    387          
+    388                  if ((status & (1 << startRegion << 16)) != 0) {
+    389          
+    390                      numLockedRegions++;
+    391                  }
+    392                  startRegion++;
+    393              }
+    394          
+    395              return numLockedRegions;
+    396          }
+    397          
+    398          #if (EFC_NUM_GPNVMS > 0)
+    399          //------------------------------------------------------------------------------
+    400          /// Returns 1 if the given GPNVM bit is currently set; otherwise returns 0.
+    401          /// \param gpnvm  GPNVM bit index.
+    402          //------------------------------------------------------------------------------
+    403          unsigned char FLASHD_IsGPNVMSet(unsigned char gpnvm)
+    404          {
+    405              AT91S_EFC *pEfc = AT91C_BASE_EFC0;
+    406              unsigned int status;
+    407          
+    408              SANITY_CHECK(gpnvm < EFC_NUM_GPNVMS);
+    409          
+    410          #ifdef AT91C_BASE_EFC1
+    411              // GPNVM in EFC1
+    412              if (gpnvm >= 8) {
+    413          
+    414                  pEfc = AT91C_BASE_EFC1;
+    415                  gpnvm -= 8;
+    416              }
+    417          #endif
+    418          
+    419              // Check if GPNVM is set
+    420              status = EFC_GetStatus(pEfc);
+    421              if ((status & (1 << gpnvm << 8)) != 0) {
+    422          
+    423                  return 1;
+    424              }
+    425              else {
+    426          
+    427                  return 0;
+    428              }
+    429          }
+    430          
+    431          //------------------------------------------------------------------------------
+    432          /// Sets the selected GPNVM bit.
+    433          /// Returns 0 if successful; otherwise returns an error code.
+    434          /// \param gpnvm  GPNVM index.
+    435          //------------------------------------------------------------------------------
+    436          unsigned char FLASHD_SetGPNVM(unsigned char gpnvm)
+    437          {
+    438              AT91S_EFC *pEfc = AT91C_BASE_EFC0;
+    439          
+    440              SANITY_CHECK(gpnvm < EFC_NUM_GPNVMS);
+    441          
+    442              if (!FLASHD_IsGPNVMSet(gpnvm)) {
+    443          
+    444          #ifdef AT91C_BASE_EFC1
+    445                  // GPNVM in EFC1
+    446                  if (gpnvm >= 8) {
+    447          
+    448                      pEfc = AT91C_BASE_EFC1;
+    449                      gpnvm -= 8;
+    450                  }
+    451          #endif
+    452          
+    453                  return EFC_PerformCommand(pEfc, AT91C_MC_FCMD_SET_GP_NVM, gpnvm);
+    454              }
+    455              else {
+    456          
+    457                  return 0;
+    458              }
+    459          }
+    460          
+    461          //------------------------------------------------------------------------------
+    462          /// Clears the selected GPNVM bit.
+    463          /// Returns 0 if successful; otherwise returns an error code.
+    464          /// \param gpnvm  GPNVM index.
+    465          //------------------------------------------------------------------------------
+    466          unsigned char FLASHD_ClearGPNVM(unsigned char gpnvm)
+    467          {
+    468              AT91S_EFC *pEfc = AT91C_BASE_EFC0;
+    469          
+    470              SANITY_CHECK(gpnvm < EFC_NUM_GPNVMS);
+    471          
+    472              if (FLASHD_IsGPNVMSet(gpnvm)) {
+    473          
+    474          #ifdef AT91C_BASE_EFC1
+    475                  // GPNVM in EFC1
+    476                  if (gpnvm >= 8) {
+    477          
+    478                      pEfc = AT91C_BASE_EFC1;
+    479                      gpnvm -= 8;
+    480                  }
+    481          #endif
+    482          
+    483                  return EFC_PerformCommand(pEfc, AT91C_MC_FCMD_CLR_GP_NVM, gpnvm);
+    484              }
+    485              else {
+    486          
+    487                  return 0;
+    488              }
+    489          }
+    490          #endif //#if (EFC_NUM_GPNVMS > 0)
+    491          
+    492          #endif //#ifdef BOARD_FLASH_EFC
+    493          
+
+
+   Segment part sizes:
+
+     Function/Label Bytes
+     -------------- -----
+
+ 
+ 
+ 0 bytes of memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,361 @@
+##############################################################################
+#                                                                            #
+# IAR ARM ANSI C/C++ Compiler V4.40A/W32 EVALUATION    22/Oct/2006  15:52:06 #
+# Copyright 1999-2005 IAR Systems. All rights reserved.                      #
+# Time limited license: 20 days left                                         #
+#                                                                            #
+#    Cpu mode        =  interwork                                            #
+#    Endian          =  little                                               #
+#    Stack alignment =  4                                                    #
+#    Source file     =  D:\SPA_iar\Compil\interrupt_Usart.c                  #
+#    Command line    =  D:\SPA_iar\Compil\interrupt_Usart.c -D ESS -lC       #
+#                       D:\SPA_iar\Compil\Flash_Flash\List\ -lA              #
+#                       D:\SPA_iar\Compil\Flash_Flash\List\ -o               #
+#                       D:\SPA_iar\Compil\Flash_Flash\Obj\ -z9 --debug       #
+#                       --cpu_mode arm --endian little --cpu ARM7TDMI        #
+#                       --stack_align 4 --interwork -e --fpu None            #
+#                       --dlib_config C:\IAR\ARM\LIB\dl4tpainl8n.h -I        #
+#                       D:\SPA_iar\Compil\srciar\ -I                         #
+#                       D:\SPA_iar\Compil\..\..\ -I C:\IAR\ARM\INC\          #
+#    List file       =  D:\SPA_iar\Compil\Flash_Flash\List\interrupt_Usart.l #
+#                       st                                                   #
+#    Object file     =  D:\SPA_iar\Compil\Flash_Flash\Obj\interrupt_Usart.r7 #
+#                       9                                                    #
+#                                                                            #
+#                                                                            #
+##############################################################################
+
+D:\SPA_iar\Compil\interrupt_Usart.c
+      1          //*----------------------------------------------------------------------------
+      2          //*      ATMEL Microcontroller Software Support  -  ROUSSET  -
+      3          //*----------------------------------------------------------------------------
+      4          //* The software is delivered "AS IS" without warranty or condition of any
+      5          //* kind, either express, implied or statutory. This includes without
+      6          //* limitation any warranty or condition with respect to merchantability or
+      7          //* fitness for any particular purpose, or against the infringements of
+      8          //* intellectual property rights of others.
+      9          //*----------------------------------------------------------------------------
+     10          //* File Name           : interrupt_Usart.c
+     11          //* Object              : USART Interrupt Management
+     12          //*
+     13          //* 1.0 24/Jun/04 JPP   : Creation
+     14          //* 1.1 29/Aug/05 JPP   : Update AIC definion
+     15          //*----------------------------------------------------------------------------
+     16          
+     17          // Include Standard LIB  files
+     18          #include "Board.h"
+
+   \                                 In segment CODE, align 4, keep-with-next
+   \   __??Code32?? __code __interwork __atpcs void AT91F_PDC_Open(AT91PS_PDC)
+   \                     AT91F_PDC_Open:
+   \   00000000   0210A0E3           MOV      R1,#+2
+   \   00000004   201080E5           STR      R1,[R0, #+32]
+   \   00000008   801FA0E3           MOV      R1,#+512
+   \   0000000C   201080E5           STR      R1,[R0, #+32]
+   \   00000010   0010A0E3           MOV      R1,#+0
+   \   00000014   181080E5           STR      R1,[R0, #+24]
+   \   00000018   1C1080E5           STR      R1,[R0, #+28]
+   \   0000001C   101080E5           STR      R1,[R0, #+16]
+   \   00000020   141080E5           STR      R1,[R0, #+20]
+   \   00000024   081080E5           STR      R1,[R0, #+8]
+   \   00000028   0C1080E5           STR      R1,[R0, #+12]
+   \   0000002C   001080E5           STR      R1,[R0, #+0]
+   \   00000030   041080E5           STR      R1,[R0, #+4]
+   \   00000034   0110A0E3           MOV      R1,#+1
+   \   00000038   201080E5           STR      R1,[R0, #+32]
+   \   0000003C   401FA0E3           MOV      R1,#+256
+   \   00000040   201080E5           STR      R1,[R0, #+32]
+   \   00000044   1EFF2FE1           BX       LR               ;; return
+     19          
+     20          
+     21          #define USART_INTERRUPT_LEVEL		7
+     22          #define AT91_BAUD_RATE				115200
+
+   \                                 In segment DATA_C, align 4, align-sorted
+     23          static const char atmel_header[]=
+   \                     atmel_header:
+   \   00000000   0A0D20202A2A       DC8 0AH, 0DH, 20H, 20H, 2AH, 2AH, 2AH, 20H
+   \              2A20        
+   \   00000008   41544D454C20       DC8 41H, 54H, 4DH, 45H, 4CH, 20H, 55H, 73H
+   \              5573        
+   \   00000010   617274204952       DC8 61H, 72H, 74H, 20H, 49H, 52H, 51H, 20H
+   \              5120        
+   \   00000018   2A2A2A0A0D43       DC8 2AH, 2AH, 2AH, 0AH, 0DH, 43H, 6FH, 70H
+   \              6F70        
+   \   00000020   797269676874       DC8 79H, 72H, 69H, 67H, 68H, 74H, 20H, 28H
+   \              2028        
+   \   00000028   432920323030       DC8 43H, 29H, 20H, 32H, 30H, 30H, 32H, 20H
+   \              3220        
+   \   00000030   41544D454C20       DC8 41H, 54H, 4DH, 45H, 4CH, 20H, 43H, 6FH
+   \              436F        
+   \   00000038   72706F726174       DC8 72H, 70H, 6FH, 72H, 61H, 74H, 69H, 6FH
+   \              696F        
+   \   00000040   6E7320566572       DC8 6EH, 73H, 20H, 56H, 65H, 72H, 73H, 69H
+   \              7369        
+   \   00000048   6F6E3A20312E       DC8 6FH, 6EH, 3AH, 20H, 31H, 2EH, 30H, 0AH
+   \              300A        
+   \   00000050   0D00               DC8 0DH, 0
+   \   00000052   0000               DC8 0, 0
+     24          {
+     25          "\n\r  *** ATMEL Usart IRQ ***\n\r"
+     26          "Copyright (C) 2002 ATMEL Corporations Version: 1.0\n\r"
+     27          };
+     28          
+     29          //* \fn    AT91F_US_Baudrate
+     30          //* \brief Calculate the baudrate
+     31          //* Standard Asynchronous Mode : 8 bits , 1 stop , no parity
+     32          #define AT91C_US_ASYNC_MODE ( AT91C_US_USMODE_NORMAL + \
+     33                                  AT91C_US_NBSTOP_1_BIT + \
+     34                                  AT91C_US_PAR_NONE + \
+     35                                  AT91C_US_CHRL_8_BITS + \
+     36                                  AT91C_US_CLKS_CLOCK )
+     37          
+     38          //*------------------------- Internal Function --------------------------------
+     39          
+     40          //*----------------------------------------------------------------------------
+     41          //* Function Name       : Usart_c_irq_handler
+     42          //* Object              : C handler interrupt function called by the interrupts
+     43          //*                       assembling routine
+     44          //* Input Parameters    : <RTC_pt> time rtc descriptor
+     45          //* Output Parameters   : increment count_timer0_interrupt
+     46          //*----------------------------------------------------------------------------
+
+   \                                 In segment CODE_I, align 4, keep-with-next
+     47          __ramfunc void Usart_c_irq_handler(void)
+     48          {
+     49          	AT91PS_USART USART_pt = AT91C_BASE_US0;
+     50          	unsigned int status;
+     51          	//* get Usart status register
+     52          	status = USART_pt->US_CSR;
+   \                     Usart_c_irq_handler:
+   \   00000000   6C009FE5           LDR      R0,??Usart_c_irq_handler_0  ;; 0xfffc0014
+   \   00000004   001090E5           LDR      R1,[R0, #+0]
+     53          	if ( status & AT91C_US_RXRDY){
+   \   00000008   080080E3           ORR      R0,R0,#0x8
+   \   0000000C   010011E3           TST      R1,#0x1
+     54          		//* Get byte and send
+     55          		AT91F_US_PutChar (USART_pt, AT91F_US_GetChar(USART_pt));
+   \   00000010   0420C013           BICNE    R2,R0,#0x4
+   \   00000014   00209215           LDRNE    R2,[R2, #+0]
+   \   00000018   A03BA011           MOVNE    R3,R0, LSR #+23
+   \   0000001C   02200310           ANDNE    R2,R3,R2
+   \   00000020   00208015           STRNE    R2,[R0, #+0]
+     56          	}
+     57          
+     58          	if ( status & AT91C_US_OVRE) {
+   \   00000024   200011E3           TST      R1,#0x20
+     59          		//* clear US_RXRDY
+     60          		 AT91F_US_GetChar(USART_pt);
+   \   00000028   0420C013           BICNE    R2,R0,#0x4
+   \   0000002C   00209215           LDRNE    R2,[R2, #+0]
+     61          		 AT91F_US_PutChar (USART_pt, 'O');
+   \   00000030   4F20A013           MOVNE    R2,#+79
+   \   00000034   00208015           STRNE    R2,[R0, #+0]
+     62          	}
+     63          
+     64          	//* Check error
+     65          	if ( status & AT91C_US_PARE) {
+   \   00000038   800011E3           TST      R1,#0x80
+     66          		 AT91F_US_PutChar (USART_pt, 'P');
+   \   0000003C   5020A013           MOVNE    R2,#+80
+   \   00000040   00208015           STRNE    R2,[R0, #+0]
+     67          	}
+     68          
+     69          	if ( status & AT91C_US_FRAME) {
+   \   00000044   400011E3           TST      R1,#0x40
+     70          		 AT91F_US_PutChar (USART_pt, 'F');
+   \   00000048   4620A013           MOVNE    R2,#+70
+   \   0000004C   00208015           STRNE    R2,[R0, #+0]
+     71          	}
+     72          
+     73          	if ( status & AT91C_US_TIMEOUT){
+   \   00000050   1C20C0E3           BIC      R2,R0,#0x1C
+   \   00000054   400F11E3           TST      R1,#0x100
+     74          		USART_pt->US_CR = AT91C_US_STTTO;
+   \   00000058   801EA013           MOVNE    R1,#+2048
+   \   0000005C   00108215           STRNE    R1,[R2, #+0]
+     75          		 AT91F_US_PutChar (USART_pt, 'T');
+   \   00000060   5410A013           MOVNE    R1,#+84
+   \   00000064   00108015           STRNE    R1,[R0, #+0]
+     76          	}
+     77          
+     78          	//* Reset the satus bit
+     79          	 USART_pt->US_CR = AT91C_US_RSTSTA;
+   \   00000068   400FA0E3           MOV      R0,#+256
+   \   0000006C   000082E5           STR      R0,[R2, #+0]
+     80          }
+   \   00000070   1EFF2FE1           BX       LR               ;; return
+   \                     ??Usart_c_irq_handler_0:
+   \   00000074   1400FCFF           DC32     0xfffc0014
+     81          //*-------------------------- External Function -------------------------------
+     82          
+     83          //*----------------------------------------------------------------------------
+     84          //* Function Name       : Usart_init
+     85          //* Object              : USART initialization
+     86          //* Input Parameters    : none
+     87          //* Output Parameters   : TRUE
+     88          //*----------------------------------------------------------------------------
+
+   \                                 In segment CODE, align 4, keep-with-next
+     89          void Usart_init ( void )
+     90          //* Begin
+     91          {
+   \                     Usart_init:
+   \   00000000   71402DE9           PUSH     {R0,R4-R6,LR}
+     92          	AT91PS_USART COM0 = AT91C_BASE_US0;
+     93          
+     94           	//* Configure PIO controllers to periph mode
+     95           	AT91F_PIO_CfgPeriph( AT91C_BASE_PIOA,
+     96           		((unsigned int) AT91C_PA5_RXD0    ) |
+     97           		((unsigned int) AT91C_PA6_TXD0    ) |
+     98           		((unsigned int) AT91C_PA7_RTS0    ) |
+     99           		((unsigned int) AT91C_PA8_CTS0    ), // Peripheral A
+    100           		0); // Peripheral B
+   \   00000004   780FA0E3           MOV      R0,#+480
+   \   00000008   8F10E0E3           MVN      R1,#+143
+   \   0000000C   B01EC1E3           BIC      R1,R1,#0xB00
+   \   00000010   000081E5           STR      R0,[R1, #+0]
+   \   00000014   0040A0E3           MOV      R4,#+0
+   \   00000018   041081E3           ORR      R1,R1,#0x4
+   \   0000001C   004081E5           STR      R4,[R1, #+0]
+   \   00000020   7010C1E3           BIC      R1,R1,#0x70
+   \   00000024   000081E5           STR      R0,[R1, #+0]
+    101          
+    102          
+    103             	// First, enable the clock of the PIOB
+    104              	AT91F_PMC_EnablePeriphClock ( AT91C_BASE_PMC, 1 << AT91C_ID_US0 ) ;
+   \   00000028   4050A0E3           MOV      R5,#+64
+   \   0000002C   EF00E0E3           MVN      R0,#+239
+   \   00000030   C00FC0E3           BIC      R0,R0,#0x300
+   \   00000034   005080E5           STR      R5,[R0, #+0]
+    105          	// Usart Configure
+    106                AT91F_US_Configure (COM0, MCK, AT91C_US_ASYNC_MODE, AT91_BAUD_RATE, 0);
+   \   00000038   E4009FE5           LDR      R0,??Usart_init_0  ;; 0xfffc000c
+   \   0000003C   0410E0E1           MVN      R1,R4
+   \   00000040   001080E5           STR      R1,[R0, #+0]
+   \   00000044   0C60C0E3           BIC      R6,R0,#0xC
+   \   00000048   AC00A0E3           MOV      R0,#+172
+   \   0000004C   000086E5           STR      R0,[R6, #+0]
+   \   00000050   200086E3           ORR      R0,R6,#0x20
+   \   00000054   1A10A0E3           MOV      R1,#+26
+   \   00000058   001080E5           STR      R1,[R0, #+0]
+   \   0000005C   080080E3           ORR      R0,R0,#0x8
+   \   00000060   ........           STR      R4,[R0], #+216
+   \   00000064   ........           _BLF     AT91F_PDC_Open,??AT91F_PDC_Open??rA
+   \   00000068   040086E3           ORR      R0,R6,#0x4
+   \   0000006C   8C1EA0E3           MOV      R1,#+2240
+   \   00000070   001080E5           STR      R1,[R0, #+0]
+    107          
+    108          	// Enable usart
+    109          	COM0->US_CR = AT91C_US_RXEN | AT91C_US_TXEN;
+   \   00000074   5000A0E3           MOV      R0,#+80
+   \   00000078   000086E5           STR      R0,[R6, #+0]
+    110          
+    111              //* Enable USART IT error and RXRDY
+    112              	AT91F_US_EnableIt(COM0,AT91C_US_TIMEOUT | AT91C_US_FRAME | AT91C_US_OVRE |AT91C_US_RXRDY);
+   \   0000007C   080086E3           ORR      R0,R6,#0x8
+   \   00000080   6110A0E3           MOV      R1,#+97
+   \   00000084   401F81E3           ORR      R1,R1,#0x100
+   \   00000088   001080E5           STR      R1,[R0, #+0]
+    113          
+    114              	//* open Usart 1 interrupt
+    115          	AT91F_AIC_ConfigureIt ( AT91C_BASE_AIC, AT91C_ID_US0, USART_INTERRUPT_LEVEL,AT91C_AIC_SRCTYPE_INT_HIGH_LEVEL, Usart_c_irq_handler);
+   \   0000008C   6700E0E3           MVN      R0,#+103
+   \   00000090   F00EC0E3           BIC      R0,R0,#0xF00
+   \   00000094   000090E5           LDR      R0,[R0, #+0]
+   \   00000098   DB00E0E3           MVN      R0,#+219
+   \   0000009C   E00EC0E3           BIC      R0,R0,#0xE00
+   \   000000A0   ........           STR      R5,[R0], #-140
+   \   000000A4   7C109FE5           LDR      R1,??Usart_init_0+0x4  ;; Usart_c_irq_handler
+   \   000000A8   001080E5           STR      R1,[R0, #+0]
+   \   000000AC   8000C0E3           BIC      R0,R0,#0x80
+   \   000000B0   0710A0E3           MOV      R1,#+7
+   \   000000B4   ........           STR      R1,[R0], #+272
+   \   000000B8   005080E5           STR      R5,[R0, #+0]
+    116          	AT91F_AIC_EnableIt (AT91C_BASE_AIC, AT91C_ID_US0);
+   \   000000BC   0800C0E3           BIC      R0,R0,#0x8
+   \   000000C0   005080E5           STR      R5,[R0, #+0]
+    117          
+    118          	AT91F_US_PutChar (COM0,'X');
+   \   000000C4   1C0086E3           ORR      R0,R6,#0x1C
+   \   000000C8   5810A0E3           MOV      R1,#+88
+   \   000000CC   001080E5           STR      R1,[R0, #+0]
+    119          
+    120           	AT91F_US_SendFrame(COM0,(char *)atmel_header,sizeof(atmel_header),0,0);
+   \   000000D0   54009FE5           LDR      R0,??Usart_init_0+0x8  ;; atmel_header
+   \   000000D4   5210A0E3           MOV      R1,#+82
+   \   000000D8   462F86E3           ORR      R2,R6,#0x118
+   \   000000DC   043082E3           ORR      R3,R2,#0x4
+   \   000000E0   0C5042E2           SUB      R5,R2,#+12
+   \   000000E4   005095E5           LDR      R5,[R5, #+0]
+   \   000000E8   000055E3           CMP      R5,#+0
+   \   000000EC   0600001A           BNE      ??Usart_init_1
+   \   000000F0   1050C2E3           BIC      R5,R2,#0x10
+   \   000000F4   000085E5           STR      R0,[R5, #+0]
+   \   000000F8   0C0042E2           SUB      R0,R2,#+12
+   \   000000FC   001080E5           STR      R1,[R0, #+0]
+   \   00000100   004082E5           STR      R4,[R2, #+0]
+   \   00000104   004083E5           STR      R4,[R3, #+0]
+   \   00000108   030000EA           B        ??Usart_init_2
+   \                     ??Usart_init_1:
+   \   0000010C   004093E5           LDR      R4,[R3, #+0]
+   \   00000110   000054E3           CMP      R4,#+0
+   \   00000114   00008205           STREQ    R0,[R2, #+0]
+   \   00000118   00108305           STREQ    R1,[R3, #+0]
+    121          
+    122          
+    123          //* End
+    124          }
+   \                     ??Usart_init_2:
+   \   0000011C   7140BDE8           POP      {R0,R4-R6,LR}
+   \   00000120   1EFF2FE1           BX       LR               ;; return
+   \                     ??Usart_init_0:
+   \   00000124   0C00FCFF           DC32     0xfffc000c
+   \   00000128   ........           DC32     Usart_c_irq_handler
+   \   0000012C   ........           DC32     atmel_header
+    125          
+
+   \                                 In segment CODE, align 4, keep-with-next
+    126          void USART_putchar(char c)
+    127          {
+    128            AT91F_US_PutChar (AT91C_BASE_US0,c);
+   \                     USART_putchar:
+   \   00000000   04109FE5           LDR      R1,??USART_putchar_0  ;; 0xfffc001c
+   \   00000004   000081E5           STR      R0,[R1, #+0]
+    129          }
+   \   00000008   1EFF2FE1           BX       LR               ;; return
+   \                     ??USART_putchar_0:
+   \   0000000C   1C00FCFF           DC32     0xfffc001c
+
+   Maximum stack usage in bytes:
+
+     Function            CSTACK
+     --------            ------
+     AT91F_PDC_Open          0
+     USART_putchar           0
+     Usart_c_irq_handler     0
+     Usart_init             20
+
+
+   Segment part sizes:
+
+     Function/Label      Bytes
+     --------------      -----
+     AT91F_PDC_Open        72
+     atmel_header          84
+     Usart_c_irq_handler  120
+     Usart_init           304
+     USART_putchar         16
+      Others               36
+
+ 
+ 412 bytes in segment CODE
+ 124 bytes in segment CODE_I
+  84 bytes in segment DATA_C
+  12 bytes in segment INITTAB
+ 
+ 440 bytes of CODE  memory (+ 108 bytes shared)
+  84 bytes of CONST memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,268 @@
+//////////////////////////////////////////////////////////////////////////////
+//                                                                           /
+// IAR ARM ANSI C/C++ Compiler V4.40A/W32 EVALUATION   22/Oct/2006  15:52:06 /
+// Copyright 1999-2005 IAR Systems. All rights reserved.                     /
+// Time limited license: 20 days left                                        /
+//                                                                           /
+//    Cpu mode        =  interwork                                           /
+//    Endian          =  little                                              /
+//    Stack alignment =  4                                                   /
+//    Source file     =  D:\SPA_iar\Compil\ext_irq.c                         /
+//    Command line    =  D:\SPA_iar\Compil\ext_irq.c -D ESS -lC              /
+//                       D:\SPA_iar\Compil\Flash_Flash\List\ -lA             /
+//                       D:\SPA_iar\Compil\Flash_Flash\List\ -o              /
+//                       D:\SPA_iar\Compil\Flash_Flash\Obj\ -z9 --debug      /
+//                       --cpu_mode arm --endian little --cpu ARM7TDMI       /
+//                       --stack_align 4 --interwork -e --fpu None           /
+//                       --dlib_config C:\IAR\ARM\LIB\dl4tpainl8n.h -I       /
+//                       D:\SPA_iar\Compil\srciar\ -I                        /
+//                       D:\SPA_iar\Compil\..\..\ -I C:\IAR\ARM\INC\         /
+//    List file       =  D:\SPA_iar\Compil\Flash_Flash\List\ext_irq.s79      /
+//                                                                           /
+//                                                                           /
+//////////////////////////////////////////////////////////////////////////////
+
+        NAME ext_irq
+
+        RTMODEL "StackAlign4", "USED"
+        RTMODEL "__cpu_mode", "__pcs__interwork"
+        RTMODEL "__data_model", "absolute"
+        RTMODEL "__endian", "little"
+        RTMODEL "__rt_version", "6"
+
+        RSEG CSTACK:DATA:NOROOT(2)
+
+        PUBWEAK `?*?CODE_ID`
+        MULTWEAK ??FIQ_init_handler??rT
+        MULTWEAK ??at91_IRQ0_handler??rT
+        PUBWEAK ?init?tab?CODE_I
+        PUBWEAK ?init?tab?DATA_Z
+        PUBLIC FIQ_init_handler
+        FUNCTION FIQ_init_handler,0203H
+        PUBLIC at91_IRQ0_handler
+        FUNCTION at91_IRQ0_handler,0203H
+        PUBLIC status_irq
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA R13 HUGEDATA
+        CFI Resource R0:32, R1:32, R2:32, R3:32, R4:32, R5:32, R6:32, R7:32
+        CFI Resource R8:32, R9:32, R10:32, R11:32, R12:32, CPSR:32, R13:32
+        CFI Resource R14:32, SPSR:32
+        CFI VirtualResource ?RET:32
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 2
+        CFI DataAlign 4
+        CFI ReturnAddress ?RET CODE
+        CFI CFA R13+0
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI R8 SameValue
+        CFI R9 SameValue
+        CFI R10 SameValue
+        CFI R11 SameValue
+        CFI R12 Undefined
+        CFI CPSR SameValue
+        CFI R14 Undefined
+        CFI SPSR SameValue
+        CFI ?RET R14
+        CFI EndCommon cfiCommon0
+        
+        
+        CFI Common cfiCommon1 Using cfiNames0
+        CFI CodeAlign 4
+        CFI DataAlign 4
+        CFI ReturnAddress ?RET CODE
+        CFI CFA R13+0
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI R8 SameValue
+        CFI R9 SameValue
+        CFI R10 SameValue
+        CFI R11 SameValue
+        CFI R12 Undefined
+        CFI CPSR SameValue
+        CFI R14 Undefined
+        CFI SPSR SameValue
+        CFI ?RET R14
+        CFI EndCommon cfiCommon1
+        
+FIQ_init_handler    SYMBOL "FIQ_init_handler"
+??FIQ_init_handler??rT SYMBOL "??rT", FIQ_init_handler
+at91_IRQ0_handler   SYMBOL "at91_IRQ0_handler"
+??at91_IRQ0_handler??rT SYMBOL "??rT", at91_IRQ0_handler
+
+// D:\SPA_iar\Compil\ext_irq.c
+//    1 //*----------------------------------------------------------------------------
+//    2 //*      ATMEL Microcontroller Software Support  -  ROUSSET  -
+//    3 //*----------------------------------------------------------------------------
+//    4 //* The software is delivered "AS IS" without warranty or condition of any
+//    5 //* kind, either express, implied or statutory. This includes without
+//    6 //* limitation any warranty or condition with respect to merchantability or
+//    7 //* fitness for any particular purpose, or against the infringements of
+//    8 //* intellectual property rights of others.
+//    9 //*----------------------------------------------------------------------------
+//   10 //* File Name           : ext_irq.c
+//   11 //* Object              : External interrupt handler for irq
+//   12 //*                     : Use LED5 & LED6 for status interrupt
+//   13 //* 1.0 24/Jun/04 JPP   : Creation
+//   14 //* 1.2 29/Aug/05 JPP   : Update AIC definion
+//   15 //*----------------------------------------------------------------------------
+//   16 
+//   17 // Include Standard LIB  files
+//   18 #include "Board.h"
+//   19 
+
+        RSEG DATA_Z:DATA:SORT:NOROOT(2)
+//   20 int status_irq = 0 ;
+status_irq:
+        DS8 4
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI NoFunction
+        THUMB
+??at91_IRQ0_handler??rT:
+        BX       PC
+        Nop      
+        CFI EndBlock cfiBlock0
+        REQUIRE at91_IRQ0_handler
+//   21 
+//   22 //*----------------------------------------------------------------------------
+//   23 //* Function Name       : at91_IRQ0_handler
+//   24 //* Object              : Irq Handler called by the IRQ0 interrupt with AT91
+//   25 //*                       compatibility
+//   26 //*----------------------------------------------------------------------------
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock1 Using cfiCommon1
+        CFI Function at91_IRQ0_handler
+        ARM
+//   27 __ramfunc void at91_IRQ0_handler(void)
+//   28 {
+//   29     if (status_irq == 0) status_irq = 1;
+at91_IRQ0_handler:
+        LDR      R0,??at91_IRQ0_handler_0  ;; status_irq
+        LDR      R1,[R0, #+0]
+        CMP      R1,#+0
+        MOVEQ    R1,#+1
+//   30     else status_irq = 0 ;
+        MOVNE    R1,#+0
+        STR      R1,[R0, #+0]
+//   31     //* Read the output state
+//   32     if ( (AT91F_PIO_GetInput(AT91C_BASE_PIOA) & LED2 ) == LED2 )
+        MVN      R0,#+195
+        BIC      R0,R0,#0xB00
+        LDR      R0,[R0, #+0]
+        MOV      R1,#+2
+        TST      R0,#0x2
+//   33     {
+//   34         AT91F_PIO_ClearOutput( AT91C_BASE_PIOA, LED2 );
+        MVNNE    R0,#+203
+//   35     }
+//   36     else
+//   37     {
+//   38         AT91F_PIO_SetOutput( AT91C_BASE_PIOA, LED2 );
+        MVNEQ    R0,#+207
+        BIC      R0,R0,#0xB00
+        STR      R1,[R0, #+0]
+//   39     }
+//   40     //* while SW3 is push loop
+//   41     while ( (AT91F_PIO_GetInput(AT91C_BASE_PIOA) & SW3_MASK ) != SW3_MASK );
+??at91_IRQ0_handler_1:
+        MVN      R0,#+195
+        BIC      R0,R0,#0xB00
+        LDR      R0,[R0, #+0]
+        TST      R0,#0x8000
+        BEQ      ??at91_IRQ0_handler_1
+//   42 }
+        BX       LR               ;; return
+        DATA
+??at91_IRQ0_handler_0:
+        DC32     status_irq
+        CFI EndBlock cfiBlock1
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI NoFunction
+        THUMB
+??FIQ_init_handler??rT:
+        BX       PC
+        Nop      
+        CFI EndBlock cfiBlock2
+        REQUIRE FIQ_init_handler
+//   43 
+//   44 //*----------------------------------------------------------------------------
+//   45 //* Function Name       : FIQ_init_handler
+//   46 //* Object              : Irq Handler called by the FIQ interrupt with AT91
+//   47 //*                       compatibility
+//   48 ///*----------------------------------------------------------------------------
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock3 Using cfiCommon1
+        CFI Function FIQ_init_handler
+        ARM
+//   49 __ramfunc void FIQ_init_handler(void)
+//   50 {
+//   51     //* Read the output state
+//   52     if ( (AT91F_PIO_GetInput(AT91C_BASE_PIOA) & LED3 ) == LED3 )
+FIQ_init_handler:
+        MVN      R0,#+195
+        BIC      R0,R0,#0xB00
+        LDR      R0,[R0, #+0]
+        MOV      R1,#+4
+        TST      R0,#0x4
+//   53     {
+//   54         AT91F_PIO_ClearOutput( AT91C_BASE_PIOA, LED3 );
+        MVNNE    R0,#+203
+//   55     }
+//   56     else
+//   57     {
+//   58         AT91F_PIO_SetOutput( AT91C_BASE_PIOA, LED3 );
+        MVNEQ    R0,#+207
+        BIC      R0,R0,#0xB00
+        STR      R1,[R0, #+0]
+//   59     }
+//   60 
+//   61 }
+        BX       LR               ;; return
+        CFI EndBlock cfiBlock3
+
+        RSEG CODE_ID:CODE:NOROOT(2)
+`?*?CODE_ID`:
+
+        RSEG INITTAB:CODE:ROOT(2)
+        DATA
+?init?tab?CODE_I:
+        DCD      sfe(CODE_I) - sfb(CODE_I), sfb(CODE_I), sfb(CODE_ID)
+
+        RSEG INITTAB:CODE:ROOT(2)
+        DATA
+?init?tab?DATA_Z:
+        DCD      sfe(DATA_Z) - sfb(DATA_Z), sfb(DATA_Z), sfb(DATA_Z)
+
+        END
+//   62 
+// 
+// 136 bytes in segment CODE_I
+//   4 bytes in segment DATA_Z
+//  24 bytes in segment INITTAB
+// 
+// 128 bytes of CODE memory (+ 32 bytes shared)
+//   4 bytes of DATA memory
+//
+//Errors: none
+//Warnings: none

@@ -1,0 +1,501 @@
+//////////////////////////////////////////////////////////////////////////////
+//                                                                           /
+// IAR ARM ANSI C/C++ Compiler V4.40A/W32 EVALUATION   22/Oct/2006  15:52:06 /
+// Copyright 1999-2005 IAR Systems. All rights reserved.                     /
+// Time limited license: 20 days left                                        /
+//                                                                           /
+//    Cpu mode        =  interwork                                           /
+//    Endian          =  little                                              /
+//    Stack alignment =  4                                                   /
+//    Source file     =  D:\SPA_iar\Compil\interrupt_Usart.c                 /
+//    Command line    =  D:\SPA_iar\Compil\interrupt_Usart.c -D ESS -lC      /
+//                       D:\SPA_iar\Compil\Flash_Flash\List\ -lA             /
+//                       D:\SPA_iar\Compil\Flash_Flash\List\ -o              /
+//                       D:\SPA_iar\Compil\Flash_Flash\Obj\ -z9 --debug      /
+//                       --cpu_mode arm --endian little --cpu ARM7TDMI       /
+//                       --stack_align 4 --interwork -e --fpu None           /
+//                       --dlib_config C:\IAR\ARM\LIB\dl4tpainl8n.h -I       /
+//                       D:\SPA_iar\Compil\srciar\ -I                        /
+//                       D:\SPA_iar\Compil\..\..\ -I C:\IAR\ARM\INC\         /
+//    List file       =  D:\SPA_iar\Compil\Flash_Flash\List\interrupt_Usart. /
+//                       s79                                                 /
+//                                                                           /
+//                                                                           /
+//////////////////////////////////////////////////////////////////////////////
+
+        NAME interrupt_Usart
+
+        RTMODEL "StackAlign4", "USED"
+        RTMODEL "__cpu_mode", "__pcs__interwork"
+        RTMODEL "__data_model", "absolute"
+        RTMODEL "__endian", "little"
+        RTMODEL "__rt_version", "6"
+
+        RSEG CSTACK:DATA:NOROOT(2)
+
+        PUBWEAK `?*?CODE_ID`
+        MULTWEAK ??AT91F_PDC_Open??rA
+        MULTWEAK ??USART_putchar??rT
+        MULTWEAK ??Usart_c_irq_handler??rT
+        MULTWEAK ??Usart_init??rT
+        PUBWEAK ?init?tab?CODE_I
+        PUBWEAK AT91F_PDC_Open
+        FUNCTION AT91F_PDC_Open,0203H
+        PUBLIC USART_putchar
+        FUNCTION USART_putchar,0203H
+        PUBLIC Usart_c_irq_handler
+        FUNCTION Usart_c_irq_handler,0603H
+        PUBLIC Usart_init
+        FUNCTION Usart_init,0203H
+        LOCFRAME CSTACK, 20, STACK
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA R13 HUGEDATA
+        CFI Resource R0:32, R1:32, R2:32, R3:32, R4:32, R5:32, R6:32, R7:32
+        CFI Resource R8:32, R9:32, R10:32, R11:32, R12:32, CPSR:32, R13:32
+        CFI Resource R14:32, SPSR:32
+        CFI VirtualResource ?RET:32
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 4
+        CFI DataAlign 4
+        CFI ReturnAddress ?RET CODE
+        CFI CFA R13+0
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI R8 SameValue
+        CFI R9 SameValue
+        CFI R10 SameValue
+        CFI R11 SameValue
+        CFI R12 Undefined
+        CFI CPSR SameValue
+        CFI R14 Undefined
+        CFI SPSR SameValue
+        CFI ?RET R14
+        CFI EndCommon cfiCommon0
+        
+        
+        CFI Common cfiCommon1 Using cfiNames0
+        CFI CodeAlign 2
+        CFI DataAlign 4
+        CFI ReturnAddress ?RET CODE
+        CFI CFA R13+0
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI R8 SameValue
+        CFI R9 SameValue
+        CFI R10 SameValue
+        CFI R11 SameValue
+        CFI R12 Undefined
+        CFI CPSR SameValue
+        CFI R14 Undefined
+        CFI SPSR SameValue
+        CFI ?RET R14
+        CFI EndCommon cfiCommon1
+        
+AT91F_PDC_Open      SYMBOL "AT91F_PDC_Open"
+??AT91F_PDC_Open??rA SYMBOL "??rA", AT91F_PDC_Open
+USART_putchar       SYMBOL "USART_putchar"
+??USART_putchar??rT SYMBOL "??rT", USART_putchar
+Usart_c_irq_handler SYMBOL "Usart_c_irq_handler"
+??Usart_c_irq_handler??rT SYMBOL "??rT", Usart_c_irq_handler
+Usart_init          SYMBOL "Usart_init"
+??Usart_init??rT    SYMBOL "??rT", Usart_init
+
+// D:\SPA_iar\Compil\interrupt_Usart.c
+//    1 //*----------------------------------------------------------------------------
+//    2 //*      ATMEL Microcontroller Software Support  -  ROUSSET  -
+//    3 //*----------------------------------------------------------------------------
+//    4 //* The software is delivered "AS IS" without warranty or condition of any
+//    5 //* kind, either express, implied or statutory. This includes without
+//    6 //* limitation any warranty or condition with respect to merchantability or
+//    7 //* fitness for any particular purpose, or against the infringements of
+//    8 //* intellectual property rights of others.
+//    9 //*----------------------------------------------------------------------------
+//   10 //* File Name           : interrupt_Usart.c
+//   11 //* Object              : USART Interrupt Management
+//   12 //*
+//   13 //* 1.0 24/Jun/04 JPP   : Creation
+//   14 //* 1.1 29/Aug/05 JPP   : Update AIC definion
+//   15 //*----------------------------------------------------------------------------
+//   16 
+//   17 // Include Standard LIB  files
+//   18 #include "Board.h"
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function AT91F_PDC_Open
+        ARM
+// __??Code32?? __code __interwork __atpcs void AT91F_PDC_Open(AT91PS_PDC)
+AT91F_PDC_Open:
+        MOV      R1,#+2
+        STR      R1,[R0, #+32]
+        MOV      R1,#+512
+        STR      R1,[R0, #+32]
+        MOV      R1,#+0
+        STR      R1,[R0, #+24]
+        STR      R1,[R0, #+28]
+        STR      R1,[R0, #+16]
+        STR      R1,[R0, #+20]
+        STR      R1,[R0, #+8]
+        STR      R1,[R0, #+12]
+        STR      R1,[R0, #+0]
+        STR      R1,[R0, #+4]
+        MOV      R1,#+1
+        STR      R1,[R0, #+32]
+        MOV      R1,#+256
+        STR      R1,[R0, #+32]
+        BX       LR               ;; return
+        CFI EndBlock cfiBlock0
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock1 Using cfiCommon1
+        CFI NoFunction
+        THUMB
+??Usart_init??rT:
+        BX       PC
+        Nop      
+        CFI EndBlock cfiBlock1
+        REQUIRE Usart_init
+//   19 
+//   20 
+//   21 #define USART_INTERRUPT_LEVEL		7
+//   22 #define AT91_BAUD_RATE				115200
+
+        RSEG DATA_C:CONST:SORT:NOROOT(2)
+//   23 static const char atmel_header[]=
+atmel_header:
+        DATA
+        DC8 0AH, 0DH, 20H, 20H, 2AH, 2AH, 2AH, 20H
+        DC8 41H, 54H, 4DH, 45H, 4CH, 20H, 55H, 73H
+        DC8 61H, 72H, 74H, 20H, 49H, 52H, 51H, 20H
+        DC8 2AH, 2AH, 2AH, 0AH, 0DH, 43H, 6FH, 70H
+        DC8 79H, 72H, 69H, 67H, 68H, 74H, 20H, 28H
+        DC8 43H, 29H, 20H, 32H, 30H, 30H, 32H, 20H
+        DC8 41H, 54H, 4DH, 45H, 4CH, 20H, 43H, 6FH
+        DC8 72H, 70H, 6FH, 72H, 61H, 74H, 69H, 6FH
+        DC8 6EH, 73H, 20H, 56H, 65H, 72H, 73H, 69H
+        DC8 6FH, 6EH, 3AH, 20H, 31H, 2EH, 30H, 0AH
+        DC8 0DH, 0
+        DC8 0, 0
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock2 Using cfiCommon1
+        CFI NoFunction
+        THUMB
+??Usart_c_irq_handler??rT:
+        BX       PC
+        Nop      
+        CFI EndBlock cfiBlock2
+        REQUIRE Usart_c_irq_handler
+//   24 {
+//   25 "\n\r  *** ATMEL Usart IRQ ***\n\r"
+//   26 "Copyright (C) 2002 ATMEL Corporations Version: 1.0\n\r"
+//   27 };
+//   28 
+//   29 //* \fn    AT91F_US_Baudrate
+//   30 //* \brief Calculate the baudrate
+//   31 //* Standard Asynchronous Mode : 8 bits , 1 stop , no parity
+//   32 #define AT91C_US_ASYNC_MODE ( AT91C_US_USMODE_NORMAL + \ 
+//   33                         AT91C_US_NBSTOP_1_BIT + \ 
+//   34                         AT91C_US_PAR_NONE + \ 
+//   35                         AT91C_US_CHRL_8_BITS + \ 
+//   36                         AT91C_US_CLKS_CLOCK )
+//   37 
+//   38 //*------------------------- Internal Function --------------------------------
+//   39 
+//   40 //*----------------------------------------------------------------------------
+//   41 //* Function Name       : Usart_c_irq_handler
+//   42 //* Object              : C handler interrupt function called by the interrupts
+//   43 //*                       assembling routine
+//   44 //* Input Parameters    : <RTC_pt> time rtc descriptor
+//   45 //* Output Parameters   : increment count_timer0_interrupt
+//   46 //*----------------------------------------------------------------------------
+
+        RSEG CODE_I:CODE:NOROOT(2)
+        CFI Block cfiBlock3 Using cfiCommon0
+        CFI Function Usart_c_irq_handler
+        ARM
+//   47 __ramfunc void Usart_c_irq_handler(void)
+//   48 {
+//   49 	AT91PS_USART USART_pt = AT91C_BASE_US0;
+//   50 	unsigned int status;
+//   51 	//* get Usart status register
+//   52 	status = USART_pt->US_CSR;
+Usart_c_irq_handler:
+        LDR      R0,??Usart_c_irq_handler_0  ;; 0xfffc0014
+        LDR      R1,[R0, #+0]
+//   53 	if ( status & AT91C_US_RXRDY){
+        ORR      R0,R0,#0x8
+        TST      R1,#0x1
+//   54 		//* Get byte and send
+//   55 		AT91F_US_PutChar (USART_pt, AT91F_US_GetChar(USART_pt));
+        BICNE    R2,R0,#0x4
+        LDRNE    R2,[R2, #+0]
+        MOVNE    R3,R0, LSR #+23
+        ANDNE    R2,R3,R2
+        STRNE    R2,[R0, #+0]
+//   56 	}
+//   57 
+//   58 	if ( status & AT91C_US_OVRE) {
+        TST      R1,#0x20
+//   59 		//* clear US_RXRDY
+//   60 		 AT91F_US_GetChar(USART_pt);
+        BICNE    R2,R0,#0x4
+        LDRNE    R2,[R2, #+0]
+//   61 		 AT91F_US_PutChar (USART_pt, 'O');
+        MOVNE    R2,#+79
+        STRNE    R2,[R0, #+0]
+//   62 	}
+//   63 
+//   64 	//* Check error
+//   65 	if ( status & AT91C_US_PARE) {
+        TST      R1,#0x80
+//   66 		 AT91F_US_PutChar (USART_pt, 'P');
+        MOVNE    R2,#+80
+        STRNE    R2,[R0, #+0]
+//   67 	}
+//   68 
+//   69 	if ( status & AT91C_US_FRAME) {
+        TST      R1,#0x40
+//   70 		 AT91F_US_PutChar (USART_pt, 'F');
+        MOVNE    R2,#+70
+        STRNE    R2,[R0, #+0]
+//   71 	}
+//   72 
+//   73 	if ( status & AT91C_US_TIMEOUT){
+        BIC      R2,R0,#0x1C
+        TST      R1,#0x100
+//   74 		USART_pt->US_CR = AT91C_US_STTTO;
+        MOVNE    R1,#+2048
+        STRNE    R1,[R2, #+0]
+//   75 		 AT91F_US_PutChar (USART_pt, 'T');
+        MOVNE    R1,#+84
+        STRNE    R1,[R0, #+0]
+//   76 	}
+//   77 
+//   78 	//* Reset the satus bit
+//   79 	 USART_pt->US_CR = AT91C_US_RSTSTA;
+        MOV      R0,#+256
+        STR      R0,[R2, #+0]
+//   80 }
+        BX       LR               ;; return
+        DATA
+??Usart_c_irq_handler_0:
+        DC32     0xfffc0014
+        CFI EndBlock cfiBlock3
+//   81 //*-------------------------- External Function -------------------------------
+//   82 
+//   83 //*----------------------------------------------------------------------------
+//   84 //* Function Name       : Usart_init
+//   85 //* Object              : USART initialization
+//   86 //* Input Parameters    : none
+//   87 //* Output Parameters   : TRUE
+//   88 //*----------------------------------------------------------------------------
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock4 Using cfiCommon0
+        CFI Function Usart_init
+        ARM
+//   89 void Usart_init ( void )
+//   90 //* Begin
+//   91 {
+Usart_init:
+        PUSH     {R0,R4-R6,LR}
+        CFI ?RET Frame(CFA, -4)
+        CFI R6 Frame(CFA, -8)
+        CFI R5 Frame(CFA, -12)
+        CFI R4 Frame(CFA, -16)
+        CFI CFA R13+20
+//   92 	AT91PS_USART COM0 = AT91C_BASE_US0;
+//   93 
+//   94  	//* Configure PIO controllers to periph mode
+//   95  	AT91F_PIO_CfgPeriph( AT91C_BASE_PIOA,
+//   96  		((unsigned int) AT91C_PA5_RXD0    ) |
+//   97  		((unsigned int) AT91C_PA6_TXD0    ) |
+//   98  		((unsigned int) AT91C_PA7_RTS0    ) |
+//   99  		((unsigned int) AT91C_PA8_CTS0    ), // Peripheral A
+//  100  		0); // Peripheral B
+        MOV      R0,#+480
+        MVN      R1,#+143
+        BIC      R1,R1,#0xB00
+        STR      R0,[R1, #+0]
+        MOV      R4,#+0
+        ORR      R1,R1,#0x4
+        STR      R4,[R1, #+0]
+        BIC      R1,R1,#0x70
+        STR      R0,[R1, #+0]
+//  101 
+//  102 
+//  103    	// First, enable the clock of the PIOB
+//  104     	AT91F_PMC_EnablePeriphClock ( AT91C_BASE_PMC, 1 << AT91C_ID_US0 ) ;
+        MOV      R5,#+64
+        MVN      R0,#+239
+        BIC      R0,R0,#0x300
+        STR      R5,[R0, #+0]
+//  105 	// Usart Configure
+//  106       AT91F_US_Configure (COM0, MCK, AT91C_US_ASYNC_MODE, AT91_BAUD_RATE, 0);
+        LDR      R0,??Usart_init_0  ;; 0xfffc000c
+        MVN      R1,R4
+        STR      R1,[R0, #+0]
+        BIC      R6,R0,#0xC
+        MOV      R0,#+172
+        STR      R0,[R6, #+0]
+        ORR      R0,R6,#0x20
+        MOV      R1,#+26
+        STR      R1,[R0, #+0]
+        ORR      R0,R0,#0x8
+        STR      R4,[R0], #+216
+        _BLF     AT91F_PDC_Open,??AT91F_PDC_Open??rA
+        ORR      R0,R6,#0x4
+        MOV      R1,#+2240
+        STR      R1,[R0, #+0]
+//  107 
+//  108 	// Enable usart
+//  109 	COM0->US_CR = AT91C_US_RXEN | AT91C_US_TXEN;
+        MOV      R0,#+80
+        STR      R0,[R6, #+0]
+//  110 
+//  111     //* Enable USART IT error and RXRDY
+//  112     	AT91F_US_EnableIt(COM0,AT91C_US_TIMEOUT | AT91C_US_FRAME | AT91C_US_OVRE |AT91C_US_RXRDY);
+        ORR      R0,R6,#0x8
+        MOV      R1,#+97
+        ORR      R1,R1,#0x100
+        STR      R1,[R0, #+0]
+//  113 
+//  114     	//* open Usart 1 interrupt
+//  115 	AT91F_AIC_ConfigureIt ( AT91C_BASE_AIC, AT91C_ID_US0, USART_INTERRUPT_LEVEL,AT91C_AIC_SRCTYPE_INT_HIGH_LEVEL, Usart_c_irq_handler);
+        MVN      R0,#+103
+        BIC      R0,R0,#0xF00
+        LDR      R0,[R0, #+0]
+        MVN      R0,#+219
+        BIC      R0,R0,#0xE00
+        STR      R5,[R0], #-140
+        LDR      R1,??Usart_init_0+0x4  ;; Usart_c_irq_handler
+        STR      R1,[R0, #+0]
+        BIC      R0,R0,#0x80
+        MOV      R1,#+7
+        STR      R1,[R0], #+272
+        STR      R5,[R0, #+0]
+//  116 	AT91F_AIC_EnableIt (AT91C_BASE_AIC, AT91C_ID_US0);
+        BIC      R0,R0,#0x8
+        STR      R5,[R0, #+0]
+//  117 
+//  118 	AT91F_US_PutChar (COM0,'X');
+        ORR      R0,R6,#0x1C
+        MOV      R1,#+88
+        STR      R1,[R0, #+0]
+//  119 
+//  120  	AT91F_US_SendFrame(COM0,(char *)atmel_header,sizeof(atmel_header),0,0);
+        LDR      R0,??Usart_init_0+0x8  ;; atmel_header
+        MOV      R1,#+82
+        ORR      R2,R6,#0x118
+        ORR      R3,R2,#0x4
+        SUB      R5,R2,#+12
+        LDR      R5,[R5, #+0]
+        CMP      R5,#+0
+        BNE      ??Usart_init_1
+        BIC      R5,R2,#0x10
+        STR      R0,[R5, #+0]
+        SUB      R0,R2,#+12
+        STR      R1,[R0, #+0]
+        STR      R4,[R2, #+0]
+        STR      R4,[R3, #+0]
+        B        ??Usart_init_2
+??Usart_init_1:
+        LDR      R4,[R3, #+0]
+        CMP      R4,#+0
+        STREQ    R0,[R2, #+0]
+        STREQ    R1,[R3, #+0]
+//  121 
+//  122 
+//  123 //* End
+//  124 }
+??Usart_init_2:
+        POP      {R0,R4-R6,LR}
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI ?RET R14
+        CFI CFA R13+0
+        BX       LR               ;; return
+        DATA
+??Usart_init_0:
+        DC32     0xfffc000c
+        DC32     Usart_c_irq_handler
+        DC32     atmel_header
+        CFI EndBlock cfiBlock4
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock5 Using cfiCommon1
+        CFI NoFunction
+        THUMB
+??USART_putchar??rT:
+        BX       PC
+        Nop      
+        CFI EndBlock cfiBlock5
+        REQUIRE USART_putchar
+//  125 
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock6 Using cfiCommon0
+        CFI Function USART_putchar
+        ARM
+//  126 void USART_putchar(char c)
+//  127 {
+//  128   AT91F_US_PutChar (AT91C_BASE_US0,c);
+USART_putchar:
+        LDR      R1,??USART_putchar_0  ;; 0xfffc001c
+        STR      R0,[R1, #+0]
+//  129 }
+        BX       LR               ;; return
+        DATA
+??USART_putchar_0:
+        DC32     0xfffc001c
+        CFI EndBlock cfiBlock6
+
+        RSEG CODE:CODE:NOROOT(2)
+        CFI Block cfiBlock7 Using cfiCommon0
+        CFI NoFunction
+        ARM
+??AT91F_PDC_Open??rA:
+        LDR      R12,??Subroutine3_0  ;; AT91F_PDC_Open
+        BX       R12
+        DATA
+??Subroutine3_0:
+        DC32     AT91F_PDC_Open
+        CFI EndBlock cfiBlock7
+
+        RSEG CODE_ID:CODE:NOROOT(2)
+`?*?CODE_ID`:
+
+        RSEG INITTAB:CODE:ROOT(2)
+        DATA
+?init?tab?CODE_I:
+        DCD      sfe(CODE_I) - sfb(CODE_I), sfb(CODE_I), sfb(CODE_ID)
+
+        END
+// 
+// 412 bytes in segment CODE
+// 124 bytes in segment CODE_I
+//  84 bytes in segment DATA_C
+//  12 bytes in segment INITTAB
+// 
+// 440 bytes of CODE  memory (+ 108 bytes shared)
+//  84 bytes of CONST memory
+//
+//Errors: none
+//Warnings: none

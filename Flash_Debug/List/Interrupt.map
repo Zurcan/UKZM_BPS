@@ -1,0 +1,1669 @@
+################################################################################
+#                                                                              #
+#      IAR Universal Linker V4.59Z/386                                         #
+#                                                                              #
+#           Link time     =  30/Nov/2010  23:28:45                             #
+#           Target CPU    =  ARM                                               #
+#           List file     =  "C:\Documents and Settings\Sancho\Рабочий стол\ук #
+#                            зм\Compil_iar440\Flash_Debug\List\Interrupt.map"  #
+#           Output file 1 =  "C:\Documents and Settings\Sancho\Рабочий стол\ук #
+#                            зм\Compil_iar440\Flash_Debug\Exe\Interrupt.d79"   #
+#                            Format: debug                                     #
+#                            UBROF version 10.0.2                              #
+#                            Using library modules for C-SPY (-rt)             #
+#           Output file 2 =  "C:\Documents and Settings\Sancho\Рабочий стол\ук #
+#                            зм\Compil_iar440\Flash_Debug\Exe\Interrupt.sim"   #
+#                            Format: simple-code                               #
+#           Command line  =  "C:\Documents and Settings\Sancho\Рабочий стол\ук #
+#                            зм\Compil_iar440\Flash_Debug\Obj\Cstartup.r79"    #
+#                            "C:\Documents and Settings\Sancho\Рабочий стол\ук #
+#                            зм\Compil_iar440\Flash_Debug\Obj\Cstartup_SAM7.r7 #
+#                            9"                                                #
+#                            "C:\Documents and Settings\Sancho\Рабочий стол\ук #
+#                            зм\Compil_iar440\Flash_Debug\Obj\cossintable.r79" #
+#                            "C:\Documents and Settings\Sancho\Рабочий стол\ук #
+#                            зм\Compil_iar440\Flash_Debug\Obj\main.r79"        #
+#                            -o                                                #
+#                            "C:\Documents and Settings\Sancho\Рабочий стол\ук #
+#                            зм\Compil_iar440\Flash_Debug\Exe\Interrupt.d79"   #
+#                            -l                                                #
+#                            "C:\Documents and Settings\Sancho\Рабочий стол\ук #
+#                            зм\Compil_iar440\Flash_Debug\List\Interrupt.map"  #
+#                            -xmsn                                             #
+#                            "-IC:\Program Files\IAR Systems\Embedded Workbenc #
+#                            h 4.0 Evaluation\ARM\LIB\"                        #
+#                            -f                                                #
+#                            "C:\Documents and Settings\Sancho\Рабочий стол\ук #
+#                            зм\Compil_iar440\resource\at91sam7s256_NoRemap.xc #
+#                            l"                                                #
+#                            (-carm -Z(CONST)INTRAMSTART_REMAP=00200000        #
+#                            -Z(CONST)INTRAMEND_REMAP=0020FFFF                 #
+#                            -DROMSTART=00000000 -DROMEND=0003FFFF             #
+#                            -DRAMSTART=00200000 -DRAMEND=0020FFFF             #
+#                            -Z(CODE)INTVEC=00-3F                              #
+#                            -Z(CODE)ICODE,DIFUNCT=ROMSTART-ROMEND             #
+#                            -Z(CODE)SWITAB=ROMSTART-ROMEND                    #
+#                            -Z(CODE)CODE=ROMSTART-ROMEND                      #
+#                            -Z(CONST)INITTAB,DATA_ID,DATA_C=ROMSTART-ROMEND   #
+#                            -Z(CONST)CHECKSUM=ROMSTART-ROMEND                 #
+#                            -Z(DATA)DATA_I,DATA_Z,DATA_N=RAMSTART-RAMEND      #
+#                            -Z(DATA)CODE_I=RAMSTART-RAMEND                    #
+#                            -Z(CONST)CODE_ID=ROMSTART-ROMEND                  #
+#                            -QCODE_I=CODE_ID -D_CSTACK_SIZE=(100*4)           #
+#                            -D_IRQ_STACK_SIZE=(3*8*4)                         #
+#                            -Z(DATA)CSTACK+_CSTACK_SIZE=RAMSTART-RAMEND       #
+#                            -Z(DATA)IRQ_STACK+_IRQ_STACK_SIZE=RAMSTART-RAMEND) #
+#                            -e_PrintfTiny=_Printf -e_ScanfSmall=_Scanf -rt    #
+#                            "C:\Program Files\IAR Systems\Embedded Workbench  #
+#                            4.0 Evaluation\ARM\LIB\dl4tptinl8n.r79"           #
+#                            "-Osimple-code=C:\Documents and Settings\Sancho\Р #
+#                            абочий стол\укзм\Compil_iar440\Flash_Debug\Exe\In #
+#                            terrupt.sim"                                      #
+#                                                                              #
+#                        Copyright 1987-2006 IAR Systems. All rights reserved. #
+################################################################################
+
+
+
+
+
+                ****************************************
+                *                                      *
+                *           CROSS REFERENCE            *
+                *                                      *
+                ****************************************
+
+                  There are no program entries.
+
+
+
+
+                ****************************************
+                *                                      *
+                *            RUNTIME MODEL             *
+                *                                      *
+                ****************************************
+
+  StackAlign4            = USED
+  StackAlign8            = USED
+  __cpu_mode             = __pcs__interwork
+  __data_model           = absolute
+  __dlib_file_descriptor = 0
+  __endian               = little
+  __rt_version           = 6
+  __thumb_aware          = enabled
+
+
+
+                ****************************************
+                *                                      *
+                *              MODULE MAP              *
+                *                                      *
+                ****************************************
+
+
+  DEFINED ABSOLUTE ENTRIES
+    *************************************************************************
+
+  DEFINED ABSOLUTE ENTRIES
+  PROGRAM MODULE, NAME : ?ABS_ENTRY_MOD
+
+Absolute parts
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _IRQ_STACK_SIZE         00000060 
+           _CSTACK_SIZE            00000400 
+           RAMEND                  0020FFFF 
+           RAMSTART                00200000 
+           ROMEND                  0003FFFF 
+           ROMSTART                00000000 
+    *************************************************************************
+
+  FILE NAME : C:\Documents and Settings\Sancho\Рабочий стол\укзм\Compil_iar440\Flash_Debug\Obj\Cstartup.r79
+  PROGRAM MODULE, NAME : ?RESET
+
+  SEGMENTS IN THE MODULE
+  ======================
+INTRAMSTART_REMAP
+  Relative segment, address: 00200000, align: 2
+  Segment part 0. ROOT.
+    -------------------------------------------------------------------------
+INTRAMEND_REMAP
+  Relative segment, address: 00210000, align: 2
+  Segment part 1. ROOT.
+    -------------------------------------------------------------------------
+ICODE
+  Relative segment, address: 00000000 - 00000103 (0x104 bytes), align: 2
+  Segment part 2. ROOT.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __main                  00000088 
+           AT91F_Default_FIQ_handler
+                                   000000E0        AT91F_LowLevelInit (Cstartup_SAM7)
+           AT91F_Default_IRQ_handler
+                                   000000E4        AT91F_LowLevelInit (Cstartup_SAM7)
+           AT91F_Spurious_handler
+                                   000000E8        AT91F_LowLevelInit (Cstartup_SAM7)
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           reset                   00000000 
+           InitReset               00000044 
+           undefvec                00000004 
+           swivec                  00000008 
+           pabtvec                 0000000C 
+           dabtvec                 00000010 
+           rsvdvec                 00000014 
+           irqvec                  00000018 
+           IRQ_Handler_Entry       00000090 
+           fiqvec                  0000001C 
+           FIQ_Handler_Entry       0000001C 
+           ?jump_to_main           00000080 
+           ?call_exit              0000008C 
+           End                     0000008C 
+           _?0                     000000EC 
+           _?1                     000000F0 
+           _?2                     000000F4 
+           _?3                     000000F8 
+           _?4                     000000FC 
+           _?5                     00000100 
+
+    *************************************************************************
+
+  FILE NAME : C:\Documents and Settings\Sancho\Рабочий стол\укзм\Compil_iar440\Flash_Debug\Obj\Cstartup_SAM7.r79
+  PROGRAM MODULE, NAME : Cstartup_SAM7
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00000140 - 000001E3 (0xa4 bytes), align: 2
+  Segment part 3.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           AT91F_LowLevelInit      00000141        Segment part 2 (?RESET)
+               stack 1 = 00000000 ( 00000008 )
+
+    *************************************************************************
+
+  FILE NAME : C:\Documents and Settings\Sancho\Рабочий стол\укзм\Compil_iar440\Flash_Debug\Obj\cossintable.r79
+  PROGRAM MODULE, NAME : cossintable
+
+  SEGMENTS IN THE MODULE
+  ======================
+DATA_C
+  Relative segment, address: 00002F14 - 0000CF13 (0xa000 bytes), align: 2
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           CosSinTable             00002F14        Segment part 20 (main)
+
+    *************************************************************************
+
+  FILE NAME : C:\Documents and Settings\Sancho\Рабочий стол\укзм\Compil_iar440\Flash_Debug\Obj\main.r79
+  PROGRAM MODULE, NAME : main
+
+  SEGMENTS IN THE MODULE
+  ======================
+DATA_N
+  Relative segment, address: 0020010C - 0020050B (0x400 bytes), align: 2
+  Segment part 21.            Intra module refs:   Segment part 55
+                                                   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ADC_Buf                 0020010C 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000001E4 - 000001F7 (0x14 bytes), align: 2
+  Segment part 31.            Intra module refs:   MyprintfConfig
+                                                   ParseRead_InputReg
+                                                   ParseWriteMulty_HoldingReg
+                                                   ParseWriteSingle_HoldingReg
+                                                   ProcessModbusFrame
+                                                   ReadInitConfig
+                                                   WriteConfig
+                                                   WriteHoldingReg
+                                                   main
+                                                   myprintfFreqOrder
+                                                   myprintfSKZ
+                                                   myprintfSKZSpectr
+                                                   myprintfSKZ_1
+                                                   myprintfSKZ_2
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           DBGU_SendBuf            000001E5 
+               stack 1 = 00000000 ( 00000004 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000001F8 - 000001FB (0x4 bytes), align: 2
+  Segment part 32.            Intra module refs:   DBGU_SendBuf
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000001FC - 0000020B (0x10 bytes), align: 2
+  Segment part 34.            Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           US0_Send                000001FD 
+               stack 1 = 00000000 ( 00000004 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 0000020C - 0000022B (0x20 bytes), align: 2
+  Segment part 35.            Intra module refs:   DBGU_SendBuf
+                                                   US0_Send
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           ?Subroutine23           0000020D 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 0000022C - 0000022F (0x4 bytes), align: 2
+  Segment part 36.            Intra module refs:   ?Subroutine23
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000230 - 00000233 (0x4 bytes), align: 2
+  Segment part 37.            Intra module refs:   ?Subroutine23
+    -------------------------------------------------------------------------
+DATA_Z
+  Relative segment, address: 002000BC - 00200103 (0x48 bytes), align: 2
+  Segment part 25.            Intra module refs:   CalcSKZ
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           f_SKZ                   002000BC 
+    -------------------------------------------------------------------------
+DATA_C
+  Relative segment, address: 0000CF14 - 0000CF53 (0x40 bytes), align: 2
+  Segment part 2.             Intra module refs:   ProcessModbusFrame
+    -------------------------------------------------------------------------
+DATA_C
+  Relative segment, address: 0000CF54 - 0000D3DB (0x488 bytes), align: 2
+  Segment part 3.             Intra module refs:   main
+    -------------------------------------------------------------------------
+DATA_C
+  Relative segment, address: 0000D3DC - 0000D3EB (0x10 bytes), align: 2
+  Segment part 4.             Intra module refs:   myprintfSKZ
+    -------------------------------------------------------------------------
+DATA_C
+  Relative segment, address: 00002E00 - 00002F13 (0x114 bytes), align: 8
+  Segment part 5.             Intra module refs:   ReadInitConfig
+                                                   WriteConfig
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           FlashConfig             00002E00 
+    -------------------------------------------------------------------------
+DATA_C
+  Relative segment, address: 0000D3EC - 0000D4CB (0xe0 bytes), align: 2
+  Segment part 6.             Intra module refs:   ReadInitConfig
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           DefaultConfig           0000D3EC 
+    -------------------------------------------------------------------------
+DATA_C
+  Relative segment, address: 0000D4CC - 0000D507 (0x3c bytes), align: 2
+  Segment part 7.             Intra module refs:   MyprintfConfig
+    -------------------------------------------------------------------------
+DATA_C
+  Relative segment, address: 0000D508 - 0000D537 (0x30 bytes), align: 2
+  Segment part 8.             Intra module refs:   myprintfSKZSpectr
+    -------------------------------------------------------------------------
+DATA_C
+  Relative segment, address: 0000D538 - 0000D54B (0x14 bytes), align: 2
+  Segment part 12.            Intra module refs:   myprintfSKZ_1
+    -------------------------------------------------------------------------
+DATA_C
+  Relative segment, address: 0000D54C - 0000D55F (0x14 bytes), align: 2
+  Segment part 13.            Intra module refs:   ?Subroutine25
+    -------------------------------------------------------------------------
+DATA_C
+  Relative segment, address: 0000D560 - 0000D57B (0x1c bytes), align: 2
+  Segment part 14.            Intra module refs:   myprintfFreqOrder
+    -------------------------------------------------------------------------
+DATA_C
+  Relative segment, address: 0000D57C - 0000D5D3 (0x58 bytes), align: 2
+  Segment part 15.            Intra module refs:   ParseRead_InputReg
+    -------------------------------------------------------------------------
+DATA_C
+  Relative segment, address: 0000D5D4 - 0000D5F3 (0x20 bytes), align: 2
+  Segment part 16.            Intra module refs:   WriteHoldingReg
+    -------------------------------------------------------------------------
+DATA_C
+  Relative segment, address: 0000D5F4 - 0000D613 (0x20 bytes), align: 2
+  Segment part 17.            Intra module refs:   ParseWriteSingle_HoldingReg
+    -------------------------------------------------------------------------
+DATA_C
+  Relative segment, address: 0000D614 - 0000D667 (0x54 bytes), align: 2
+  Segment part 18.            Intra module refs:   ParseWriteMulty_HoldingReg
+    -------------------------------------------------------------------------
+DATA_N
+  Relative segment, address: 0020050C - 00200AF3 (0x5e8 bytes), align: 2
+  Segment part 22.            Intra module refs:   ?Subroutine23
+                                                   CalcSKZ
+                                                   ParseRead_InputReg
+                                                   ParseWriteMulty_HoldingReg
+                                                   ParseWriteSingle_HoldingReg
+                                                   Read_SKZ_func
+                                                   SKZ_arrays_read
+                                                   Segment part 100
+                                                   Segment part 103
+                                                   Segment part 32
+                                                   Segment part 51
+                                                   Segment part 52
+                                                   Segment part 67
+                                                   Segment part 68
+                                                   Segment part 70
+                                                   Segment part 71
+                                                   Segment part 78
+                                                   Segment part 86
+                                                   Segment part 93
+                                                   Segment part 97
+                                                   Segment part 98
+                                                   WriteConfig
+                                                   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           DBGU_Buf                0020060C 
+           US0_SendBuf             002009F4 
+           _A_RAMConfig            0020050C 
+    -------------------------------------------------------------------------
+DATA_N
+  Relative segment, address: 00200AF4 - 00200BF3 (0x100 bytes), align: 2
+  Segment part 23.            Intra module refs:   StartTimeout
+                                                   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           US0_RecvBuf             00200AF4 
+    -------------------------------------------------------------------------
+CODE_I
+  Relative segment, address: 00200BF4 - 00200C47 (0x54 bytes), align: 2
+  Segment part 138.           Intra module refs:   ?Subroutine24
+                                                   ReadInitConfig
+                                                   WriteHoldingReg
+                                                   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           WriteConfig             00200BF5 
+               stack 1 = 00000000 ( 00000010 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000234 - 0000029F (0x6c bytes), align: 2
+  Segment part 39.            Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ReadInitConfig          00000235 
+               stack 1 = 00000000 ( 00000010 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000002A0 - 000002D3 (0x34 bytes), align: 2
+  Segment part 41.            Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           MyprintfConfig          000002A1 
+               stack 1 = 00000000 ( 00000010 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000002D4 - 000002E1 (0xe bytes), align: 2
+  Segment part 43.            Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           SetUARTRate             000002D5 
+               stack 1 = 00000000 ( 00000004 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000002E4 - 0000034B (0x68 bytes), align: 2
+  Segment part 50.            Intra module refs:   ?Subroutine24
+                                                   CalcSKZ
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           CalcValSKZ              000002E5 
+               stack 1 = 00000000 ( 00000014 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 0000034C - 0000034F (0x4 bytes), align: 2
+  Segment part 51.            Intra module refs:   CalcValSKZ
+                                                   MyprintfConfig
+                                                   ReadInitConfig
+                                                   SetUARTRate
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000350 - 00000353 (0x4 bytes), align: 2
+  Segment part 52.            Intra module refs:   CalcValSKZ
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000354 - 0000066F (0x31c bytes), align: 2
+  Segment part 54.            Intra module refs:   Read_SKZ_func
+                                                   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           CalcSKZ                 00000355 
+               stack 1 = 00000000 ( 00000398 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000670 - 00000673 (0x4 bytes), align: 2
+  Segment part 55.            Intra module refs:   CalcSKZ
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000674 - 00000677 (0x4 bytes), align: 2
+  Segment part 56.            Intra module refs:   CalcSKZ
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000678 - 0000068D (0x16 bytes), align: 2
+  Segment part 58.            Intra module refs:   WriteHoldingReg
+                                                   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           SetSKZ_1                00000679 
+               stack 1 = 00000000 ( 00000004 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000690 - 000006AB (0x1c bytes), align: 2
+  Segment part 60.            Intra module refs:   WriteHoldingReg
+                                                   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           SetSKZ_2                00000691 
+               stack 1 = 00000000 ( 000000B8 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000006AC - 000006B7 (0xc bytes), align: 2
+  Segment part 62.            Intra module refs:   SKZ_arrays_read
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           SetSKZ_2_               000006AD 
+               stack 1 = 00000000 ( 000000B8 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000006B8 - 00000797 (0xe0 bytes), align: 2
+  Segment part 63.            Intra module refs:   CalcSKZ
+                                                   SetSKZ_2
+                                                   SetSKZ_2_
+                                                   WriteHoldingReg
+                                                   myprintfSKZSpectr
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           ?Subroutine24           000006B9 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000798 - 0000079B (0x4 bytes), align: 2
+  Segment part 64.            Intra module refs:   SetSKZ_2
+                                                   SetSKZ_2_
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 0000079C - 0000079F (0x4 bytes), align: 2
+  Segment part 65.            Intra module refs:   ?Subroutine24
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000007A0 - 000007A3 (0x4 bytes), align: 2
+  Segment part 66.            Intra module refs:   ?Subroutine24
+                                                   CalcSKZ
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000007A4 - 000007A7 (0x4 bytes), align: 2
+  Segment part 67.            Intra module refs:   ?Subroutine24
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000007A8 - 000007AB (0x4 bytes), align: 2
+  Segment part 68.            Intra module refs:   ?Subroutine24
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000007AC - 000007AF (0x4 bytes), align: 2
+  Segment part 69.            Intra module refs:   ?Subroutine24
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000007B0 - 000007B3 (0x4 bytes), align: 2
+  Segment part 70.            Intra module refs:   ?Subroutine24
+                                                   SetSKZ_1
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000007B4 - 000007B7 (0x4 bytes), align: 2
+  Segment part 71.            Intra module refs:   ?Subroutine24
+                                                   SetSKZ_2
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000007B8 - 00000833 (0x7c bytes), align: 2
+  Segment part 73.            Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           myprintfSKZSpectr       000007B9 
+               stack 1 = 00000000 ( 00000014 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000834 - 00000837 (0x4 bytes), align: 2
+  Segment part 74.            Intra module refs:   myprintfSKZSpectr
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000838 - 00000863 (0x2c bytes), align: 2
+  Segment part 76.            Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           myprintfSKZ             00000839 
+               stack 1 = 00000000 ( 00000008 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000864 - 00000867 (0x4 bytes), align: 2
+  Segment part 77.            Intra module refs:   SetSKZ_1
+                                                   myprintfSKZ
+                                                   myprintfSKZSpectr
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000868 - 0000086B (0x4 bytes), align: 2
+  Segment part 78.            Intra module refs:   myprintfSKZ
+                                                   myprintfSKZSpectr
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 0000086C - 00000897 (0x2c bytes), align: 2
+  Segment part 80.            Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           myprintfSKZ_1           0000086D 
+               stack 1 = 00000000 ( 0000000C )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000898 - 000008BF (0x28 bytes), align: 2
+  Segment part 82.            Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           myprintfSKZ_2           00000899 
+               stack 1 = 00000000 ( 0000000C )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000008C0 - 000008CB (0xc bytes), align: 2
+  Segment part 83.            Intra module refs:   myprintfFreqOrder
+                                                   myprintfSKZ_1
+                                                   myprintfSKZ_2
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           ?Subroutine25           000008C1 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000008CC - 00000903 (0x38 bytes), align: 2
+  Segment part 85.            Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           myprintfFreqOrder       000008CD 
+               stack 1 = 00000000 ( 00000010 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000904 - 00000907 (0x4 bytes), align: 2
+  Segment part 86.            Intra module refs:   ?Subroutine24
+                                                   myprintfFreqOrder
+                                                   myprintfSKZ_1
+                                                   myprintfSKZ_2
+    -------------------------------------------------------------------------
+DATA_I
+  Relative segment, address: 00200000 - 0020006B (0x6c bytes), align: 2
+  Segment part 19.            Intra module refs:   ?Subroutine23
+                                                   CalcSKZ
+                                                   DBGU_SendBuf
+                                                   ParseRead_InputReg
+                                                   ParseWriteMulty_HoldingReg
+                                                   ParseWriteSingle_HoldingReg
+                                                   Read_SKZ_func
+                                                   Segment part 56
+                                                   Segment part 64
+                                                   Segment part 65
+                                                   Segment part 77
+                                                   Segment part 99
+                                                   SetGain
+                                                   SetSKZ_2
+                                                   StartTimeout
+                                                   US0_SetBaudRate
+                                                   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Cos                     00200038 
+           Gain                    00200000 
+           GainTable               00200004 
+           MinSKZ_val              00200060 
+           Object_on               00200001 
+           Object_on_level         00200064 
+           RelValSKZ               00200068 
+           RelValSKZ1toSKZ2        00200002 
+           SKZ                     00200014 
+           Sin                     0020003C 
+           ValSKZ                  00200010 
+           ViewModbus              00200003 
+           first_pass              0020005C 
+           pADC                    00200050 
+           pDBGU                   0020004C 
+           pPIO                    00200044 
+           pPMC                    00200040 
+           pSPI                    00200054 
+           pTC0                    00200048 
+           pUS0                    00200058 
+    -------------------------------------------------------------------------
+DATA_I
+  Relative segment, address: 0020006C - 002000BB (0x50 bytes), align: 2
+  Segment part 28.            Intra module refs:   MyprintfConfig
+                                                   US0_SetBaudRate
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           UARTRateTable           0020006C 
+           UARTTimeoutTable        00200094 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000908 - 0000094B (0x44 bytes), align: 2
+  Segment part 88.            Intra module refs:   ParseRead_InputReg
+                                                   ParseWriteMulty_HoldingReg
+                                                   ParseWriteSingle_HoldingReg
+                                                   ProcessModbusFrame
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ModbusCRC               00000909 
+               stack 1 = 00000000 ( 0000000C )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 0000094C - 000009CD (0x82 bytes), align: 2
+  Segment part 90.            Intra module refs:   ParseRead_InputReg
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ReadInputReg            0000094D 
+               stack 1 = 00000000 ( 00000008 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000009D0 - 00000A5F (0x90 bytes), align: 2
+  Segment part 92.            Intra module refs:   ParseWriteMulty_HoldingReg
+                                                   ParseWriteSingle_HoldingReg
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           WriteHoldingReg         000009D1 
+               stack 1 = 00000000 ( 00000014 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000A60 - 00000A63 (0x4 bytes), align: 2
+  Segment part 93.            Intra module refs:   ReadInputReg
+                                                   WriteHoldingReg
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000A64 - 00000A67 (0x4 bytes), align: 2
+  Segment part 94.            Intra module refs:   WriteHoldingReg
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000A68 - 00000B5F (0xf8 bytes), align: 2
+  Segment part 96.            Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ProcessModbusFrame      00000A69 
+               stack 1 = 00000000 ( 00000020 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000B60 - 00000B63 (0x4 bytes), align: 2
+  Segment part 97.            Intra module refs:   ProcessModbusFrame
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000B64 - 00000B67 (0x4 bytes), align: 2
+  Segment part 98.            Intra module refs:   ProcessModbusFrame
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000B68 - 00000B6B (0x4 bytes), align: 2
+  Segment part 99.            Intra module refs:   ProcessModbusFrame
+                                                   ReadInputReg
+                                                   WriteHoldingReg
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000B6C - 00000B6F (0x4 bytes), align: 2
+  Segment part 100.           Intra module refs:   ProcessModbusFrame
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000B70 - 00000FE7 (0x478 bytes), align: 2
+  Segment part 102.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           main                    00000B71        Segment part 2 (?RESET)
+               stack 1 = 00000000 ( 00000038 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000FE8 - 00000FEB (0x4 bytes), align: 2
+  Segment part 103.           Intra module refs:   main
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000FEC - 00000FEF (0x4 bytes), align: 2
+  Segment part 104.           Intra module refs:   main
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000FF0 - 00000FF7 (0x8 bytes), align: 2
+  Segment part 110.           Intra module refs:   CalcSKZ
+                                                   CalcValSKZ
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __longLongToFloat::??rT
+                                   00000FF1 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00000FF8 - 00000FFF (0x8 bytes), align: 2
+  Segment part 111.           Intra module refs:   CalcSKZ
+                                                   CalcValSKZ
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __floatToDouble::??rT   00000FF9 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00001000 - 00001007 (0x8 bytes), align: 2
+  Segment part 113.           Intra module refs:   ?Subroutine24
+                                                   CalcValSKZ
+                                                   WriteHoldingReg
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __ulongToDouble::??rT   00001001 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00001008 - 0000100F (0x8 bytes), align: 2
+  Segment part 115.           Intra module refs:   ?Subroutine24
+                                                   CalcSKZ
+                                                   CalcValSKZ
+                                                   WriteHoldingReg
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __doubleToLong::??rT    00001009 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00001010 - 00001017 (0x8 bytes), align: 2
+  Segment part 116.           Intra module refs:   CalcSKZ
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __longLongToDouble::??rT
+                                   00001011 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00001018 - 0000101F (0x8 bytes), align: 2
+  Segment part 117.           Intra module refs:   CalcSKZ
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __doubleToLongLong::??rT
+                                   00001019 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00001020 - 00001027 (0x8 bytes), align: 2
+  Segment part 120.           Intra module refs:   CalcSKZ
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __fMul::??rT            00001021 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00001028 - 0000102F (0x8 bytes), align: 2
+  Segment part 122.           Intra module refs:   CalcSKZ
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __doubleToFloat::??rT   00001029 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00001030 - 00001037 (0x8 bytes), align: 2
+  Segment part 124.           Intra module refs:   CalcSKZ
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __floatToLong::??rT     00001031 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00001038 - 0000103F (0x8 bytes), align: 2
+  Segment part 125.           Intra module refs:   CalcSKZ
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __longToDouble::??rT    00001039 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00001040 - 0000104F (0x10 bytes), align: 2
+  Segment part 128.           Intra module refs:   ?Subroutine24
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __dLess::??rT           00001041 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00001050 - 00001073 (0x24 bytes), align: 2
+  Segment part 135.           Intra module refs:   CalcSKZ
+                                                   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           SetGain                 00001051 
+               stack 1 = 00000000 ( 00000004 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00001074 - 0000109F (0x2c bytes), align: 2
+  Segment part 136.           Intra module refs:   SetUARTRate
+                                                   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           US0_SetBaudRate         00001075 
+               stack 1 = 00000000 ( 00000008 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000010A0 - 000010CF (0x30 bytes), align: 2
+  Segment part 141.           Intra module refs:   ProcessModbusFrame
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Read_SKZ_func           000010A1 
+               stack 1 = 00000000 ( 00000004 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000010D0 - 00001157 (0x88 bytes), align: 2
+  Segment part 142.           Intra module refs:   ProcessModbusFrame
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           SKZ_arrays_read         000010D1 
+               stack 1 = 00000000 ( 0000001C )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00001158 - 0000123F (0xe8 bytes), align: 2
+  Segment part 143.           Intra module refs:   ProcessModbusFrame
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ParseRead_InputReg      00001159 
+               stack 1 = 00000000 ( 00000028 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00001240 - 000012B3 (0x74 bytes), align: 2
+  Segment part 144.           Intra module refs:   ProcessModbusFrame
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ParseWriteSingle_HoldingReg
+                                   00001241 
+               stack 1 = 00000000 ( 0000000C )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000012B4 - 00001373 (0xc0 bytes), align: 2
+  Segment part 145.           Intra module refs:   ProcessModbusFrame
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ParseWriteMulty_HoldingReg
+                                   000012B5 
+               stack 1 = 00000000 ( 00000024 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00001374 - 0000139B (0x28 bytes), align: 2
+  Segment part 146.           Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           StartTimeout            00001375 
+    -------------------------------------------------------------------------
+DATA_ID
+  Relative segment, address: 00002D44 - 00002DAF (0x6c bytes), align: 2
+  Segment part 20.            Intra module refs:   Segment part 19
+    -------------------------------------------------------------------------
+DATA_ID
+  Relative segment, address: 00002DB0 - 00002DFF (0x50 bytes), align: 2
+  Segment part 29.            Intra module refs:   Segment part 28
+    -------------------------------------------------------------------------
+CODE_ID
+  Relative segment, address: 0000D6A0, align: 2
+  Segment part 147.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?*?CODE_ID              0000D6A0 
+    -------------------------------------------------------------------------
+INITTAB
+  Relative segment, address: 00002D20 - 00002D2B (0xc bytes), align: 2
+  Segment part 148. ROOT.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?init?tab?CODE_I        00002D20 
+    -------------------------------------------------------------------------
+INITTAB
+  Relative segment, address: 00002D2C - 00002D37 (0xc bytes), align: 2
+  Segment part 149. ROOT.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?init?tab?DATA_Z        00002D2C 
+    -------------------------------------------------------------------------
+INITTAB
+  Relative segment, address: 00002D38 - 00002D43 (0xc bytes), align: 2
+  Segment part 151. ROOT.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?init?tab?DATA_I        00002D38 
+    -------------------------------------------------------------------------
+CODE_ID
+  Relative segment, address: 0000D6A0 - 0000D6F3 (0x54 bytes), align: 2
+  Segment part 153.           Intra module refs:   WriteConfig
+
+    *************************************************************************
+
+  FILE NAME : C:\Program Files\IAR Systems\Embedded Workbench 4.0 Evaluation\ARM\LIB\dl4tptinl8n.r79
+  LIBRARY MODULE, NAME : ?segment_init
+
+  SEGMENTS IN THE MODULE
+  ======================
+ICODE
+  Relative segment, address: 00000104 - 0000013F (0x3c bytes), align: 2
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __segment_init          00000105        Segment part 2 (?RESET)
+               stack 1 = 00000000 ( 00000018 )
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?fpStatus
+
+  SEGMENTS IN THE MODULE
+  ======================
+DATA_Z
+  Relative segment, address: 00200104 - 00200107 (0x4 bytes), align: 2
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __FloatingPointFlags    00200104        Segment part 0 (?SetInvalidFlag)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?errno
+
+  SEGMENTS IN THE MODULE
+  ======================
+DATA_Z
+  Relative segment, address: 00200108 - 0020010B (0x4 bytes), align: 2
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           errno                   00200108        sqrt (?sqrt)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?floorf
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 0000139C - 000013D3 (0x38 bytes), align: 2
+  Segment part 3.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           floorf                  0000139D        CalcSKZ (main)
+               stack 1 = 00000000 ( 00000010 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000013D4 - 000013DB (0x8 bytes), align: 2
+  Segment part 5.             Intra module refs:   floorf
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __fLess::??rT           000013D5 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000013DC - 000013E3 (0x8 bytes), align: 2
+  Segment part 6.             Intra module refs:   floorf
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __fAdd::??rT            000013DD 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?memcpy
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 000013E4 - 000013FD (0x1a bytes), align: 2
+  Segment part 3.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           memcpy                  000013E5        SetSKZ_1 (main)
+                                                   SetSKZ_2 (main)
+                                                   __segment_init (?segment_init)
+               stack 1 = 00000000 ( 00000008 )
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?memset
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00001400 - 00001417 (0x18 bytes), align: 2
+  Segment part 3.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           memset                  00001401        __segment_init (?segment_init)
+               stack 1 = 00000000 ( 00000008 )
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?sprintf
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00001418 - 0000144F (0x38 bytes), align: 2
+  Segment part 3.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           sprintf                 00001419        MyprintfConfig (main)
+                                                   ParseRead_InputReg (main)
+                                                   ParseWriteMulty_HoldingReg (main)
+                                                   ParseWriteSingle_HoldingReg (main)
+                                                   ProcessModbusFrame (main)
+                                                   ReadInitConfig (main)
+                                                   WriteConfig (main)
+                                                   WriteHoldingReg (main)
+                                                   main (main)
+                                                   myprintfFreqOrder (main)
+                                                   myprintfSKZ (main)
+                                                   myprintfSKZSpectr (main)
+                                                   myprintfSKZ_1 (main)
+                                                   myprintfSKZ_2 (main)
+               stack 1 = 00000000 ( 00000010 )
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?sqrt
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00001450 - 000015DF (0x190 bytes), align: 2
+  Segment part 3.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           sqrt                    00001451        CalcSKZ (main)
+                                                   CalcValSKZ (main)
+               stack 1 = 00000000 ( 00000028 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000015E0 - 000015EF (0x10 bytes), align: 2
+  Segment part 5.             Intra module refs:   sqrt
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __dMul::??rT            000015E1 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000015F0 - 000015FF (0x10 bytes), align: 2
+  Segment part 6.             Intra module refs:   sqrt
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __dAdd::??rT            000015F1 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00001600 - 0000160F (0x10 bytes), align: 2
+  Segment part 7.             Intra module refs:   sqrt
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __dDiv::??rT            00001601 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?strlen
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00001610 - 00001623 (0x14 bytes), align: 2
+  Segment part 3.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           strlen                  00001611        _PrintfTiny (?xprintftiny)
+               stack 1 = 00000000 ( 00000004 )
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?xdnorm
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00001624 - 000016E7 (0xc4 bytes), align: 2
+  Segment part 3.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _Dnorm                  00001625        _Dscale (?xdscale)
+                                                   sqrt (?sqrt)
+               stack 1 = 00000000 ( 0000000C )
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?xdscale
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 000016E8 - 000017FB (0x114 bytes), align: 2
+  Segment part 3.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _Dscale                 000016E9        sqrt (?sqrt)
+               stack 1 = 00000000 ( 00000018 )
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?xfdint
+
+  SEGMENTS IN THE MODULE
+  ======================
+DATA_C
+  Relative segment, address: 0000D668 - 0000D68F (0x28 bytes), align: 2
+  Segment part 2.             Intra module refs:   _FDint
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 000017FC - 0000188F (0x94 bytes), align: 2
+  Segment part 4.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _FDint                  000017FD        floorf (?floorf)
+               stack 1 = 00000000 ( 00000014 )
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?xprintftiny
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00001890 - 00001A73 (0x1e4 bytes), align: 2
+  Segment part 5.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _PrintfTiny             00001891        sprintf (?sprintf)
+               stack 1 = 00000000 ( 00000038 )
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00001A74 - 00001A75 (0x2 bytes), align: 2
+  Segment part 6.             Intra module refs:   _PrintfTiny
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ??rT_BX_R4              00001A75 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?xsprout
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00001A78 - 00001A81 (0xa bytes), align: 2
+  Segment part 3.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _SProut                 00001A79        sprintf (?sprintf)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?xvalues
+
+  SEGMENTS IN THE MODULE
+  ======================
+DATA_C
+  Relative segment, address: 0000D690 - 0000D697 (0x8 bytes), align: 2
+  Segment part 5.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _Inf                    0000D690        _Dscale (?xdscale)
+    -------------------------------------------------------------------------
+DATA_C
+  Relative segment, address: 0000D698 - 0000D69F (0x8 bytes), align: 2
+  Segment part 6.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _Nan                    0000D698        sqrt (?sqrt)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?div_module
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00001A84 - 00001A87 (0x4 bytes), align: 2
+  Segment part 4.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ??divu32_t              00001A85        US0_SetBaudRate (main)
+                                                   _PrintfTiny (?xprintftiny)
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00001A88 - 00001A93 (0xc bytes), align: 2
+  Segment part 5.             Intra module refs:   ??divu32_t
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ??divu32_a              00001A88 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: 00001A94 - 00001B6B (0xd8 bytes), align: 2
+  Segment part 12.            Intra module refs:   ??divu32_a
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?ll_mul
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00001B6C - 00001B8F (0x24 bytes), align: 2
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ??llmul_t               00001B6D        CalcSKZ (main)
+                                                   CalcValSKZ (main)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?ll_lsl
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00001B90 - 00001BB7 (0x28 bytes), align: 2
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ??lllsl_t               00001B91        CalcSKZ (main)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?GetDenormal
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00001BB8 - 00001C17 (0x60 bytes), align: 2
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?GetDenormalX           00001BB8        Segment part 1 (?D_DivDouble)
+                                                   Segment part 1 (?D_MulFloat)
+           ?GetDenormalY           00001BE8        Segment part 1 (?D_DivDouble)
+                                                   Segment part 1 (?D_MulFloat)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?doubleSoftLIb
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00001C18 - 00001C2F (0x18 bytes), align: 2
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __aeabi_ui2d            00001C18 
+           __ulongToDouble         00001C18        ?Subroutine24 (main)
+                                                   CalcValSKZ (main)
+                                                   WriteHoldingReg (main)
+                                                   __ulongToDouble::??rT (main)
+           __ulongToDouble::??rA   00001C18 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?D_LONG2DOUBLE
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00001C30 - 00001C8B (0x5c bytes), align: 2
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __aeabi_i2d             00001C30 
+           __longToDouble          00001C30        CalcSKZ (main)
+                                                   __longToDouble::??rT (main)
+           __longToDouble::??rA    00001C30 
+           __longToDubleStart      00001C4C        Segment part 1 (?doubleSoftLIb)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?D_DOUBLE2LONG
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00001C8C - 00001CEB (0x60 bytes), align: 2
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __aeabi_d2iz            00001C8C 
+           __doubleToLong          00001C8C        ?Subroutine24 (main)
+                                                   CalcSKZ (main)
+                                                   CalcValSKZ (main)
+                                                   WriteHoldingReg (main)
+                                                   __doubleToLong::??rT (main)
+           __doubleToLong::??rA    00001C8C 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?D_LONGLONG2DOUBLE
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00001CEC - 00001D77 (0x8c bytes), align: 2
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __aeabi_l2d             00001CEC 
+           __longLongToDouble      00001CEC        CalcSKZ (main)
+                                                   __longLongToDouble::??rT (main)
+           __longLongToDouble::??rA
+                                   00001CEC 
+           __longLongToDubleStart
+                                   00001D0C 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?D_DOUBLE2LONGLONG
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00001D78 - 00001E2F (0xb8 bytes), align: 2
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __aeabi_d2lz            00001D78 
+           __doubleToLongLong      00001D78        CalcSKZ (main)
+                                                   __doubleToLongLong::??rT (main)
+           __doubleToLongLong::??rA
+                                   00001D78 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?D_DOUBLE2FLOAT
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00001E30 - 00001EEB (0xbc bytes), align: 2
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __aeabi_d2f             00001E30 
+           __doubleToFloat         00001E30        CalcSKZ (main)
+                                                   __doubleToFloat::??rT (main)
+           __doubleToFloat::??rA   00001E30 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?FLOATEDOUBLE
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00001EEC - 00001F4F (0x64 bytes), align: 2
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __aeabi_f2d             00001EEC 
+           __floatToDouble         00001EEC        CalcSKZ (main)
+                                                   CalcValSKZ (main)
+                                                   __floatToDouble::??rT (main)
+           __floatToDouble::??rA   00001EEC 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?SetInvalidFlag
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00001F50 - 00001F6B (0x1c bytes), align: 2
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?SetInvalidFlag         00001F54        __aeabi_cdcmple (?DBL_LT)
+                                                   __aeabi_cfcmple (?FLT_LT)
+           ?SetInvalidFlagClr      00001F50 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?DBL_LT
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00001F6C - 00001FAB (0x40 bytes), align: 2
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __aeabi_cdcmple         00001F6C        Segment part 1 (?D_CmpFloat4)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?D_CmpFloat4
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00001FAC - 00001FC3 (0x18 bytes), align: 2
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __dLess                 00001FAC        ?Subroutine24 (main)
+                                                   __dLess::??rT (main)
+           __dLess::??rA           00001FAC 
+           __aeabi_dcmplt          00001FAC 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?D_MulFloat
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00001FC4 - 000021FB (0x238 bytes), align: 2
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __dMul                  00001FC4        ?Subroutine24 (main)
+                                                   CalcSKZ (main)
+                                                   WriteHoldingReg (main)
+                                                   __dMul::??rT (?sqrt)
+                                                   sqrt (?sqrt)
+           __dMul::??rA            00001FC4 
+           __aeabi_dmul            00001FC4 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?D_DivDouble
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 000021FC - 0000252F (0x334 bytes), align: 2
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __aeabi_ddiv            000021FC 
+           __dDiv                  000021FC        ?Subroutine24 (main)
+                                                   CalcSKZ (main)
+                                                   CalcValSKZ (main)
+                                                   WriteHoldingReg (main)
+                                                   __dDiv::??rT (?sqrt)
+                                                   sqrt (?sqrt)
+           __dDiv::??rA            000021FC 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?D_SubDouble
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00002530 - 00002727 (0x1f8 bytes), align: 2
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __aeabi_dsub            00002530 
+           __dSub                  00002530 
+           __dSub::??rA            00002530 
+           __DoSub                 00002540        Segment part 1 (?D_AddDouble)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?D_AddDouble
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00002728 - 0000286B (0x144 bytes), align: 2
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __aeabi_dadd            00002728 
+           __dAdd                  00002728        CalcSKZ (main)
+                                                   WriteHoldingReg (main)
+                                                   __dAdd::??rT (?sqrt)
+                                                   sqrt (?sqrt)
+           __dAdd::??rA            00002728 
+           __DoAdd                 00002738        Segment part 1 (?D_SubDouble)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?F_FLOAT2LONG
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 0000286C - 000028C3 (0x58 bytes), align: 2
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __aeabi_f2iz            0000286C 
+           __floatToLong           0000286C        CalcSKZ (main)
+                                                   __floatToLong::??rT (main)
+           __floatToLong::??rA     0000286C 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?F_LONGLONG2FLOAT
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 000028C4 - 0000292F (0x6c bytes), align: 2
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __aeabi_l2f             000028C4 
+           __longLongToFloat       000028C4        CalcSKZ (main)
+                                                   CalcValSKZ (main)
+                                                   __longLongToFloat::??rT (main)
+           __longLongToFloat::??rA
+                                   000028C4 
+           __longLongToFloatStart
+                                   000028E4 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?FLT_LT
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00002930 - 00002967 (0x38 bytes), align: 2
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __aeabi_cfcmple         00002930        Segment part 1 (?F_CmpFloat4)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?F_CmpFloat4
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00002968 - 0000297F (0x18 bytes), align: 2
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __aeabi_fcmplt          00002968 
+           __fLess                 00002968        __fLess::??rT (?floorf)
+                                                   floorf (?floorf)
+           __fLess::??rA           00002968 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?F_MulFloat
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00002980 - 00002B0F (0x190 bytes), align: 2
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __fMul                  00002980        CalcSKZ (main)
+                                                   __fMul::??rT (main)
+           __fMul::??rA            00002980 
+           __aeabi_fmul            00002980 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?floatSoftLib
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00002B10 - 00002C4F (0x140 bytes), align: 2
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __aeabi_fsub            00002B10 
+           __fSub                  00002B10 
+           __fSub::??rA            00002B10 
+           __fDoSub                00002B1C        Segment part 1 (?F_AddDouble)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?F_AddDouble
+
+  SEGMENTS IN THE MODULE
+  ======================
+CODE
+  Relative segment, address: 00002C50 - 00002D1F (0xd0 bytes), align: 2
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __aeabi_fadd            00002C50 
+           __fAdd                  00002C50        __fAdd::??rT (?floorf)
+                                                   floorf (?floorf)
+           __fAdd::??rA            00002C50 
+           __fDoAdd                00002C5C        Segment part 1 (?floatSoftLib)
+
+
+
+
+                ****************************************
+                *                                      *
+                *            MODULE SUMMARY            *
+                *                                      *
+                ****************************************
+
+Module                CODE   DATA   CONST
+------                ----   ----   -----
+                     (Rel)  (Rel)   (Rel)
+?DBL_LT                 64
+?D_AddDouble           324
+?D_CmpFloat4            24
+?D_DOUBLE2FLOAT        188
+?D_DOUBLE2LONG          96
+?D_DOUBLE2LONGLONG     184
+?D_DivDouble           820
+?D_LONG2DOUBLE          92
+?D_LONGLONG2DOUBLE     140
+?D_MulFloat            568
+?D_SubDouble           504
+?FLOATEDOUBLE          100
+?FLT_LT                 56
+?F_AddDouble           208
+?F_CmpFloat4            24
+?F_FLOAT2LONG           88
+?F_LONGLONG2FLOAT      108
+?F_MulFloat            400
+?GetDenormal            96
+?RESET                 260
+?SetInvalidFlag         28
+?div_module            232
+?doubleSoftLIb          24
+?errno                          4
+?floatSoftLib          320
+?floorf                 72
+?fpStatus                       4
+?ll_lsl                 40
+?ll_mul                 36
+?memcpy                 26
+?memset                 24
+?segment_init           60
+?sprintf                56
+?sqrt                  448
+?strlen                 20
+?xdnorm                196
+?xdscale               276
+?xfdint                148             40
+?xprintftiny           486
+?xsprout                10
+?xvalues                               16
+Cstartup_SAM7          164
+cossintable                        40 960
+main                 4 536  3 136   2 684
+  + shared                             12
+N/A (alignment)          6           -236
+------              ------  -----  ------
+Total:              11 552  3 144  43 476
+
+
+                ****************************************
+                *                                      *
+                *      SEGMENTS IN ADDRESS ORDER       *
+                *                                      *
+                ****************************************
+
+
+SEGMENT              SPACE    START ADDRESS   END ADDRESS     SIZE  TYPE  ALIGN
+=======              =====    =============   ===========     ====  ====  =====
+ICODE                              00000000 - 0000013F         140   rel    2
+CODE                               00000140 - 00002D1F        2BE0   rel    2
+INITTAB                            00002D20 - 00002D43          24   rel    2
+DATA_ID                            00002D44 - 00002DFF          BC   rel    2
+DATA_C                             00002E00 - 0000D69F        A8A0   rel    8
+CODE_ID                            0000D6A0 - 0000D6F3          54   rel    2
+INTRAMSTART_REMAP                       00200000                     rel    2
+DATA_I                             00200000 - 002000BB          BC   rel    2
+DATA_Z                             002000BC - 0020010B          50   rel    2
+DATA_N                             0020010C - 00200BF3         AE8   rel    2
+CODE_I                             00200BF4 - 00200C47          54   rel    2
+INTRAMEND_REMAP                         00210000                     rel    2
+
+                ****************************************
+                *                                      *
+                *        END OF CROSS REFERENCE        *
+                *                                      *
+                ****************************************
+
+ 11 552 bytes of CODE  memory
+  3 144 bytes of DATA  memory
+ 43 476 bytes of CONST memory
+
+Errors: none
+Warnings: none
+
